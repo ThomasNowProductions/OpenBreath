@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'exercise_screen.dart';
+import 'package:OpenBreath/exercise_screen.dart';
+import 'package:OpenBreath/exercise_detail_screen.dart';
 import 'settings_screen.dart'; // Import the new settings screen
 import 'package:provider/provider.dart';
 import 'package:OpenBreath/theme_provider.dart';
@@ -265,7 +266,7 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => ExerciseScreen(pattern: exercise.pattern),
+                                      builder: (context) => ExerciseDetailScreen(exercise: exercise),
                                     ),
                                   );
                                 },
@@ -323,7 +324,7 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => ExerciseScreen(pattern: exercise.pattern),
+                                  builder: (context) => ExerciseDetailScreen(exercise: exercise),
                                 ),
                               );
                             },

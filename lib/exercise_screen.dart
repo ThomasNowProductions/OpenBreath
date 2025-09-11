@@ -2,10 +2,11 @@ import 'package:flutter/services.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:OpenBreath/l10n/app_localizations.dart';
+import 'package:OpenBreath/data.dart';
 
 class ExerciseScreen extends StatefulWidget {
-  final String pattern;
-  const ExerciseScreen({super.key, required this.pattern});
+  final BreathingExercise exercise;
+  const ExerciseScreen({super.key, required this.exercise});
 
   @override
   State<ExerciseScreen> createState() => _ExerciseScreenState();
@@ -30,7 +31,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     super.initState();
     List<int> patternValues;
     try {
-      patternValues = _parsePattern(widget.pattern);
+      patternValues = _parsePattern(widget.exercise.pattern);
       int inhale = patternValues[0];
       int hold1 = patternValues.length > 1 ? patternValues[1] : 0;
       int exhale = patternValues.length > 2 ? patternValues[2] : 0;
@@ -82,7 +83,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
   }
 
   void _startAnimation() {
-    final patternValues = _parsePattern(widget.pattern);
+    final patternValues = _parsePattern(widget.exercise.pattern);
     int inhale = patternValues[0];
     int hold1 = patternValues.length > 1 ? patternValues[1] : 0;
     int exhale = patternValues.length > 2 ? patternValues[2] : 0;
