@@ -1,56 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'exercise_screen.dart';
 import 'settings_screen.dart'; // Import the new settings screen
 import 'package:provider/provider.dart';
 import 'package:OpenBreath/theme_provider.dart';
-
-class BreathingExercise {
-  final String title;
-  final String pattern;
-  final String duration;
-  final String intro;
-
-  const BreathingExercise({
-    required this.title,
-    required this.pattern,
-    required this.duration,
-    required this.intro,
-  });
-}
-
-const List<BreathingExercise> breathingExercises = [
-  BreathingExercise(
-    title: 'Box Breathing',
-    pattern: '4-4-4-4',
-    duration: '4 min',
-    intro: 'A simple technique to calm your mind and body.',
-  ),
-  BreathingExercise(
-    title: '4-7-8 Breathing',
-    pattern: '4-7-8',
-    duration: '3 min',
-    intro: 'Helps to relax and fall asleep faster.',
-  ),
-  BreathingExercise(
-    title: 'Coherent Breathing',
-    pattern: '5-5',
-    duration: '5 min',
-    intro: 'Balances the nervous system and promotes relaxation.',
-  ),
-  BreathingExercise(
-    title: 'Calm Focus',
-    pattern: '6-2-4',
-    duration: '3 min',
-    intro: 'Improve concentration and mental clarity.',
-  ),
-  BreathingExercise(
-    title: 'Stress Release',
-    pattern: '4-0-6-0',
-    duration: '2 min',
-    intro: 'Release tension and promote relaxation.',
-  ),
-];
+import 'package:OpenBreath/data.dart'; // Import the data file
+import 'package:OpenBreath/search_screen.dart'; // Import the search screen
 
 void main() {
   runApp(
@@ -73,10 +27,11 @@ class OpenBreathApp extends StatelessWidget {
       scaffoldBackgroundColor: Colors.white,
       primaryColor: Colors.black,
       fontFamily: 'GFS Didot',
+      cardColor: Colors.grey[200], // Card color for light mode
       colorScheme: const ColorScheme.light(
         primary: Colors.black,
         secondary: Colors.black, // A color for the bubble in light mode
-        onBackground: Colors.black,
+        onSurface: Colors.black,
       ),
     );
 
@@ -85,10 +40,11 @@ class OpenBreathApp extends StatelessWidget {
       scaffoldBackgroundColor: Colors.black,
       primaryColor: Colors.white,
       fontFamily: 'GFS Didot',
+      cardColor: Colors.grey[900], // Card color for dark mode
       colorScheme: const ColorScheme.dark(
         primary: Colors.white,
         secondary: Colors.white, // A color for the bubble in dark mode
-        onBackground: Colors.white,
+        onSurface: Colors.white,
       ),
     );
 
@@ -139,7 +95,7 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
                   height: 500.0, // Fixed height for the card
                   width: 500.0, // Fixed width for the card
                   child: Card(
-                    color: Colors.grey[200], // Light grey card background
+                    color: Theme.of(context).cardColor, // Theme-aware card background
                     margin: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Padding(
                       padding: const EdgeInsets.all(32.0),
@@ -151,35 +107,35 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
                             children: [
                               Text(
                                 exercise.title,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                                  color: Theme.of(context).colorScheme.onSurface,
                                 ),
                               ),
                               const SizedBox(height: 20),
                               Text(
                                 exercise.pattern,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 24,
-                                  color: Colors.black87,
+                                  color: Theme.of(context).colorScheme.onSurface.withAlpha((255 * 0.87).round()),
                                 ),
                               ),
                               const SizedBox(height: 10),
                               Text(
                                 exercise.duration,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 24,
-                                  color: Colors.black87,
+                                  color: Theme.of(context).colorScheme.onSurface.withAlpha((255 * 0.87).round()),
                                 ),
                               ),
                               const SizedBox(height: 40),
                               Text(
                                 exercise.intro,
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.black87,
+                                  color: Theme.of(context).colorScheme.onSurface.withAlpha((255 * 0.87).round()),
                                 ),
                               ),
                             ],
@@ -215,9 +171,22 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
           ),
           Positioned(
             top: 20,
+            left: 20, // Positioned at top-left
+            child: IconButton(
+              icon: Icon(Icons.search, size: 30, color: Theme.of(context).colorScheme.onSurface),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SearchScreen()),
+                );
+              },
+            ),
+          ),
+          Positioned(
+            top: 20,
             right: 20, // Changed from left to right
             child: IconButton(
-              icon: Icon(Icons.settings, size: 30, color: Theme.of(context).colorScheme.onBackground),
+              icon: Icon(Icons.settings, size: 30, color: Theme.of(context).colorScheme.onSurface),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -234,7 +203,7 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                  icon: Icon(Icons.arrow_back_ios, color: Theme.of(context).colorScheme.onBackground, size: 50),
+                  icon: Icon(Icons.arrow_back_ios, color: Theme.of(context).colorScheme.onSurface, size: 50),
                   onPressed: () {
                     _pageController.previousPage(
                       duration: const Duration(milliseconds: 300),
@@ -244,7 +213,7 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
                 ),
                 const SizedBox(width: 50), // Space between buttons
                 IconButton(
-                  icon: Icon(Icons.arrow_forward_ios, color: Theme.of(context).colorScheme.onBackground, size: 50),
+                  icon: Icon(Icons.arrow_forward_ios, color: Theme.of(context).colorScheme.onSurface, size: 50),
                   onPressed: () {
                     _pageController.nextPage(
                       duration: const Duration(milliseconds: 300),

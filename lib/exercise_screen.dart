@@ -79,28 +79,26 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     int hold2 = patternValues.length > 3 ? patternValues[3] : 0;
     int totalDurationSeconds = inhale + hold1 + exhale + hold2;
 
-    double inhaleEnd = inhale / totalDurationSeconds;
-    double hold1End = (inhale + hold1) / totalDurationSeconds;
-    double exhaleEnd = (inhale + hold1 + exhale) / totalDurationSeconds;
-
     _controller.repeat();
     _controller.addListener(() {
-      if (_controller.value >= 0.0 && _controller.value < inhaleEnd) {
+      double currentTime = _controller.value * totalDurationSeconds;
+
+      if (currentTime >= 0 && currentTime < inhale) {
         setState(() {
           _instruction = 'Inhale';
           HapticFeedback.lightImpact();
         });
-      } else if (_controller.value >= inhaleEnd && _controller.value < hold1End) {
+      } else if (currentTime >= inhale && currentTime < (inhale + hold1)) {
         setState(() {
           _instruction = 'Hold';
           HapticFeedback.lightImpact();
         });
-      } else if (_controller.value >= hold1End && _controller.value < exhaleEnd) {
+      } else if (currentTime >= (inhale + hold1) && currentTime < (inhale + hold1 + exhale)) {
         setState(() {
           _instruction = 'Exhale';
           HapticFeedback.lightImpact();
         });
-      } else if (_controller.value >= exhaleEnd && _controller.value <= 1.0) {
+      } else if (currentTime >= (inhale + hold1 + exhale) && currentTime <= totalDurationSeconds) {
         setState(() {
           _instruction = 'Hold';
           HapticFeedback.lightImpact();
@@ -172,7 +170,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
               icon: Icon(
                 Icons.more_vert,
                 size: 30,
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
               onSelected: (String result) {
                 if (result == 'close') {
