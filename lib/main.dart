@@ -186,10 +186,10 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
                       Provider.of<PinnedExercisesProvider>(context, listen: false).togglePin(exercise.title);
                     },
                     child: Card(
-                      margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                       color: Theme.of(context).cardColor,
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width / (_pinnedExercises.length > 0 ? _pinnedExercises.length : 1) - 16, // Divide available width by number of pinned exercises
+                        width: MediaQuery.of(context).size.width / (_pinnedExercises.length > 0 ? _pinnedExercises.length : 1) - 32, // Divide available width by number of pinned exercises
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
