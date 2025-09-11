@@ -41,18 +41,33 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TextField(
-          controller: _searchController,
-          decoration: InputDecoration(
-            hintText: 'Search exercises...',
-            border: InputBorder.none,
-            hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface.withAlpha((255 * 0.5).round())),
-          ),
-          style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 18),
-          cursorColor: Theme.of(context).colorScheme.onSurface,
-        ),
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        titleSpacing: 0, // Remove default title spacing
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor, // Keep scaffold background for app bar itself
         iconTheme: IconThemeData(color: Theme.of(context).colorScheme.onSurface),
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Apply card-like margin
+          child: Card(
+            margin: EdgeInsets.zero, // Card will handle its own internal padding
+            elevation: 0, // Remove card elevation if not desired for search bar
+            color: Theme.of(context).cardColor, // Match card background color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0), // Apply rounded corners
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0), // Internal padding for text field
+              child: TextField(
+                controller: _searchController,
+                decoration: InputDecoration(
+                  hintText: 'Search exercises...',
+                  border: InputBorder.none,
+                  hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface.withAlpha((255 * 0.5).round())),
+                ),
+                style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 18),
+                cursorColor: Theme.of(context).colorScheme.onSurface,
+              ),
+            ),
+          ),
+        ),
       ),
       body: ListView.builder(
         itemCount: _filteredExercises.length,
