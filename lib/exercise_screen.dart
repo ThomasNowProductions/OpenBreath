@@ -139,17 +139,21 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
                   builder: (context, child) {
                     final currentRadius = 150 * _breatheAnimation.value;
                     return CustomPaint(
-                      painter: BubblePainter(_bubbleAnimation.value, currentRadius),
+                      painter: BubblePainter(
+                        _bubbleAnimation.value,
+                        currentRadius,
+                        Theme.of(context).colorScheme.secondary, // Use a theme-aware color
+                      ),
                       child: Container(
                         width: currentRadius * 2,
                         height: currentRadius * 2,
                         child: Center(
                           child: Text(
                             _instruction,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 32,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                              color: Theme.of(context).colorScheme.onPrimary, // Use onPrimary for text on primary-colored background
                             ),
                           ),
                         ),
@@ -168,7 +172,11 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: const Icon(Icons.close, size: 30, color: Colors.white70,),
+              icon: Icon(
+                Icons.close,
+                size: 30,
+                color: Theme.of(context).colorScheme.onBackground, // Use a theme-aware color
+              ),
             ),
           ),
         ],
@@ -180,13 +188,14 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
 class BubblePainter extends CustomPainter {
   final double animationValue;
   final double radius;
+  final Color bubbleColor;
 
-  BubblePainter(this.animationValue, this.radius);
+  BubblePainter(this.animationValue, this.radius, this.bubbleColor);
 
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.white
+      ..color = bubbleColor
       ..style = PaintingStyle.fill;
 
     final center = Offset(size.width / 2, size.height / 2);

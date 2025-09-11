@@ -1,6 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'exercise_screen.dart';
+import 'settings_screen.dart'; // Import the new settings screen
+import 'package:provider/provider.dart';
+import 'package:OpenBreath/theme_provider.dart';
 
 class BreathingExercise {
   final String title;
@@ -50,7 +53,12 @@ const List<BreathingExercise> breathingExercises = [
 ];
 
 void main() {
-  runApp(const OpenBreathApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const OpenBreathApp(),
+    ),
+  );
 }
 
 class OpenBreathApp extends StatelessWidget {
@@ -58,14 +66,38 @@ class OpenBreathApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
+    final lightTheme = ThemeData(
+      brightness: Brightness.light,
+      scaffoldBackgroundColor: Colors.white,
+      primaryColor: Colors.black,
+      fontFamily: 'GFS Didot',
+      colorScheme: const ColorScheme.light(
+        primary: Colors.black,
+        secondary: Colors.black, // A color for the bubble in light mode
+        onBackground: Colors.black,
+      ),
+    );
+
+    final darkTheme = ThemeData(
+      brightness: Brightness.dark,
+      scaffoldBackgroundColor: Colors.black,
+      primaryColor: Colors.white,
+      fontFamily: 'GFS Didot',
+      colorScheme: const ColorScheme.dark(
+        primary: Colors.white,
+        secondary: Colors.white, // A color for the bubble in dark mode
+        onBackground: Colors.white,
+      ),
+    );
+
     return MaterialApp(
       title: 'OpenBreath',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: Colors.black,
-        primaryColor: Colors.white,
-      ),
+      themeMode: themeProvider.themeMode,
+      theme: lightTheme,
+      darkTheme: darkTheme,
       home: const BreathingExerciseScreen(),
     );
   }
@@ -97,7 +129,7 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [
+        children: <Widget>[
           PageView.builder(
             controller: _pageController,
             itemCount: breathingExercises.length,
@@ -105,7 +137,7 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
               final exercise = breathingExercises[index];
               return Center(
                 child: Card(
-                  color: Colors.grey[800], // Grey card background
+                  color: Colors.grey[200], // Light grey card background
                   margin: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Padding(
                     padding: const EdgeInsets.all(32.0),
@@ -119,7 +151,7 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
                           style: const TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                         const SizedBox(height: 20),
@@ -127,7 +159,7 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
                           exercise.pattern,
                           style: const TextStyle(
                             fontSize: 24,
-                            color: Colors.white70,
+                            color: Colors.black87,
                           ),
                         ),
                         const SizedBox(height: 10),
@@ -135,7 +167,7 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
                           exercise.duration,
                           style: const TextStyle(
                             fontSize: 24,
-                            color: Colors.white70,
+                            color: Colors.black87,
                           ),
                         ),
                         const SizedBox(height: 40),
@@ -144,7 +176,7 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontSize: 18,
-                            color: Colors.white70,
+                            color: Colors.black87,
                           ),
                         ),
                         const SizedBox(height: 60),
@@ -176,38 +208,48 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
               );
             },
           ),
-          if (defaultTargetPlatform == TargetPlatform.windows ||
-              defaultTargetPlatform == TargetPlatform.linux ||
-              defaultTargetPlatform == TargetPlatform.macOS) ...[
-            Positioned(
-              left: 10,
-              top: 0,
-              bottom: 0,
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 50),
-                onPressed: () {
-                  _pageController.previousPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeOut,
-                  );
-                },
-              ),
+          Positioned(
+            top: 40,
+            right: 20, // Changed from left to right
+            child: IconButton(
+              icon: Icon(Icons.settings, size: 30, color: Theme.of(context).colorScheme.onBackground),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                );
+              },
             ),
-            Positioned(
-              right: 10,
-              top: 0,
-              bottom: 0,
-              child: IconButton(
-                icon: const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 50),
-                onPressed: () {
-                  _pageController.nextPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeOut,
-                  );
-                },
-              ),
+          ),
+          Positioned(
+            bottom: 20,
+            left: 0,
+            right: 0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.arrow_back_ios, color: Theme.of(context).colorScheme.onBackground, size: 50),
+                  onPressed: () {
+                    _pageController.previousPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeOut,
+                    );
+                  },
+                ),
+                const SizedBox(width: 50), // Space between buttons
+                IconButton(
+                  icon: Icon(Icons.arrow_forward_ios, color: Theme.of(context).colorScheme.onBackground, size: 50),
+                  onPressed: () {
+                    _pageController.nextPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeOut,
+                    );
+                  },
+                ),
+              ],
             ),
-          ],
+          ),
         ],
       ),
     );

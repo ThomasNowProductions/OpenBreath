@@ -34,6 +34,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  shared_preferences: ^2.2.0
+  provider: ^6.0.0
 
 dev_dependencies:
   flutter_test:
@@ -87,3 +89,14 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+  fonts:
+    - family: GFS Didot
+      fonts:
+        - asset: assets/fonts/GFSDidot.otf
+        - asset: assets/fonts/GFSDidotBold.otf
+          weight: 700
+        - asset: assets/fonts/GFSDidotItalic.otf
+          style: italic
+        - asset: assets/fonts/GFSDidotBoldItalic.otf
+          weight: 700
+          style: italic
