@@ -116,7 +116,7 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
   @override
   void initState() {
     super.initState();
-    _pageController = PageController();
+    _pageController = PageController(initialPage: 10000 * breathingExercises.length);
   }
 
   @override
@@ -132,9 +132,8 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
         children: <Widget>[
           PageView.builder(
             controller: _pageController,
-            itemCount: breathingExercises.length,
             itemBuilder: (context, index) {
-              final exercise = breathingExercises[index];
+              final exercise = breathingExercises[index % breathingExercises.length];
               return Center(
                 child: SizedBox(
                   height: 500.0, // Fixed height for the card
