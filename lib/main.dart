@@ -13,9 +13,13 @@ import 'package:OpenBreath/l10n/app_localizations.dart';
 import 'package:OpenBreath/pinned_exercises_provider.dart';
 
 import 'intro_screen.dart';
+import 'package:OpenBreath/gemini_exercise_screen.dart';
+import 'package:OpenBreath/gemini_service.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env"); // Load .env file
   final prefs = await SharedPreferences.getInstance();
   final bool seen = prefs.getBool('seen') ?? false;
 
@@ -80,7 +84,12 @@ class OpenBreathApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: seen ? const BreathingExerciseScreen() : const IntroScreen(),
+      home: seen
+          ? const GeminiExerciseScreen()
+          : const IntroScreen(),
+      routes: {
+        '/settings': (context) => const SettingsScreen(),
+      },
     );
   }
 }
@@ -133,12 +142,15 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
   void dispose() {
     _searchController.dispose();
     _searchFocusNode.dispose();
+    
     _pinnedExercisesProvider.removeListener(_updatePinnedExercises);
     if (_settingsListener != null) {
       _settingsProvider.removeListener(_settingsListener!);
     }
     super.dispose();
   }
+
+  
 
   void _updatePinnedExercises() {
     if (!mounted) return;
