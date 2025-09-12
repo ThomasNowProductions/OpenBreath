@@ -356,9 +356,15 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
                     onSelected: (String result) {
                       if (result == 'close') {
                         Navigator.pop(context);
+                      } else if (result == 'settings') {
+                        Navigator.pushNamed(context, '/settings');
                       }
                     },
                     itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                      PopupMenuItem<String>(
+                        value: 'settings',
+                        child: Text(AppLocalizations.of(context).settings),
+                      ),
                       PopupMenuItem<String>(
                         value: 'close',
                         child: Text(AppLocalizations.of(context).close),
