@@ -33,24 +33,32 @@ The choice is persisted with `shared_preferences` and applied on startup.
 
 ## Exercises content localization
 
-Exercise data is localized via JSON files under `assets/`:
+Exercise data is stored in a single JSON file: `assets/exercises.json`.
+This file contains all the exercises with translations for all supported languages.
 
-- `assets/exercises-en.json`
-- `assets/exercises-nl.json`
-
-The app selects which file to load based on the language setting (System, English, Dutch). If set to System, the device locale is used (falls back to English when unknown).
+The structure of an exercise is as follows:
+```json
+[
+  {
+    "id": "box-breathing",
+    "pattern": "4-4-4-4",
+    "duration": "4 min",
+    "title": {
+      "en": "Box Breathing",
+      "nl": "Box Ademhaling"
+    },
+    "intro": {
+      "en": "A simple technique to calm your mind and body.",
+      "nl": "Een eenvoudige techniek om je geest en lichaam te kalmeren."
+    }
+  }
+]
+```
 
 ### Add or update exercise translations
 
-1. Use `assets/exercises-en.json` as the source of truth for keys/rows.
-2. Create a new file for the target language, e.g. `assets/exercises-de.json`.
-3. Copy all items and translate `title`, `intro`, and (if needed) `duration` text. Do not change `pattern` values.
-4. Wire the new language in code:
-   - Add the language code mapping in `lib/data.dart` within `_assetForLanguageCode()`.
-   - Add the language to the settings UI and enum in `lib/settings_provider.dart` and `lib/settings_screen.dart`.
-5. Rebuild the app.
-
-Notes:
-
-- The app auto-reloads exercises when you change the language in Settings.
-- Keep arrays in all language files aligned (same number and order of items) so pinned items remain consistent across languages.
+1.  Open `assets/exercises.json`.
+2.  For each exercise, add a new key-value pair to the `title` and `intro` objects with the language code as the key and the translation as the value.
+3.  If you are adding a new language to the app, you also need to:
+    - Add the language to the settings UI and enum in `lib/settings_provider.dart` and `lib/settings_screen.dart`.
+4.  Rebuild the app.

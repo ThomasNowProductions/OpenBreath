@@ -55,6 +55,7 @@ class BreathingStage {
 }
 
 class BreathingExercise {
+  final String id;
   final String title;
   final String pattern; // For backward compatibility
   final String duration; // For backward compatibility
@@ -62,6 +63,7 @@ class BreathingExercise {
   final List<BreathingStage>? stages; // For progressive stages
 
   const BreathingExercise({
+    required this.id,
     required this.title,
     required this.pattern,
     required this.duration,
@@ -69,7 +71,7 @@ class BreathingExercise {
     this.stages,
   });
 
-  factory BreathingExercise.fromJson(Map<String, dynamic> json) {
+  factory BreathingExercise.fromJson(Map<String, dynamic> json, String? languageCode) {
     List<BreathingStage>? stages;
     if (json['stages'] != null) {
       stages = (json['stages'] as List)
@@ -77,11 +79,17 @@ class BreathingExercise {
           .toList();
     }
 
+    String lang = languageCode ?? 'en';
+    if (json['title'][lang] == null) {
+      lang = 'en';
+    }
+
     return BreathingExercise(
-      title: json['title'] as String,
+      id: json['id'] as String,
+      title: json['title'][lang] as String,
       pattern: json['pattern'] as String? ?? '',
       duration: json['duration'] as String? ?? '',
-      intro: json['intro'] as String? ?? '',
+      intro: json['intro'][lang] as String,
       stages: stages,
     );
   }
@@ -91,21 +99,12 @@ class BreathingExercise {
 
 late List<BreathingExercise> breathingExercises = [];
 
-String _assetForLanguageCode(String? languageCode) {
-  switch (languageCode) {
-    case 'nl':
-      return 'assets/exercises-nl.json';
-    case 'en':
-    default:
-      return 'assets/exercises-en.json';
-  }
-}
-
 Future<void> loadBreathingExercisesForLanguageCode(String? languageCode) async {
-  final assetPath = _assetForLanguageCode(languageCode);
+  const assetPath = 'assets/exercises.json';
   final String response = await rootBundle.loadString(assetPath);
   final List<dynamic> data = json.decode(response);
-  breathingExercises = data.map((json) => BreathingExercise.fromJson(json)).toList();
+  breathingExercises =
+      data.map((json) => BreathingExercise.fromJson(json, languageCode)).toList();
 }
 
 Future<void> loadBreathingExercisesUsingSystemLocale() async {
