@@ -110,6 +110,7 @@ class _GeminiExerciseScreenState extends State<GeminiExerciseScreen> {
           padding: const EdgeInsets.all(24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 'How are you feeling today?', // Friendly title
@@ -121,25 +122,28 @@ class _GeminiExerciseScreenState extends State<GeminiExerciseScreen> {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 30),
-              TextField(
-                controller: _userInputController,
-                decoration: InputDecoration(
-                  hintText: 'e.g., "stressed", "need to focus", "just worked out"',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 500),
+                child: TextField(
+                  controller: _userInputController,
+                  decoration: InputDecoration(
+                    hintText: 'e.g., "stressed", "need to focus", "just worked out"',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    suffixIcon: _isLoading
+                        ? const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        : IconButton(
+                            icon: Icon(Icons.send, color: Theme.of(context).colorScheme.primary),
+                            onPressed: _getRecommendation,
+                          ),
                   ),
-                  suffixIcon: _isLoading
-                      ? const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: CircularProgressIndicator(strokeWidth: 2),
-                        )
-                      : IconButton(
-                          icon: Icon(Icons.send, color: Theme.of(context).colorScheme.primary),
-                          onPressed: _getRecommendation,
-                        ),
+                  onSubmitted: (_) => _getRecommendation(),
+                  maxLines: 3,
                 ),
-                onSubmitted: (_) => _getRecommendation(),
-                maxLines: 3,
               ),
               const SizedBox(height: 20),
             ],
