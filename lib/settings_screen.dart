@@ -61,12 +61,32 @@ class SettingsScreen extends StatelessWidget {
                   child: Text(AppLocalizations.of(context).languageSystem),
                 ),
                 DropdownMenuItem<LanguagePreference>(
+                  value: LanguagePreference.bg,
+                  child: Text(AppLocalizations.of(context).languageBulgarian),
+                ),
+                DropdownMenuItem<LanguagePreference>(
+                  value: LanguagePreference.de,
+                  child: Text(AppLocalizations.of(context).languageGerman),
+                ),
+                DropdownMenuItem<LanguagePreference>(
                   value: LanguagePreference.en,
                   child: Text(AppLocalizations.of(context).languageEnglish),
                 ),
                 DropdownMenuItem<LanguagePreference>(
+                  value: LanguagePreference.es,
+                  child: Text(AppLocalizations.of(context).languageSpanish),
+                ),
+                DropdownMenuItem<LanguagePreference>(
+                  value: LanguagePreference.it,
+                  child: Text(AppLocalizations.of(context).languageItalian),
+                ),
+                DropdownMenuItem<LanguagePreference>(
                   value: LanguagePreference.nl,
                   child: Text(AppLocalizations.of(context).languageDutch),
+                ),
+                DropdownMenuItem<LanguagePreference>(
+                  value: LanguagePreference.zh,
+                  child: Text(AppLocalizations.of(context).languageChinese),
                 ),
               ],
             ),

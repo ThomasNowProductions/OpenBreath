@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-enum LanguagePreference { system, en, nl }
+enum LanguagePreference { system, bg, de, en, es, it, nl, zh }
 enum MusicMode { off, nature, lofi }
 
 class SettingsProvider extends ChangeNotifier {
@@ -21,10 +21,20 @@ class SettingsProvider extends ChangeNotifier {
     switch (_languagePreference) {
       case LanguagePreference.system:
         return null; // Follow system
+      case LanguagePreference.bg:
+        return const Locale('bg');
+      case LanguagePreference.de:
+        return const Locale('de');
       case LanguagePreference.en:
         return const Locale('en');
+      case LanguagePreference.es:
+        return const Locale('es');
+      case LanguagePreference.it:
+        return const Locale('it');
       case LanguagePreference.nl:
         return const Locale('nl');
+      case LanguagePreference.zh:
+        return const Locale('zh');
     }
   }
 
@@ -40,11 +50,26 @@ class SettingsProvider extends ChangeNotifier {
     final langString = prefs.getString('languagePreference');
     if (langString != null) {
       switch (langString) {
+        case 'bg':
+          _languagePreference = LanguagePreference.bg;
+          break;
+        case 'de':
+          _languagePreference = LanguagePreference.de;
+          break;
         case 'en':
           _languagePreference = LanguagePreference.en;
           break;
+        case 'es':
+          _languagePreference = LanguagePreference.es;
+          break;
+        case 'it':
+          _languagePreference = LanguagePreference.it;
+          break;
         case 'nl':
           _languagePreference = LanguagePreference.nl;
+          break;
+        case 'zh':
+          _languagePreference = LanguagePreference.zh;
           break;
         default:
           _languagePreference = LanguagePreference.system;
@@ -81,11 +106,26 @@ class SettingsProvider extends ChangeNotifier {
       case LanguagePreference.system:
         await prefs.setString('languagePreference', 'system');
         break;
+      case LanguagePreference.bg:
+        await prefs.setString('languagePreference', 'bg');
+        break;
+      case LanguagePreference.de:
+        await prefs.setString('languagePreference', 'de');
+        break;
       case LanguagePreference.en:
         await prefs.setString('languagePreference', 'en');
         break;
+      case LanguagePreference.es:
+        await prefs.setString('languagePreference', 'es');
+        break;
+      case LanguagePreference.it:
+        await prefs.setString('languagePreference', 'it');
+        break;
       case LanguagePreference.nl:
         await prefs.setString('languagePreference', 'nl');
+        break;
+      case LanguagePreference.zh:
+        await prefs.setString('languagePreference', 'zh');
         break;
     }
   }

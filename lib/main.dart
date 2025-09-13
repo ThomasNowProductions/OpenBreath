@@ -167,11 +167,26 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
       case LanguagePreference.system:
         await loadBreathingExercisesUsingSystemLocale();
         break;
+      case LanguagePreference.bg:
+        await loadBreathingExercisesForLanguageCode('bg');
+        break;
+      case LanguagePreference.de:
+        await loadBreathingExercisesForLanguageCode('de');
+        break;
       case LanguagePreference.en:
         await loadBreathingExercisesForLanguageCode('en');
         break;
+      case LanguagePreference.es:
+        await loadBreathingExercisesForLanguageCode('es');
+        break;
+      case LanguagePreference.it:
+        await loadBreathingExercisesForLanguageCode('it');
+        break;
       case LanguagePreference.nl:
         await loadBreathingExercisesForLanguageCode('nl');
+        break;
+      case LanguagePreference.zh:
+        await loadBreathingExercisesForLanguageCode('zh');
         break;
     }
     // Update pinned and filter after loading
