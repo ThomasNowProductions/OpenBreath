@@ -1,0 +1,140 @@
+# OpenBreath Documentation
+
+Welcome to the OpenBreath documentation. This guide will help you understand the project structure, setup process, and how to contribute.
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Getting Started](#getting-started)
+- [Localization](#localization)
+- [Exercise Data](#exercise-data)
+- [Development](#development)
+- [Design](#design)
+
+## Project Overview
+
+OpenBreath is a Flutter application designed to help users practice various breathing exercises for relaxation and meditation. The app features:
+
+- Multiple breathing exercise patterns
+- Progressive exercise programs
+- Multi-language support
+- Customizable durations
+
+## Getting Started
+
+### Prerequisites
+
+- Flutter SDK
+- Dart SDK
+- An IDE (VS Code, Android Studio, etc.)
+
+### Setup
+
+1. Clone the repository
+2. Run `flutter pub get` to install dependencies
+3. Run `flutter gen-l10n` to generate localization files
+4. Use `flutter run` to start the application
+
+## Localization
+
+The app uses Flutter's gen-l10n for localization. Currently supported languages:
+- English (`en`)
+- Dutch (`nl`)
+
+### Adding a New Language
+
+1. Create a new ARB file in `lib/l10n/`, e.g. `app_es.arb` for Spanish
+2. Copy all keys from `app_en.arb` and translate the values
+3. Run:
+   ```bash
+   flutter pub get
+   flutter gen-l10n
+   ```
+4. Rebuild the app. The new locale will be included automatically in `supportedLocales`
+5. To expose the language in Settings:
+   - Add an entry to the language dropdown in `lib/settings_screen.dart`
+   - Add the language to the enum in `lib/settings_provider.dart`
+
+### Changing Language at Runtime
+
+Users can change the app language through the Settings screen (`Settings > Language`):
+- System default
+- English
+- Dutch
+
+The selected language is persisted with `shared_preferences` and applied on startup.
+
+## Exercise Data
+
+Exercise data is stored in a single JSON file: `assets/exercises.json`. This file contains all exercises with translations for all supported languages.
+
+### Exercise Structure
+
+```json
+[
+  {
+    "id": "box-breathing",
+    "pattern": "4-4-4-4",
+    "duration": "4 min",
+    "title": {
+      "en": "Box Breathing",
+      "nl": "Box Ademhaling"
+    },
+    "intro": {
+      "en": "A simple technique to calm your mind and body.",
+      "nl": "Een eenvoudige techniek om je geest en lichaam te kalmeren."
+    }
+  }
+]
+```
+
+### Adding or Updating Exercise Translations
+
+1. Open `assets/exercises.json`
+2. For each exercise, add a new key-value pair to the `title` and `intro` objects:
+   - Key: Language code (e.g., "es" for Spanish)
+   - Value: Translated text
+3. If adding a new language to the app:
+   - Add the language to the settings UI in `lib/settings_screen.dart`
+   - Add the language to the enum in `lib/settings_provider.dart`
+4. Rebuild the app
+
+## Development
+
+### Project Structure
+
+```
+lib/
+├── l10n/                 # Localization files
+├── screens/              # UI screens
+├── providers/            # State management
+├── models/               # Data models
+└── utils/                # Utility functions
+
+assets/
+├── exercises.json        # Exercise data
+└── images/               # App images
+
+docs/                     # Documentation files
+test/                     # Unit and widget tests
+```
+
+### Testing
+
+Run tests with:
+```bash
+flutter test
+```
+
+### Building
+
+Build for different platforms with:
+```bash
+flutter build apk      # Android
+flutter build ios      # iOS
+flutter build web      # Web
+```
+
+## Design
+
+OpenBreath follows a clean, minimalist design philosophy focused on promoting calm and relaxation. For detailed information about the design principles, color scheme, typography, and UI components, please refer to the [Design Guide](./DESIGN_GUIDE.md).
