@@ -18,6 +18,7 @@ class ExerciseScreen extends StatefulWidget {
 
 class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStateMixin {
   bool _patternInvalid = false;
+  bool _exerciseCompleted = false; // Track if exercise completion has started
   late AnimationController _controller;
   late Animation<double> _breatheAnimation;
   late AnimationController _bubbleAnimationController;
@@ -196,8 +197,8 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
           _currentCycle = 0;
           return; // Exit early to avoid processing instruction for the old stage
         } else {
-          // Exercise completed
-          Navigator.pop(context);
+          // Exercise completed - fade out music before navigating away
+          _onExerciseComplete();
           return; // Exit early
         }
       }
@@ -230,6 +231,24 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     // Removed the addStatusListener that was checking for stage transitions
   }
 
+  // Method to handle exercise completion with smooth music fade out
+  Future<void> _onExerciseComplete() async {
+    // Prevent multiple calls to exercise completion
+    if (_exerciseCompleted) return;
+    _exerciseCompleted = true;
+    
+    // Fade out music before navigating away
+    final settings = Provider.of<SettingsProvider>(context, listen: false);
+    if (settings.musicMode != MusicMode.off) {
+      await _fadeOutMusic();
+    }
+    
+    // Navigate back after fade out is complete
+    if (context.mounted) {
+      Navigator.pop(context);
+    }
+  }
+
   int _parseDurationString(String duration) {
     // Parse duration string like "4 min" or "240 sec"
     if (duration.contains('min')) {
@@ -253,6 +272,25 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     // Disable wakelock when exercise is finished
     WakelockPlus.disable();
     super.dispose();
+  }
+
+  // Method to fade out music smoothly
+  Future<void> _fadeOutMusic() async {
+    const steps = 50; // More steps for smoother fade over longer duration
+    final stepDuration = const Duration(milliseconds: 5000) ~/ steps; // 5 seconds fade out
+    
+    double currentVolume = 1.0;
+    final stepDecrement = 1.0 / steps;
+    
+    for (int i = 0; i < steps; i++) {
+      currentVolume -= stepDecrement;
+      await _musicPlayer.setVolume(math.max(0.0, currentVolume));
+      await Future.delayed(stepDuration);
+    }
+    
+    // Ensure music is completely stopped and volume is reset
+    await _musicPlayer.stop();
+    await _musicPlayer.setVolume(1.0);
   }
 
   @override
@@ -353,7 +391,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
                     ),
                     onSelected: (String result) {
                       if (result == 'close') {
-                        Navigator.pop(context);
+                        _onExerciseComplete(); // Use the same completion method for consistent fade out
                       } else if (result == 'settings') {
                         Navigator.pushNamed(context, '/settings');
                       }

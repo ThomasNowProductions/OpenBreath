@@ -145,6 +145,39 @@
     }
   },
   {
+    "id": "test-5-0-5-0",
+    "pattern": "5-0-5-0",
+    "duration": "10 sec",
+    "title": {
+      "en": "Test Breathing Exercise",
+      "nl": "Test Ademhalingsoefening",
+      "fr": "Exercice de Respiration Test",
+      "ja": "テスト呼吸法",
+      "pt": "Exercício de Respiração Teste",
+      "ru": "Тестовое дыхательное упражнение",
+      "ar": "تمرين تنفس تجريبي",
+      "es": "Ejercicio de Respiración de Prueba",
+      "zh": "测试呼吸练习",
+      "bg": "Тестово дихателно упражнение",
+      "de": "Testatmungsübung",
+      "it": "Esercizio di Respirazione di Test"
+    },
+    "intro": {
+      "en": "Test exercise with 5-0-5-0 pattern for 10 seconds.",
+      "nl": "Testoefening met 5-0-5-0 patroon gedurende 10 seconden.",
+      "fr": "Exercice test avec un schéma 5-0-5-0 pendant 10 secondes.",
+      "ja": "10秒間の5-0-5-0パターンのテスト練習。",
+      "pt": "Exercício de teste com padrão 5-0-5-0 por 10 segundos.",
+      "ru": "Тестовое упражнение с паттерном 5-0-5-0 в течение 10 секунд.",
+      "ar": "تمرين تجريبي بنمط 5-0-5-0 لمدة 10 ثوانٍ.",
+      "es": "Ejercicio de prueba con patrón 5-0-5-0 durante 10 segundos.",
+      "zh": "10秒5-0-5-0模式的测试练习。",
+      "bg": "Тестово упражнение с модел 5-0-5-0 за 10 секунди.",
+      "de": "Testübung mit 5-0-5-0-Muster für 10 Sekunden.",
+      "it": "Esercizio di test con schema 5-0-5-0 per 10 secondi."
+    }
+  },
+  {
     "id": "modified-4-7-8",
     "pattern": "4-2-6-2",
     "duration": "4 min",
