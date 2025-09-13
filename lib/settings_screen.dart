@@ -61,6 +61,10 @@ class SettingsScreen extends StatelessWidget {
                   child: Text(AppLocalizations.of(context).languageSystem),
                 ),
                 DropdownMenuItem<LanguagePreference>(
+                  value: LanguagePreference.ar,
+                  child: Text(AppLocalizations.of(context).languageArabic),
+                ),
+                DropdownMenuItem<LanguagePreference>(
                   value: LanguagePreference.bg,
                   child: Text(AppLocalizations.of(context).languageBulgarian),
                 ),
@@ -77,12 +81,28 @@ class SettingsScreen extends StatelessWidget {
                   child: Text(AppLocalizations.of(context).languageSpanish),
                 ),
                 DropdownMenuItem<LanguagePreference>(
+                  value: LanguagePreference.fr,
+                  child: Text(AppLocalizations.of(context).languageFrench),
+                ),
+                DropdownMenuItem<LanguagePreference>(
                   value: LanguagePreference.it,
                   child: Text(AppLocalizations.of(context).languageItalian),
                 ),
                 DropdownMenuItem<LanguagePreference>(
+                  value: LanguagePreference.ja,
+                  child: Text(AppLocalizations.of(context).languageJapanese),
+                ),
+                DropdownMenuItem<LanguagePreference>(
                   value: LanguagePreference.nl,
                   child: Text(AppLocalizations.of(context).languageDutch),
+                ),
+                DropdownMenuItem<LanguagePreference>(
+                  value: LanguagePreference.pt,
+                  child: Text(AppLocalizations.of(context).languagePortuguese),
+                ),
+                DropdownMenuItem<LanguagePreference>(
+                  value: LanguagePreference.ru,
+                  child: Text(AppLocalizations.of(context).languageRussian),
                 ),
                 DropdownMenuItem<LanguagePreference>(
                   value: LanguagePreference.zh,

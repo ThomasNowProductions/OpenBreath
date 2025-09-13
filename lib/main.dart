@@ -167,6 +167,9 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
       case LanguagePreference.system:
         await loadBreathingExercisesUsingSystemLocale();
         break;
+      case LanguagePreference.ar:
+        await loadBreathingExercisesForLanguageCode('ar');
+        break;
       case LanguagePreference.bg:
         await loadBreathingExercisesForLanguageCode('bg');
         break;
@@ -179,11 +182,23 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
       case LanguagePreference.es:
         await loadBreathingExercisesForLanguageCode('es');
         break;
+      case LanguagePreference.fr:
+        await loadBreathingExercisesForLanguageCode('fr');
+        break;
       case LanguagePreference.it:
         await loadBreathingExercisesForLanguageCode('it');
         break;
+      case LanguagePreference.ja:
+        await loadBreathingExercisesForLanguageCode('ja');
+        break;
       case LanguagePreference.nl:
         await loadBreathingExercisesForLanguageCode('nl');
+        break;
+      case LanguagePreference.pt:
+        await loadBreathingExercisesForLanguageCode('pt');
+        break;
+      case LanguagePreference.ru:
+        await loadBreathingExercisesForLanguageCode('ru');
         break;
       case LanguagePreference.zh:
         await loadBreathingExercisesForLanguageCode('zh');

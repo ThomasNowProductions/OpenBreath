@@ -5,11 +5,21 @@
     "duration": "4 min",
     "title": {
       "en": "Box Breathing",
-      "nl": "Box Ademhaling"
+      "nl": "Box Ademhaling",
+      "fr": "Respiration carrée",
+      "ja": "ボックス呼吸法",
+      "pt": "Respiração Quadrada",
+      "ru": "Квадратное дыхание",
+      "ar": "تمرين التنفس المربع"
     },
     "intro": {
       "en": "A simple technique to calm your mind and body.",
-      "nl": "Een eenvoudige techniek om je geest en lichaam te kalmeren."
+      "nl": "Een eenvoudige techniek om je geest en lichaam te kalmeren.",
+      "fr": "Une technique simple pour calmer votre esprit et votre corps.",
+      "ja": "心と体を落ち着けるための簡単なテクニック。",
+      "pt": "Uma técnica simples para acalmar sua mente e corpo.",
+      "ru": "Простая техника для успокоения ума и тела.",
+      "ar": "تقنية بسيطة لتطمئن عقلك وجسمك."
     }
   },
   {
@@ -18,11 +28,21 @@
     "duration": "4 min",
     "title": {
       "en": "Relaxing Breath",
-      "nl": "Ontspannende Ademhaling"
+      "nl": "Ontspannende Ademhaling",
+      "fr": "Respiration Relaxante",
+      "ja": "リラックス呼吸法",
+      "pt": "Respiração Relaxante",
+      "ru": "Расслабляющее дыхание",
+      "ar": "تمرين التنفس المُسترخي"
     },
     "intro": {
       "en": "Promotes sleep and reduces anxiety.",
-      "nl": "Bevordert slaap en vermindert angst."
+      "nl": "Bevordert slaap en vermindert angst.",
+      "fr": "Favorise le sommeil et réduit l'anxiété.",
+      "ja": "睡眠を促進し、不安を軽減します。",
+      "pt": "Promove o sono e reduz a ansiedade.",
+      "ru": "Способствует сну и снижает тревожность.",
+      "ar": "يُسهل النوم ويقلل القلق."
     }
   },
   {
@@ -276,17 +296,32 @@
     "id": "sleep-preparation-protocol",
     "title": {
       "en": "Sleep Preparation Protocol",
-      "nl": "Slaap Voorbereiding Protocol"
+      "nl": "Slaap Voorbereiding Protocol",
+      "fr": "Protocole de Préparation au Sommeil",
+      "ja": "睡眠準備プロトコル",
+      "pt": "Protocolo de Preparação para o Sono",
+      "ru": "Протокол подготовки ко сну",
+      "ar": "بروتوكول تحضير النوم"
     },
     "intro": {
       "en": "A progressive sequence to prepare your body and mind for restful sleep.",
-      "nl": "Een progressieve sequentie om je lichaam en geest voor te bereiden op rustgevende slaap."
+      "nl": "Een progressieve sequentie om je lichaam en geest voor te bereiden op rustgevende slaap.",
+      "fr": "Une séquence progressive pour préparer votre corps et votre esprit à un sommeil réparateur.",
+      "ja": "心身を快眠のために準備するための段階的な順序。",
+      "pt": "Uma sequência progressiva para preparar seu corpo e mente para um sono tranquilo.",
+      "ru": "Прогрессирующая последовательность для подготовки тела и разума к крепкому сну.",
+      "ar": "تسلسل تدريجي لتحضير جسمك وعقلك للنوم المريح."
     },
     "stages": [
       {
         "title": {
           "en": "Nervous System Balance",
-          "nl": "Zenuwstelsel Balans"
+          "nl": "Zenuwstelsel Balans",
+          "fr": "Équilibre du Système Nerveux",
+          "ja": "神経系のバランス",
+          "pt": "Equilíbrio do Sistema Nervoso",
+          "ru": "Баланс нервной системы",
+          "ar": "توازن الجهاز العصبي"
         },
         "pattern": "4-4-4-4",
         "duration": 180

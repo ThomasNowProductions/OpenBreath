@@ -3,21 +3,44 @@
     "languageSpanish",
     "languageItalian",
     "languageGerman",
-    "languageChinese"
+    "languageChinese",
+    "languageFrench",
+    "languageJapanese",
+    "languagePortuguese",
+    "languageRussian",
+    "languageArabic"
+  ],
+
+  "de": [
+    "languageFrench",
+    "languageJapanese",
+    "languagePortuguese",
+    "languageRussian",
+    "languageArabic"
   ],
 
   "es": [
     "languageItalian",
     "languageGerman",
     "languageChinese",
-    "languageBulgarian"
+    "languageBulgarian",
+    "languageFrench",
+    "languageJapanese",
+    "languagePortuguese",
+    "languageRussian",
+    "languageArabic"
   ],
 
   "it": [
     "languageSpanish",
     "languageGerman",
     "languageChinese",
-    "languageBulgarian"
+    "languageBulgarian",
+    "languageFrench",
+    "languageJapanese",
+    "languagePortuguese",
+    "languageRussian",
+    "languageArabic"
   ],
 
   "nl": [
@@ -25,13 +48,23 @@
     "languageItalian",
     "languageGerman",
     "languageChinese",
-    "languageBulgarian"
+    "languageBulgarian",
+    "languageFrench",
+    "languageJapanese",
+    "languagePortuguese",
+    "languageRussian",
+    "languageArabic"
   ],
 
   "zh": [
     "languageSpanish",
     "languageItalian",
     "languageGerman",
-    "languageBulgarian"
+    "languageBulgarian",
+    "languageFrench",
+    "languageJapanese",
+    "languagePortuguese",
+    "languageRussian",
+    "languageArabic"
   ]
 }

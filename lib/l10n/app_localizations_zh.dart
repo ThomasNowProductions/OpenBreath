@@ -45,6 +45,21 @@ class AppLocalizationsZh extends AppLocalizations {
   String get languageBulgarian => 'Bulgarian';
 
   @override
+  String get languageFrench => 'French';
+
+  @override
+  String get languageJapanese => 'Japanese';
+
+  @override
+  String get languagePortuguese => 'Portuguese';
+
+  @override
+  String get languageRussian => 'Russian';
+
+  @override
+  String get languageArabic => 'Arabic';
+
+  @override
   String get theme => '主题';
 
   @override
