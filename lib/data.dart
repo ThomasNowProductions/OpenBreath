@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
+import 'package:flutter/foundation.dart';
 
 class BreathingStage {
   final String title;
@@ -104,6 +105,10 @@ Future<void> loadBreathingExercisesForLanguageCode(String? languageCode) async {
   final List<dynamic> data = json.decode(response);
   breathingExercises =
       data.map((json) => BreathingExercise.fromJson(json, languageCode)).toList();
+
+  if (kReleaseMode) {
+    breathingExercises.removeWhere((exercise) => exercise.id == 'test-5-0-5-0');
+  }
 }
 
 Future<void> loadBreathingExercisesUsingSystemLocale() async {
