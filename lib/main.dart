@@ -91,6 +91,21 @@ class OpenBreathApp extends StatelessWidget {
       routes: {
         '/settings': (context) => const SettingsScreen(),
       },
+      onGenerateRoute: (settings) {
+        if (settings.name?.startsWith('/exercise/') == true) {
+          final exerciseId = settings.name?.substring('/exercise/'.length);
+          if (exerciseId != null && exerciseId.isNotEmpty) {
+            final exercise = breathingExercises.firstWhere(
+              (exercise) => exercise.id == exerciseId,
+              orElse: () => breathingExercises.first,
+            );
+            return MaterialPageRoute(
+              builder: (context) => ExerciseDetailScreen(exercise: exercise),
+            );
+          }
+        }
+        return null; // Let the framework handle other routes
+      },
     );
   }
 }

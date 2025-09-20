@@ -174,4 +174,13 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get backToHome => 'Back to Home';
+
+  @override
+  String get copyLink => 'Link kopiëren';
+
+  @override
+  String get copyExerciseLink => 'Oefening link kopiëren';
+
+  @override
+  String get linkCopied => 'Link gekopieerd naar klembord';
 }

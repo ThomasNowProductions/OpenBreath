@@ -40,5 +40,8 @@
   "promptCacheSubtitle": "Gecachte reacties voor snellere aanbevelingen",
   "promptCacheEntries": "items",
   "promptCacheClear": "Cache wissen",
-  "promptCacheCleared": "Prompt cache gewist"
+  "promptCacheCleared": "Prompt cache gewist",
+  "copyLink": "Link kopiëren",
+  "copyExerciseLink": "Oefening link kopiëren",
+  "linkCopied": "Link gekopieerd naar klembord"
 }

@@ -53,5 +53,8 @@
   "promptCacheCleared": "Prompt cache cleared",
   "exerciseFinishedTitle": "Exercise finished",
   "exerciseFinishedSubtitle": "I hope you feel better.",
-  "backToHome": "Back to Home"
+  "backToHome": "Back to Home",
+  "copyLink": "Copy Link",
+  "copyExerciseLink": "Copy Exercise Link",
+  "linkCopied": "Link copied to clipboard"
 }

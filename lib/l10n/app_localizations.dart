@@ -447,6 +447,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back to Home'**
   String get backToHome;
+
+  /// No description provided for @copyLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy Link'**
+  String get copyLink;
+
+  /// No description provided for @copyExerciseLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy Exercise Link'**
+  String get copyExerciseLink;
+
+  /// No description provided for @linkCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Link copied to clipboard'**
+  String get linkCopied;
 }
 
 class _AppLocalizationsDelegate

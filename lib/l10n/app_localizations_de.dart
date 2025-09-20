@@ -173,4 +173,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get backToHome => 'Back to Home';
+
+  @override
+  String get copyLink => 'Copy Link';
+
+  @override
+  String get copyExerciseLink => 'Copy Exercise Link';
+
+  @override
+  String get linkCopied => 'Link copied to clipboard';
 }
