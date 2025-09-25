@@ -254,45 +254,40 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
       appBar: AppBar(
         titleSpacing: 0, // Remove default title spacing
         backgroundColor: Theme.of(context).scaffoldBackgroundColor, // Keep scaffold background for app bar itself
-        title: Column(
-          children: [
-            const SizedBox(height: 8.0), // Add space at the top
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Apply card-like margin
-              child: Card(
-                margin: EdgeInsets.zero, // Card will handle its own internal padding
-                elevation: 0, // Remove card elevation if not desired for search bar
-                color: Theme.of(context).cardColor, // Match card background color
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0), // Apply rounded corners
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0), // Internal padding for text field
-                  child: TextField(
-                    controller: _searchController,
-                    focusNode: _searchFocusNode,
-                    decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context).searchHint,
-                      border: InputBorder.none,
-                      hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface.withAlpha((255 * 0.5).round())),
-                      suffixIcon: IconButton(
-                        icon: Icon(Icons.settings_outlined, size: 24, color: Theme.of(context).colorScheme.onSurface),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const SettingsScreen()),
-                          );
-                        },
-                      ),
-                    ),
-                    style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 18),
-                    cursorColor: Theme.of(context).colorScheme.onSurface,
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Apply card-like margin
+          child: Card(
+            margin: EdgeInsets.zero, // Card will handle its own internal padding
+            elevation: 0, // Remove card elevation if not desired for search bar
+            color: Theme.of(context).cardColor, // Match card background color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0), // Apply rounded corners
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Internal padding for text field
+              child: TextField(
+                controller: _searchController,
+                focusNode: _searchFocusNode,
+                decoration: InputDecoration(
+                  hintText: AppLocalizations.of(context).searchHint,
+                  border: InputBorder.none,
+                  hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface.withAlpha((255 * 0.5).round())),
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.settings_outlined, size: 24, color: Theme.of(context).colorScheme.onSurface),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                      );
+                    },
                   ),
                 ),
-              ), // Closing parenthesis for Card
-            ), // Closing parenthesis for Padding
-          ], // Closing bracket for children list
-        ), // Closing parenthesis for Column
+                style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 18),
+                cursorColor: Theme.of(context).colorScheme.onSurface,
+              ),
+            ),
+          ), // Closing parenthesis for Card
+        ), // Closing parenthesis for Padding
       ),
       body: Column(
         children: [
@@ -318,48 +313,69 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                exercise.title,
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.onSurface,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
+                              Expanded(
+                                flex: 3,
+                                child: Text(
+                                  exercise.title,
+                                  style: TextStyle(
+                                    color: Theme.of(context).colorScheme.onSurface,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(height: 2),
+                              Expanded(
+                                flex: 2,
+                                child: Text(
+                                  exercise.hasStages ? AppLocalizations.of(context).progressive : exercise.pattern,
+                                  style: TextStyle(
+                                    color: Theme.of(context).colorScheme.onSurface.withAlpha((255 * 0.7).round()),
+                                    fontSize: 14,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              const SizedBox(height: 2),
+                              Expanded(
+                                flex: 2,
+                                child: Text(
+                                  exercise.hasStages ? _getTotalDuration(exercise) : exercise.duration,
+                                  style: TextStyle(
+                                    color: Theme.of(context).colorScheme.onSurface.withAlpha((255 * 0.7).round()),
+                                    fontSize: 14,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                               const SizedBox(height: 4),
-                              Text(
-                                exercise.hasStages ? AppLocalizations.of(context).progressive : exercise.pattern,
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.onSurface.withAlpha((255 * 0.7).round()),
-                                  fontSize: 16,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                exercise.hasStages ? _getTotalDuration(exercise) : exercise.duration,
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.onSurface.withAlpha((255 * 0.7).round()),
-                                  fontSize: 16,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              const Spacer(), // Pushes content to top and button to bottom
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ExerciseDetailScreen(exercise: exercise),
+                              Expanded(
+                                flex: 2,
+                                child: Center(
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => ExerciseDetailScreen(exercise: exercise),
+                                        ),
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Theme.of(context).colorScheme.primary, // Button background color
+                                      foregroundColor: Theme.of(context).colorScheme.onPrimary, // Button text color
+                                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                                     ),
-                                  );
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Theme.of(context).colorScheme.primary, // Button background color
-                                  foregroundColor: Theme.of(context).colorScheme.onPrimary, // Button text color
+                                    child: Text(
+                                      AppLocalizations.of(context).start,
+                                      style: const TextStyle(fontSize: 12),
+                                    ),
+                                  ),
                                 ),
-                                child: Text(AppLocalizations.of(context).start),
                               ),
                             ],
                           ),
