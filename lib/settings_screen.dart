@@ -8,7 +8,8 @@ import 'package:OpenBreath/prompt_cache_service.dart'; // Import prompt cache se
 import 'intro_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key});
+  final bool fromExercise; // Flag to indicate if the settings were opened from the exercise screen
+  const SettingsScreen({super.key, this.fromExercise = false});
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -26,7 +27,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
         if (details.delta.dx > 0) { // Swiping right
           // Only navigate if the swipe is significant enough
           if (details.delta.dx > 5) {
-            Navigator.of(context).pop();
+            // If we came from an exercise, we should handle the navigation accordingly
+            if (widget.fromExercise) {
+              Navigator.of(context).pop(); // Just pop settings screen, let exercise screen handle the rest
+            } else {
+              Navigator.of(context).pop(); // Normal navigation for other cases
+            }
           }
         }
       },
@@ -36,6 +42,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         body: ListView(
           children: [
+            // Show stop exercise button only when accessed from exercise
+            if (widget.fromExercise)
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Return a value to indicate the exercise should be stopped
+                    Navigator.of(context).pop('stop_exercise');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.error,
+                    foregroundColor: Theme.of(context).colorScheme.onError,
+                  ),
+                  child: Text(AppLocalizations.of(context).close),
+                ),
+              ),
             ListTile(
               title: Text(AppLocalizations.of(context).theme),
               trailing: DropdownButton<ThemeMode>(

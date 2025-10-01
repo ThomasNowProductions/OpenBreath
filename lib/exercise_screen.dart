@@ -8,12 +8,14 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:OpenBreath/settings_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
+import 'settings_screen.dart'; // Import settings screen
 
 // Enum to track the current breathing phase
 enum BreathingPhase { inhale, hold1, exhale, hold2 }
 
 class ExerciseScreen extends StatefulWidget {
   final BreathingExercise exercise;
+  
   const ExerciseScreen({super.key, required this.exercise});
 
   @override
@@ -489,7 +491,19 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
                       if (details.delta.dx < 0) { // Swiping left
                         // Only navigate if the swipe is significant enough
                         if (details.delta.dx < -5) {
-                          Navigator.pushNamed(context, '/settings');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SettingsScreen(
+                                fromExercise: true,
+                              ),
+                            ),
+                          ).then((value) {
+                            // If settings return with instruction to stop exercise, handle it
+                            if (value == 'stop_exercise') {
+                              _onExerciseComplete();
+                            }
+                          });
                         }
                       }
                     },
