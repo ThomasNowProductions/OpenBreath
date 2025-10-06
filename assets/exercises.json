@@ -465,7 +465,9 @@
       "bg": "Бързо подобряване на вниманието.",
       "de": "Schnelle Aufmerksamkeitssteigerung.",
       "it": "Miglioramento rapido dell'attenzione."
-    }
+    },
+    "inhale_method": "nose",
+    "exhale_method": "nose"
   },
   {
     "id": "ujjayi-modified",
@@ -498,7 +500,9 @@
       "bg": "Изгражда вътрешна топлина и фокус.",
       "de": "Baut innere Wärme und Fokus auf.",
       "it": "Costruisce calore interno e concentrazione."
-    }
+    },
+    "inhale_method": "nose",
+    "exhale_method": "nose"
   },
   {
     "id": "extended-box",
@@ -531,7 +535,9 @@
       "bg": "Напреднало управление на стреса.",
       "de": "Fortgeschrittenes Stressmanagement.",
       "it": "Gestione avanzata dello stress."
-    }
+    },
+    "inhale_method": "nose",
+    "exhale_method": "mouth"
   },
   {
     "id": "triangle-plus",
@@ -564,7 +570,9 @@
       "bg": "Сложен модел за опитни практикуващи.",
       "de": "Komplexes Muster für erfahrene Praktizierende.",
       "it": "Schema complesso per praticanti esperti."
-    }
+    },
+    "inhale_method": "nose",
+    "exhale_method": "nose"
   },
   {
     "id": "one-two-extended",
@@ -597,7 +605,9 @@
       "bg": "Дълбоко релаксиране и намаляване на кръвното налягане.",
       "de": "Tiefe Entspannung und Blutdrucksenkung.",
       "it": "Rilassamento profondo e riduzione della pressione arteriosa."
-    }
+    },
+    "inhale_method": "nose",
+    "exhale_method": "mouth"
   },
   {
     "id": "gentle-hold",
@@ -630,7 +640,9 @@
       "bg": "За хора с ограничения в капацитета на белите дробове.",
       "de": "Für Menschen mit Lungenkapazitätsbeschränkungen.",
       "it": "Per coloro che hanno limitazioni di capacità polmonare."
-    }
+    },
+    "inhale_method": "nose",
+    "exhale_method": "nose"
   },
   {
     "id": "long-breath",
@@ -663,7 +675,9 @@
       "bg": "Увеличава капацитета на белите дробове и издръжливостта.",
       "de": "Erhöht die Lungenkapazität und Ausdauer.",
       "it": "Aumenta la capacità polmonare e la resistenza."
-    }
+    },
+    "inhale_method": "nose",
+    "exhale_method": "nose"
   },
   {
     "id": "classic-4-7-8-extended",
@@ -696,7 +710,9 @@
       "bg": "Максимален релаксационен отговор.",
       "de": "Maximale Entspannungsreaktion.",
       "it": "Massima risposta di rilassamento."
-    }
+    },
+    "inhale_method": "nose",
+    "exhale_method": "mouth"
   },
   {
     "id": "golden-ratio",
@@ -729,7 +745,9 @@
       "bg": "Базирано на принципите на математическата хармония.",
       "de": "Basierend auf mathematischen Harmonieprinzipien.",
       "it": "Basato sui principi dell'armonia matematica."
-    }
+    },
+    "inhale_method": "nose",
+    "exhale_method": "nose"
   },
   {
     "id": "sleep-preparation-protocol",
@@ -778,7 +796,9 @@
           "it": "Equilibrio del Sistema Nervoso"
         },
         "pattern": "4-4-4-4",
-        "duration": 180
+        "duration": 180,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       },
       {
         "title": {
@@ -796,7 +816,9 @@
           "it": "Rilassamento Profondo"
         },
         "pattern": "4-7-8-0",
-        "duration": 120
+        "duration": 120,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       },
       {
         "title": {
@@ -814,7 +836,9 @@
           "it": "Induzione del Sonno"
         },
         "pattern": "6-0-8-0",
-        "duration": 300
+        "duration": 300,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       }
     ]
   },
@@ -865,7 +889,9 @@
           "it": "Stabilizzazione"
         },
         "pattern": "3-0-3-0",
-        "duration": 120
+        "duration": 120,
+        "inhale_method": "nose",
+        "exhale_method": "nose"
       },
       {
         "title": {
@@ -883,7 +909,9 @@
           "it": "Ancoraggio"
         },
         "pattern": "4-4-4-4",
-        "duration": 240
+        "duration": 240,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       },
       {
         "title": {
@@ -901,7 +929,9 @@
           "it": "Attivazione del Sistema Parasimpatico"
         },
         "pattern": "4-0-8-0",
-        "duration": 240
+        "duration": 240,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       }
     ]
   },
@@ -952,7 +982,9 @@
           "it": "Risveglio"
         },
         "pattern": "4-0-4-0",
-        "duration": 180
+        "duration": 180,
+        "inhale_method": "nose",
+        "exhale_method": "nose"
       },
       {
         "title": {
@@ -970,7 +1002,9 @@
           "it": "Energizzante"
         },
         "pattern": "6-0-6-0",
-        "duration": 240
+        "duration": 240,
+        "inhale_method": "nose",
+        "exhale_method": "nose"
       },
       {
         "title": {
@@ -988,7 +1022,9 @@
           "it": "Miglioramento della Concentrazione"
         },
         "pattern": "4-4-6-2",
-        "duration": 180
+        "duration": 180,
+        "inhale_method": "nose",
+        "exhale_method": "nose"
       }
     ]
   },
@@ -1039,7 +1075,9 @@
           "it": "Calma Immediata"
         },
         "pattern": "2-0-4-0",
-        "duration": 120
+        "duration": 120,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       },
       {
         "title": {
@@ -1057,7 +1095,9 @@
           "it": "Stabilizzazione"
         },
         "pattern": "3-3-3-3",
-        "duration": 180
+        "duration": 180,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       },
       {
         "title": {
@@ -1075,7 +1115,9 @@
           "it": "Recupero Completo"
         },
         "pattern": "4-4-4-4",
-        "duration": 300
+        "duration": 300,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       }
     ]
   },
@@ -1126,7 +1168,9 @@
           "it": "Costruzione delle Fondamenta"
         },
         "pattern": "5-5-5-5",
-        "duration": 240
+        "duration": 240,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       },
       {
         "title": {
@@ -1144,7 +1188,9 @@
           "it": "Aumento della Complessità"
         },
         "pattern": "6-6-6-6",
-        "duration": 180
+        "duration": 180,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       },
       {
         "title": {
@@ -1162,7 +1208,9 @@
           "it": "Concentrazione Prolungata"
         },
         "pattern": "4-0-4-0",
-        "duration": 180
+        "duration": 180,
+        "inhale_method": "nose",
+        "exhale_method": "nose"
       }
     ]
   },
@@ -1213,7 +1261,9 @@
           "it": "Stabilimento della Linea di Base"
         },
         "pattern": "4-4-4-4",
-        "duration": 180
+        "duration": 180,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       },
       {
         "title": {
@@ -1231,7 +1281,9 @@
           "it": "Rapporto Terapeutico"
         },
         "pattern": "5-0-10-0",
-        "duration": 300
+        "duration": 300,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       },
       {
         "title": {
@@ -1249,7 +1301,9 @@
           "it": "Massimo Beneficio"
         },
         "pattern": "6-0-12-0",
-        "duration": 120
+        "duration": 120,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       }
     ]
   },
@@ -1300,7 +1354,9 @@
           "it": "Costruzione della Coerenza"
         },
         "pattern": "6-0-6-0",
-        "duration": 240
+        "duration": 240,
+        "inhale_method": "nose",
+        "exhale_method": "nose"
       },
       {
         "title": {
@@ -1318,7 +1374,9 @@
           "it": "Preparazione Mentale"
         },
         "pattern": "4-4-4-4",
-        "duration": 180
+        "duration": 180,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       },
       {
         "title": {
@@ -1336,7 +1394,9 @@
           "it": "Attivazione Controllata"
         },
         "pattern": "3-0-6-0",
-        "duration": 180
+        "duration": 180,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       }
     ]
   },
@@ -1387,7 +1447,9 @@
           "it": "Normalizzazione della Frequenza Cardiaca"
         },
         "pattern": "8-0-8-0",
-        "duration": 180
+        "duration": 180,
+        "inhale_method": "nose",
+        "exhale_method": "nose"
       },
       {
         "title": {
@@ -1405,7 +1467,9 @@
           "it": "Accelerazione del Recupero"
         },
         "pattern": "4-7-8-0",
-        "duration": 180
+        "duration": 180,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       },
       {
         "title": {
@@ -1423,7 +1487,9 @@
           "it": "Ripristino dell'Omeostasi"
         },
         "pattern": "6-0-6-0",
-        "duration": 240
+        "duration": 240,
+        "inhale_method": "nose",
+        "exhale_method": "nose"
       }
     ]
   },
@@ -1474,7 +1540,9 @@
           "it": "Placamento della Mente"
         },
         "pattern": "4-0-4-0",
-        "duration": 300
+        "duration": 300,
+        "inhale_method": "nose",
+        "exhale_method": "nose"
       },
       {
         "title": {
@@ -1492,7 +1560,9 @@
           "it": "Consapevolezza Più Profonda"
         },
         "pattern": "6-2-6-2",
-        "duration": 240
+        "duration": 240,
+        "inhale_method": "nose",
+        "exhale_method": "nose"
       },
       {
         "title": {
@@ -1510,7 +1580,9 @@
           "it": "Transizione alla Meditazione"
         },
         "pattern": "natural",
-        "duration": 60
+        "duration": 60,
+        "inhale_method": "nose",
+        "exhale_method": "nose"
       }
     ]
   },
@@ -1561,7 +1633,9 @@
           "it": "Introduzione Dolce"
         },
         "pattern": "3-3-3-3",
-        "duration": 180
+        "duration": 180,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       },
       {
         "title": {
@@ -1579,7 +1653,9 @@
           "it": "Controllo del Cancello del Dolore"
         },
         "pattern": "4-4-6-2",
-        "duration": 300
+        "duration": 300,
+        "inhale_method": "nose",
+        "exhale_method": "nose"
       },
       {
         "title": {
@@ -1597,7 +1673,9 @@
           "it": "Rilascio di Endorfine"
         },
         "pattern": "4-0-8-0",
-        "duration": 420
+        "duration": 420,
+        "inhale_method": "nose",
+        "exhale_method": "mouth"
       }
     ]
   }

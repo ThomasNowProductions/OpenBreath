@@ -99,6 +99,8 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
           title: widget.exercise.title,
           pattern: widget.exercise.pattern,
           duration: _parseDurationString(widget.exercise.duration),
+          inhaleMethod: widget.exercise.inhaleMethod,
+          exhaleMethod: widget.exercise.exhaleMethod,
         )
       ];
     }
@@ -353,32 +355,35 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     final l10n = AppLocalizations.of(context);
     String? instructionText;
 
+    // Get the current stage for breathing method information
+    final currentStage = _stages[_currentStageIndex];
+
     // Show breathing method based on the current phase
     if (_currentPhase == BreathingPhase.inhale) {
       // Inhale phase - show inhale method
-      if (widget.exercise.inhaleMethod != null) {
-        if (widget.exercise.inhaleMethod == 'nose') {
+      if (currentStage.inhaleMethod != null) {
+        if (currentStage.inhaleMethod == 'nose') {
           instructionText = '${l10n.inhale} ${l10n.throughNose}';
-        } else if (widget.exercise.inhaleMethod == 'mouth') {
+        } else if (currentStage.inhaleMethod == 'mouth') {
           instructionText = '${l10n.inhale} ${l10n.throughMouth}';
         }
       }
     } else if (_currentPhase == BreathingPhase.exhale) {
       // Exhale phase - show exhale method
-      if (widget.exercise.exhaleMethod != null) {
-        if (widget.exercise.exhaleMethod == 'nose') {
+      if (currentStage.exhaleMethod != null) {
+        if (currentStage.exhaleMethod == 'nose') {
           instructionText = '${l10n.exhale} ${l10n.throughNose}';
-        } else if (widget.exercise.exhaleMethod == 'mouth') {
+        } else if (currentStage.exhaleMethod == 'mouth') {
           instructionText = '${l10n.exhale} ${l10n.throughMouth}';
         }
       }
     } else if (_currentPhase == BreathingPhase.hold1 || _currentPhase == BreathingPhase.hold2) {
       // Hold phase - show hold method
       // For hold phases, we'll use the same method as inhale since you're holding after inhaling
-      if (widget.exercise.inhaleMethod != null) {
-        if (widget.exercise.inhaleMethod == 'nose') {
+      if (currentStage.inhaleMethod != null) {
+        if (currentStage.inhaleMethod == 'nose') {
           instructionText = '${l10n.hold} ${l10n.throughNose}';
-        } else if (widget.exercise.inhaleMethod == 'mouth') {
+        } else if (currentStage.inhaleMethod == 'mouth') {
           instructionText = '${l10n.hold} ${l10n.throughMouth}';
         }
       } else {

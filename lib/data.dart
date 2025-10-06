@@ -7,17 +7,21 @@ class BreathingStage {
   final String title;
   final String pattern;
   final int duration; // in seconds
+  final String? inhaleMethod; // New field for inhale method (nose/mouth)
+  final String? exhaleMethod; // New field for exhale method (nose/mouth)
 
   const BreathingStage({
     required this.title,
     required this.pattern,
     required this.duration,
+    this.inhaleMethod,
+    this.exhaleMethod,
   });
 
   factory BreathingStage.fromJson(Map<String, dynamic> json, String? languageCode) {
     String lang = languageCode ?? 'en';
     String titleText;
-    
+
     // Handle both old format (simple string) and new format (translation map)
     if (json['title'] is String) {
       titleText = json['title'] as String;
@@ -36,6 +40,8 @@ class BreathingStage {
       title: titleText,
       pattern: json['pattern'] as String,
       duration: json['duration'] as int,
+      inhaleMethod: json['inhale_method'] as String?, // Parse inhale method
+      exhaleMethod: json['exhale_method'] as String?, // Parse exhale method
     );
   }
 
@@ -44,6 +50,8 @@ class BreathingStage {
       'title': title,
       'pattern': pattern,
       'duration': duration,
+      'inhale_method': inhaleMethod,
+      'exhale_method': exhaleMethod,
     };
   }
 }
