@@ -93,7 +93,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get exhale => 'Выдох';
 
   @override
-  String get hold => 'Удерживать';
+  String get hold => 'Держи спокойно';
 
   @override
   String get throughNose => 'через нос';

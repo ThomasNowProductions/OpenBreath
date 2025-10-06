@@ -289,7 +289,7 @@ abstract class AppLocalizations {
   /// No description provided for @hold.
   ///
   /// In en, this message translates to:
-  /// **'Hold'**
+  /// **'Hold calmly'**
   String get hold;
 
   /// No description provided for @throughNose.

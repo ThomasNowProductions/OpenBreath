@@ -94,7 +94,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get exhale => 'Espira';
 
   @override
-  String get hold => 'Trattieni';
+  String get hold => 'Trattieni con calma';
 
   @override
   String get throughNose => 'attraverso il naso';

@@ -247,7 +247,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
             _holdSoundPlayed = false; // Reset hold sound tracking
           }
         } else if (hold1 > 0 && currentTime >= inhale && currentTime < (inhale + hold1)) {
-          _instruction = l10n.hold;
+          _instruction = 'Hold';
           _currentPhase = BreathingPhase.hold1;
           // Play sound effect only once when entering first hold phase
           if (settings.voiceGuideMode == VoiceGuideMode.thomas && _lastInstruction != _instruction) {
@@ -265,7 +265,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
             _holdSoundPlayed = false; // Reset hold sound tracking
           }
         } else if (hold2 > 0 && currentTime >= (inhale + hold1 + exhale) && currentTime <= totalDurationSeconds) {
-          _instruction = l10n.hold;
+          _instruction = 'Hold';
           _currentPhase = BreathingPhase.hold2;
           // Play sound effect only once when entering second hold phase
           if (settings.voiceGuideMode == VoiceGuideMode.thomas && _lastInstruction != _instruction) {
@@ -378,18 +378,8 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
         }
       }
     } else if (_currentPhase == BreathingPhase.hold1 || _currentPhase == BreathingPhase.hold2) {
-      // Hold phase - show hold method
-      // For hold phases, we'll use the same method as inhale since you're holding after inhaling
-      if (currentStage.inhaleMethod != null) {
-        if (currentStage.inhaleMethod == 'nose') {
-          instructionText = '${l10n.hold} ${l10n.throughNose}';
-        } else if (currentStage.inhaleMethod == 'mouth') {
-          instructionText = '${l10n.hold} ${l10n.throughMouth}';
-        }
-      } else {
-        // If no specific inhale method, show general hold instruction
-        instructionText = l10n.whileHoldingBreath;
-      }
+      // Hold phase - show "Hold calmly" instruction below the bubble
+      instructionText = l10n.hold;
     }
 
     // Only show the instruction if we have text to display

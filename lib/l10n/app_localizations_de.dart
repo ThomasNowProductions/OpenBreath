@@ -93,7 +93,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get exhale => 'Ausatmen';
 
   @override
-  String get hold => 'Halten';
+  String get hold => 'Halte ruhig';
 
   @override
   String get throughNose => 'durch die Nase';

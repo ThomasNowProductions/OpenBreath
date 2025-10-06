@@ -93,7 +93,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get exhale => 'زفير';
 
   @override
-  String get hold => 'احتجاز';
+  String get hold => 'احتفظ بهدوء';
 
   @override
   String get throughNose => 'من الأنف';

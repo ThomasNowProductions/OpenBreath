@@ -93,7 +93,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get exhale => 'Uitademen';
 
   @override
-  String get hold => 'Vasthouden';
+  String get hold => 'Houd kalm';
 
   @override
   String get throughNose => 'door neus';

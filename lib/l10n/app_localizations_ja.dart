@@ -93,7 +93,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get exhale => '吐く';
 
   @override
-  String get hold => '止める';
+  String get hold => '落ち着いて止めて';
 
   @override
   String get throughNose => '鼻で';

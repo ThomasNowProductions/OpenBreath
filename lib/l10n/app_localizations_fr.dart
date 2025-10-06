@@ -94,7 +94,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get exhale => 'Expirez';
 
   @override
-  String get hold => 'Retenez';
+  String get hold => 'Tiens calmement';
 
   @override
   String get throughNose => 'par le nez';
