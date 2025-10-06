@@ -22,7 +22,18 @@
       "ar": "تقنية بسيطة لتطمئن عقلك وجسمك."
     },
     "inhale_method": "nose",
-    "exhale_method": "mouth"
+    "exhale_method": "mouth",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
     "id": "relaxing-breath",
@@ -47,7 +58,18 @@
       "ar": "يُسهل النوم ويقلل القلق."
     },
     "inhale_method": "nose",
-    "exhale_method": "mouth"
+    "exhale_method": "mouth",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
     "id": "box-breathing-navy-seals",
@@ -82,7 +104,18 @@
       "it": "Usata dai Navy SEAL per la gestione dello stress."
     },
     "inhale_method": "nose",
-    "exhale_method": "mouth"
+    "exhale_method": "mouth",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
     "id": "two-one-ratio",
@@ -117,7 +150,18 @@
       "it": "Tecnica semplice di rilassamento per principianti."
     },
     "inhale_method": "nose",
-    "exhale_method": "mouth"
+    "exhale_method": "mouth",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
     "id": "equal-breathing",
@@ -152,7 +196,18 @@
       "it": "Bilancia l'attivazione del sistema nervoso."
     },
     "inhale_method": "nose",
-    "exhale_method": "nose"
+    "exhale_method": "nose",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
      "id": "test-multi-stage",
@@ -225,7 +280,141 @@
          "inhale_method": "nose",
          "exhale_method": "mouth"
        }
-     ]
+     ],
+     "versions": {
+       "short": {
+         "stages": [
+           {
+             "title": {
+               "en": "Stage 1: 5-0-5-0",
+               "nl": "Fase 1: 5-0-5-0",
+               "fr": "Étape 1: 5-0-5-0",
+               "ja": "ステージ1: 5-0-5-0",
+               "pt": "Estágio 1: 5-0-5-0",
+               "ru": "Этап 1: 5-0-5-0",
+               "ar": "المرحلة 1: 5-0-5-0",
+               "es": "Etapa 1: 5-0-5-0",
+               "zh": "阶段1: 5-0-5-0",
+               "bg": "Етап 1: 5-0-5-0",
+               "de": "Stufe 1: 5-0-5-0",
+               "it": "Fase 1: 5-0-5-0"
+             },
+             "pattern": "5-0-5-0",
+             "duration": 5,
+             "inhale_method": "nose",
+             "exhale_method": "mouth"
+           },
+           {
+             "title": {
+               "en": "Stage 2: 2-0-2-0",
+               "nl": "Fase 2: 2-0-2-0",
+               "fr": "Étape 2: 2-0-2-0",
+               "ja": "ステージ2: 2-0-2-0",
+               "pt": "Estágio 2: 2-0-2-0",
+               "ru": "Этап 2: 2-0-2-0",
+               "ar": "المرحلة 2: 2-0-2-0",
+               "es": "Etapa 2: 2-0-2-0",
+               "zh": "阶段2: 2-0-2-0",
+               "bg": "Етап 2: 2-0-2-0",
+               "de": "Stufe 2: 2-0-2-0",
+               "it": "Fase 2: 2-0-2-0"
+             },
+             "pattern": "2-0-2-0",
+             "duration": 6,
+             "inhale_method": "nose",
+             "exhale_method": "mouth"
+           }
+         ]
+       },
+       "normal": {
+         "stages": [
+           {
+             "title": {
+               "en": "Stage 1: 5-0-5-0",
+               "nl": "Fase 1: 5-0-5-0",
+               "fr": "Étape 1: 5-0-5-0",
+               "ja": "ステージ1: 5-0-5-0",
+               "pt": "Estágio 1: 5-0-5-0",
+               "ru": "Этап 1: 5-0-5-0",
+               "ar": "المرحلة 1: 5-0-5-0",
+               "es": "Etapa 1: 5-0-5-0",
+               "zh": "阶段1: 5-0-5-0",
+               "bg": "Етап 1: 5-0-5-0",
+               "de": "Stufe 1: 5-0-5-0",
+               "it": "Fase 1: 5-0-5-0"
+             },
+             "pattern": "5-0-5-0",
+             "duration": 7,
+             "inhale_method": "nose",
+             "exhale_method": "mouth"
+           },
+           {
+             "title": {
+               "en": "Stage 2: 2-0-2-0",
+               "nl": "Fase 2: 2-0-2-0",
+               "fr": "Étape 2: 2-0-2-0",
+               "ja": "ステージ2: 2-0-2-0",
+               "pt": "Estágio 2: 2-0-2-0",
+               "ru": "Этап 2: 2-0-2-0",
+               "ar": "المرحلة 2: 2-0-2-0",
+               "es": "Etapa 2: 2-0-2-0",
+               "zh": "阶段2: 2-0-2-0",
+               "bg": "Етап 2: 2-0-2-0",
+               "de": "Stufe 2: 2-0-2-0",
+               "it": "Fase 2: 2-0-2-0"
+             },
+             "pattern": "2-0-2-0",
+             "duration": 8,
+             "inhale_method": "nose",
+             "exhale_method": "mouth"
+           }
+         ]
+       },
+       "long": {
+         "stages": [
+           {
+             "title": {
+               "en": "Stage 1: 5-0-5-0",
+               "nl": "Fase 1: 5-0-5-0",
+               "fr": "Étape 1: 5-0-5-0",
+               "ja": "ステージ1: 5-0-5-0",
+               "pt": "Estágio 1: 5-0-5-0",
+               "ru": "Этап 1: 5-0-5-0",
+               "ar": "المرحلة 1: 5-0-5-0",
+               "es": "Etapa 1: 5-0-5-0",
+               "zh": "阶段1: 5-0-5-0",
+               "bg": "Етап 1: 5-0-5-0",
+               "de": "Stufe 1: 5-0-5-0",
+               "it": "Fase 1: 5-0-5-0"
+             },
+             "pattern": "5-0-5-0",
+             "duration": 9,
+             "inhale_method": "nose",
+             "exhale_method": "mouth"
+           },
+           {
+             "title": {
+               "en": "Stage 2: 2-0-2-0",
+               "nl": "Fase 2: 2-0-2-0",
+               "fr": "Étape 2: 2-0-2-0",
+               "ja": "ステージ2: 2-0-2-0",
+               "pt": "Estágio 2: 2-0-2-0",
+               "ru": "Этап 2: 2-0-2-0",
+               "ar": "المرحلة 2: 2-0-2-0",
+               "es": "Etapa 2: 2-0-2-0",
+               "zh": "阶段2: 2-0-2-0",
+               "bg": "Етап 2: 2-0-2-0",
+               "de": "Stufe 2: 2-0-2-0",
+               "it": "Fase 2: 2-0-2-0"
+             },
+             "pattern": "2-0-2-0",
+             "duration": 10,
+             "inhale_method": "nose",
+             "exhale_method": "mouth"
+           }
+         ]
+       }
+     }
    },
   {
     "id": "modified-4-7-8",
@@ -260,7 +449,18 @@
       "it": "Versione più delicata per il sollievo dall'ansia."
     },
     "inhale_method": "nose",
-    "exhale_method": "mouth"
+    "exhale_method": "mouth",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
     "id": "coherent-breathing",
@@ -295,7 +495,18 @@
       "it": "Ottimizza la variabilità della frequenza cardiaca."
     },
     "inhale_method": "nose",
-    "exhale_method": "nose"
+    "exhale_method": "nose",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
     "id": "extended-exhale",
@@ -330,7 +541,18 @@
       "it": "Attiva la risposta parasimpatica."
     },
     "inhale_method": "nose",
-    "exhale_method": "mouth"
+    "exhale_method": "mouth",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
     "id": "mini-box",
@@ -365,7 +587,18 @@
       "it": "Rapido sollievo dallo stress per momenti occupati."
     },
     "inhale_method": "nose",
-    "exhale_method": "mouth"
+    "exhale_method": "mouth",
+    "versions": {
+      "short": {
+        "duration": "2 min"
+      },
+      "normal": {
+        "duration": "3 min"
+      },
+      "long": {
+        "duration": "4 min"
+      }
+    }
   },
   {
     "id": "sama-vritti",
@@ -400,7 +633,18 @@
       "it": "Migliora la concentrazione e la chiarezza mentale."
     },
     "inhale_method": "nose",
-    "exhale_method": "nose"
+    "exhale_method": "nose",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
     "id": "deep-equal",
@@ -435,7 +679,18 @@
       "it": "Migliora la concentrazione e le prestazioni cognitive."
     },
     "inhale_method": "nose",
-    "exhale_method": "nose"
+    "exhale_method": "nose",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
     "id": "square-breathing",
@@ -470,7 +725,18 @@
       "it": "Costruisce la resilienza mentale."
     },
     "inhale_method": "nose",
-    "exhale_method": "mouth"
+    "exhale_method": "mouth",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
     "id": "quick-focus",
@@ -505,7 +771,18 @@
       "it": "Miglioramento rapido dell'attenzione."
     },
     "inhale_method": "nose",
-    "exhale_method": "nose"
+    "exhale_method": "nose",
+    "versions": {
+      "short": {
+        "duration": "1 min"
+      },
+      "normal": {
+        "duration": "2 min"
+      },
+      "long": {
+        "duration": "3 min"
+      }
+    }
   },
   {
     "id": "ujjayi-modified",
@@ -540,7 +817,18 @@
       "it": "Costruisce calore interno e concentrazione."
     },
     "inhale_method": "nose",
-    "exhale_method": "nose"
+    "exhale_method": "nose",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
     "id": "extended-box",
@@ -575,7 +863,18 @@
       "it": "Gestione avanzata dello stress."
     },
     "inhale_method": "nose",
-    "exhale_method": "mouth"
+    "exhale_method": "mouth",
+    "versions": {
+      "short": {
+        "duration": "4 min"
+      },
+      "normal": {
+        "duration": "6 min"
+      },
+      "long": {
+        "duration": "8 min"
+      }
+    }
   },
   {
     "id": "triangle-plus",
@@ -610,7 +909,18 @@
       "it": "Schema complesso per praticanti esperti."
     },
     "inhale_method": "nose",
-    "exhale_method": "nose"
+    "exhale_method": "nose",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
     "id": "one-two-extended",
@@ -645,7 +955,18 @@
       "it": "Rilassamento profondo e riduzione della pressione arteriosa."
     },
     "inhale_method": "nose",
-    "exhale_method": "mouth"
+    "exhale_method": "mouth",
+    "versions": {
+      "short": {
+        "duration": "4 min"
+      },
+      "normal": {
+        "duration": "5 min"
+      },
+      "long": {
+        "duration": "6 min"
+      }
+    }
   },
   {
     "id": "gentle-hold",
@@ -680,7 +1001,18 @@
       "it": "Per coloro che hanno limitazioni di capacità polmonare."
     },
     "inhale_method": "nose",
-    "exhale_method": "nose"
+    "exhale_method": "nose",
+    "versions": {
+      "short": {
+        "duration": "2 min"
+      },
+      "normal": {
+        "duration": "3 min"
+      },
+      "long": {
+        "duration": "4 min"
+      }
+    }
   },
   {
     "id": "long-breath",
@@ -715,7 +1047,18 @@
       "it": "Aumenta la capacità polmonare e la resistenza."
     },
     "inhale_method": "nose",
-    "exhale_method": "nose"
+    "exhale_method": "nose",
+    "versions": {
+      "short": {
+        "duration": "4 min"
+      },
+      "normal": {
+        "duration": "6 min"
+      },
+      "long": {
+        "duration": "8 min"
+      }
+    }
   },
   {
     "id": "classic-4-7-8-extended",
@@ -750,7 +1093,18 @@
       "it": "Massima risposta di rilassamento."
     },
     "inhale_method": "nose",
-    "exhale_method": "mouth"
+    "exhale_method": "mouth",
+    "versions": {
+      "short": {
+        "duration": "4 min"
+      },
+      "normal": {
+        "duration": "6 min"
+      },
+      "long": {
+        "duration": "8 min"
+      }
+    }
   },
   {
     "id": "golden-ratio",
@@ -785,7 +1139,18 @@
       "it": "Basato sui principi dell'armonia matematica."
     },
     "inhale_method": "nose",
-    "exhale_method": "nose"
+    "exhale_method": "nose",
+    "versions": {
+      "short": {
+        "duration": "3 min"
+      },
+      "normal": {
+        "duration": "4 min"
+      },
+      "long": {
+        "duration": "5 min"
+      }
+    }
   },
   {
     "id": "sleep-preparation-protocol",
@@ -878,7 +1243,201 @@
         "inhale_method": "nose",
         "exhale_method": "mouth"
       }
-    ]
+    ],
+    "versions": {
+      "short": {
+        "stages": [
+          {
+            "title": {
+              "en": "Nervous System Balance",
+              "nl": "Zenuwstelsel Balans",
+              "fr": "Équilibre du Système Nerveux",
+              "ja": "神経系のバランス",
+              "pt": "Equilíbrio do Sistema Nervoso",
+              "ru": "Баланс нервной системы",
+              "ar": "توازن الجهاز العصبي",
+              "es": "Equilibrio del Sistema Nervioso",
+              "zh": "神经系统平衡",
+              "bg": "Баланс на нервната система",
+              "de": "Nervensystem-Balance",
+              "it": "Equilibrio del Sistema Nervoso"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 135,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Deep Relaxation",
+              "nl": "Diepe Ontspanning",
+              "fr": "Relaxation Profonde",
+              "ja": "深度リラクゼーション",
+              "pt": "Relaxamento Profundo",
+              "ru": "Глубокая релаксация",
+              "ar": "استرخاء عميق",
+              "es": "Relajación Profunda",
+              "zh": "深度放松",
+              "bg": "Дълбоко релаксиране",
+              "de": "Tiefe Entspannung",
+              "it": "Rilassamento Profondo"
+            },
+            "pattern": "4-7-8-0",
+            "duration": 90,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Sleep Induction",
+              "nl": "Slaap Inductie",
+              "fr": "Induction du Sommeil",
+              "ja": "睡眠誘導",
+              "pt": "Indução do Sono",
+              "ru": "Индукция сна",
+              "ar": "حث النوم",
+              "es": "Inducción del Sueño",
+              "zh": "睡眠诱导",
+              "bg": "Индукция на съня",
+              "de": "Schlafinduktion",
+              "it": "Induzione del Sonno"
+            },
+            "pattern": "6-0-8-0",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      },
+      "normal": {
+        "stages": [
+          {
+            "title": {
+              "en": "Nervous System Balance",
+              "nl": "Zenuwstelsel Balans",
+              "fr": "Équilibre du Système Nerveux",
+              "ja": "神経系のバランス",
+              "pt": "Equilíbrio do Sistema Nervoso",
+              "ru": "Баланс нервной системы",
+              "ar": "توازن الجهاز العصبي",
+              "es": "Equilibrio del Sistema Nervioso",
+              "zh": "神经系统平衡",
+              "bg": "Баланс на нервната система",
+              "de": "Nervensystem-Balance",
+              "it": "Equilibrio del Sistema Nervoso"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Deep Relaxation",
+              "nl": "Diepe Ontspanning",
+              "fr": "Relaxation Profonde",
+              "ja": "深度リラクゼーション",
+              "pt": "Relaxamento Profundo",
+              "ru": "Глубокая релаксация",
+              "ar": "استرخاء عميق",
+              "es": "Relajación Profunda",
+              "zh": "深度放松",
+              "bg": "Дълбоко релаксиране",
+              "de": "Tiefe Entspannung",
+              "it": "Rilassamento Profondo"
+            },
+            "pattern": "4-7-8-0",
+            "duration": 120,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Sleep Induction",
+              "nl": "Slaap Inductie",
+              "fr": "Induction du Sommeil",
+              "ja": "睡眠誘導",
+              "pt": "Indução do Sono",
+              "ru": "Индукция сна",
+              "ar": "حث النوم",
+              "es": "Inducción del Sueño",
+              "zh": "睡眠诱导",
+              "bg": "Индукция на съня",
+              "de": "Schlafinduktion",
+              "it": "Induzione del Sonno"
+            },
+            "pattern": "6-0-8-0",
+            "duration": 300,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      },
+      "long": {
+        "stages": [
+          {
+            "title": {
+              "en": "Nervous System Balance",
+              "nl": "Zenuwstelsel Balans",
+              "fr": "Équilibre du Système Nerveux",
+              "ja": "神経系のバランス",
+              "pt": "Equilíbrio do Sistema Nervoso",
+              "ru": "Баланс нервной системы",
+              "ar": "توازن الجهاز العصبي",
+              "es": "Equilibrio del Sistema Nervioso",
+              "zh": "神经系统平衡",
+              "bg": "Баланс на нервната система",
+              "de": "Nervensystem-Balance",
+              "it": "Equilibrio del Sistema Nervoso"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Deep Relaxation",
+              "nl": "Diepe Ontspanning",
+              "fr": "Relaxation Profonde",
+              "ja": "深度リラクゼーション",
+              "pt": "Relaxamento Profundo",
+              "ru": "Глубокая релаксация",
+              "ar": "استرخاء عميق",
+              "es": "Relajación Profunda",
+              "zh": "深度放松",
+              "bg": "Дълбоко релаксиране",
+              "de": "Tiefe Entspannung",
+              "it": "Rilassamento Profondo"
+            },
+            "pattern": "4-7-8-0",
+            "duration": 150,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Sleep Induction",
+              "nl": "Slaap Inductie",
+              "fr": "Induction du Sommeil",
+              "ja": "睡眠誘導",
+              "pt": "Indução do Sono",
+              "ru": "Индукция сна",
+              "ar": "حث النوم",
+              "es": "Inducción del Sueño",
+              "zh": "睡眠诱导",
+              "bg": "Индукция на съня",
+              "de": "Schlafinduktion",
+              "it": "Induzione del Sonno"
+            },
+            "pattern": "6-0-8-0",
+            "duration": 375,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      }
+    }
   },
   {
     "id": "anxiety-recovery-sequence",
@@ -971,7 +1530,201 @@
         "inhale_method": "nose",
         "exhale_method": "mouth"
       }
-    ]
+    ],
+    "versions": {
+      "short": {
+        "stages": [
+          {
+            "title": {
+              "en": "Stabilization",
+              "nl": "Stabilisatie",
+              "fr": "Stabilisation",
+              "ja": "安定化",
+              "pt": "Estabilização",
+              "ru": "Стабилизация",
+              "ar": "استقرار",
+              "es": "Estabilización",
+              "zh": "稳定化",
+              "bg": "Стабилизация",
+              "de": "Stabilisierung",
+              "it": "Stabilizzazione"
+            },
+            "pattern": "3-0-3-0",
+            "duration": 90,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Grounding",
+              "nl": "Verankeren",
+              "fr": "Ancrage",
+              "ja": "接地",
+              "pt": "Ancoragem",
+              "ru": "Заземление",
+              "ar": "تأشير",
+              "es": "Conexión",
+              "zh": "接地",
+              "bg": "Заземяване",
+              "de": "Verankern",
+              "it": "Ancoraggio"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Parasympathetic Activation",
+              "nl": "Parasympathische Activatie",
+              "fr": "Activation du Système Parasympathique",
+              "ja": "副交感神経活性化",
+              "pt": "Ativação do Sistema Parassimpático",
+              "ru": "Активация парасимпатической системы",
+              "ar": "تنشيط الجهاز الباراسمباتيكي",
+              "es": "Activación del Sistema Parasimpático",
+              "zh": "副交感神经激活",
+              "bg": "Активиране на парасимпатиковата система",
+              "de": "Parasympathische Aktivierung",
+              "it": "Attivazione del Sistema Parasimpatico"
+            },
+            "pattern": "4-0-8-0",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      },
+      "normal": {
+        "stages": [
+          {
+            "title": {
+              "en": "Stabilization",
+              "nl": "Stabilisatie",
+              "fr": "Stabilisation",
+              "ja": "安定化",
+              "pt": "Estabilização",
+              "ru": "Стабилизация",
+              "ar": "استقرار",
+              "es": "Estabilización",
+              "zh": "稳定化",
+              "bg": "Стабилизация",
+              "de": "Stabilisierung",
+              "it": "Stabilizzazione"
+            },
+            "pattern": "3-0-3-0",
+            "duration": 120,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Grounding",
+              "nl": "Verankeren",
+              "fr": "Ancrage",
+              "ja": "接地",
+              "pt": "Ancoragem",
+              "ru": "Заземление",
+              "ar": "تأشير",
+              "es": "Conexión",
+              "zh": "接地",
+              "bg": "Заземяване",
+              "de": "Verankern",
+              "it": "Ancoraggio"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 240,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Parasympathetic Activation",
+              "nl": "Parasympathische Activatie",
+              "fr": "Activation du Système Parasympathique",
+              "ja": "副交感神経活性化",
+              "pt": "Ativação do Sistema Parassimpático",
+              "ru": "Активация парасимпатической системы",
+              "ar": "تنشيط الجهاز الباراسمباتيكي",
+              "es": "Activación del Sistema Parasimpático",
+              "zh": "副交感神经激活",
+              "bg": "Активиране на парасимпатиковата система",
+              "de": "Parasympathische Aktivierung",
+              "it": "Attivazione del Sistema Parasimpatico"
+            },
+            "pattern": "4-0-8-0",
+            "duration": 240,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      },
+      "long": {
+        "stages": [
+          {
+            "title": {
+              "en": "Stabilization",
+              "nl": "Stabilisatie",
+              "fr": "Stabilisation",
+              "ja": "安定化",
+              "pt": "Estabilização",
+              "ru": "Стабилизация",
+              "ar": "استقرار",
+              "es": "Estabilización",
+              "zh": "稳定化",
+              "bg": "Стабилизация",
+              "de": "Stabilisierung",
+              "it": "Stabilizzazione"
+            },
+            "pattern": "3-0-3-0",
+            "duration": 150,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Grounding",
+              "nl": "Verankeren",
+              "fr": "Ancrage",
+              "ja": "接地",
+              "pt": "Ancoragem",
+              "ru": "Заземление",
+              "ar": "تأشير",
+              "es": "Conexión",
+              "zh": "接地",
+              "bg": "Заземяване",
+              "de": "Verankern",
+              "it": "Ancoraggio"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 300,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Parasympathetic Activation",
+              "nl": "Parasympathische Activatie",
+              "fr": "Activation du Système Parasympathique",
+              "ja": "副交感神経活性化",
+              "pt": "Ativação do Sistema Parassimpático",
+              "ru": "Активация парасимпатической системы",
+              "ar": "تنشيط الجهاز الباراسمباتيكي",
+              "es": "Activación del Sistema Parasimpático",
+              "zh": "副交感神经激活",
+              "bg": "Активиране на парасимпатиковата система",
+              "de": "Parasympathische Aktivierung",
+              "it": "Attivazione del Sistema Parasimpatico"
+            },
+            "pattern": "4-0-8-0",
+            "duration": 300,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      }
+    }
   },
   {
     "id": "morning-energy-builder",
@@ -1064,7 +1817,201 @@
         "inhale_method": "nose",
         "exhale_method": "nose"
       }
-    ]
+    ],
+    "versions": {
+      "short": {
+        "stages": [
+          {
+            "title": {
+              "en": "Awakening",
+              "nl": "Ontwaken",
+              "fr": "Éveil",
+              "ja": "覚醒",
+              "pt": "Despertar",
+              "ru": "Пробуждение",
+              "ar": "استيقاظ",
+              "es": "Despertar",
+              "zh": "觉醒",
+              "bg": "Събуждане",
+              "de": "Erwachen",
+              "it": "Risveglio"
+            },
+            "pattern": "4-0-4-0",
+            "duration": 135,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Energizing",
+              "nl": "Energieverhoging",
+              "fr": "Énergisant",
+              "ja": "エネルギー化",
+              "pt": "Energizante",
+              "ru": "Энергетизация",
+              "ar": "تنشيط",
+              "es": "Energizante",
+              "zh": "活力化",
+              "bg": "Енергетизиране",
+              "de": "Energietank",
+              "it": "Energizzante"
+            },
+            "pattern": "6-0-6-0",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Focus Enhancement",
+              "nl": "Focusverbetering",
+              "fr": "Amélioration de la Concentration",
+              "ja": "集中力向上",
+              "pt": "Melhoria do Foco",
+              "ru": "Улучшение фокусировки",
+              "ar": "تعزيز التركيز",
+              "es": "Mejora del Enfoque",
+              "zh": "专注力提升",
+              "bg": "Подобряване на фокуса",
+              "de": "Fokusverbesserung",
+              "it": "Miglioramento della Concentrazione"
+            },
+            "pattern": "4-4-6-2",
+            "duration": 135,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          }
+        ]
+      },
+      "normal": {
+        "stages": [
+          {
+            "title": {
+              "en": "Awakening",
+              "nl": "Ontwaken",
+              "fr": "Éveil",
+              "ja": "覚醒",
+              "pt": "Despertar",
+              "ru": "Пробуждение",
+              "ar": "استيقاظ",
+              "es": "Despertar",
+              "zh": "觉醒",
+              "bg": "Събуждане",
+              "de": "Erwachen",
+              "it": "Risveglio"
+            },
+            "pattern": "4-0-4-0",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Energizing",
+              "nl": "Energieverhoging",
+              "fr": "Énergisant",
+              "ja": "エネルギー化",
+              "pt": "Energizante",
+              "ru": "Энергетизация",
+              "ar": "تنشيط",
+              "es": "Energizante",
+              "zh": "活力化",
+              "bg": "Енергетизиране",
+              "de": "Energietank",
+              "it": "Energizzante"
+            },
+            "pattern": "6-0-6-0",
+            "duration": 240,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Focus Enhancement",
+              "nl": "Focusverbetering",
+              "fr": "Amélioration de la Concentration",
+              "ja": "集中力向上",
+              "pt": "Melhoria do Foco",
+              "ru": "Улучшение фокусировки",
+              "ar": "تعزيز التركيز",
+              "es": "Mejora del Enfoque",
+              "zh": "专注力提升",
+              "bg": "Подобряване на фокуса",
+              "de": "Fokusverbesserung",
+              "it": "Miglioramento della Concentrazione"
+            },
+            "pattern": "4-4-6-2",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          }
+        ]
+      },
+      "long": {
+        "stages": [
+          {
+            "title": {
+              "en": "Awakening",
+              "nl": "Ontwaken",
+              "fr": "Éveil",
+              "ja": "覚醒",
+              "pt": "Despertar",
+              "ru": "Пробуждение",
+              "ar": "استيقاظ",
+              "es": "Despertar",
+              "zh": "觉醒",
+              "bg": "Събуждане",
+              "de": "Erwachen",
+              "it": "Risveglio"
+            },
+            "pattern": "4-0-4-0",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Energizing",
+              "nl": "Energieverhoging",
+              "fr": "Énergisant",
+              "ja": "エネルギー化",
+              "pt": "Energizante",
+              "ru": "Энергетизация",
+              "ar": "تنشيط",
+              "es": "Energizante",
+              "zh": "活力化",
+              "bg": "Енергетизиране",
+              "de": "Energietank",
+              "it": "Energizzante"
+            },
+            "pattern": "6-0-6-0",
+            "duration": 300,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Focus Enhancement",
+              "nl": "Focusverbetering",
+              "fr": "Amélioration de la Concentration",
+              "ja": "集中力向上",
+              "pt": "Melhoria do Foco",
+              "ru": "Улучшение фокусировки",
+              "ar": "تعزيز التركيز",
+              "es": "Mejora del Enfoque",
+              "zh": "专注力提升",
+              "bg": "Подобряване на фокуса",
+              "de": "Fokusverbesserung",
+              "it": "Miglioramento della Concentrazione"
+            },
+            "pattern": "4-4-6-2",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          }
+        ]
+      }
+    }
   },
   {
     "id": "panic-attack-management",
@@ -1157,7 +2104,201 @@
         "inhale_method": "nose",
         "exhale_method": "mouth"
       }
-    ]
+    ],
+    "versions": {
+      "short": {
+        "stages": [
+          {
+            "title": {
+              "en": "Immediate Calming",
+              "nl": "Onmiddellijke Kalmering",
+              "fr": "Apaisement Immédiat",
+              "ja": "即時落ち着き",
+              "pt": "Calma Imediata",
+              "ru": "Немедленное успокоение",
+              "ar": "تهدئة فورية",
+              "es": "Calma Inmediata",
+              "zh": "即时平静",
+              "bg": "Незабавно успокояване",
+              "de": "Sofortige Beruhigung",
+              "it": "Calma Immediata"
+            },
+            "pattern": "2-0-4-0",
+            "duration": 90,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Stabilization",
+              "nl": "Stabilisatie",
+              "fr": "Stabilisation",
+              "ja": "安定化",
+              "pt": "Estabilização",
+              "ru": "Стабилизация",
+              "ar": "استقرار",
+              "es": "Estabilización",
+              "zh": "稳定化",
+              "bg": "Стабилизация",
+              "de": "Stabilisierung",
+              "it": "Stabilizzazione"
+            },
+            "pattern": "3-3-3-3",
+            "duration": 135,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Full Recovery",
+              "nl": "Volledig Herstel",
+              "fr": "Rétablissement Complet",
+              "ja": "完全回復",
+              "pt": "Recuperação Completa",
+              "ru": "Полное восстановление",
+              "ar": "تعافي كامل",
+              "es": "Recuperación Completa",
+              "zh": "全面恢复",
+              "bg": "Пълно възстановяване",
+              "de": "Vollständige Erholung",
+              "it": "Recupero Completo"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      },
+      "normal": {
+        "stages": [
+          {
+            "title": {
+              "en": "Immediate Calming",
+              "nl": "Onmiddellijke Kalmering",
+              "fr": "Apaisement Immédiat",
+              "ja": "即時落ち着き",
+              "pt": "Calma Imediata",
+              "ru": "Немедленное успокоение",
+              "ar": "تهدئة فورية",
+              "es": "Calma Inmediata",
+              "zh": "即时平静",
+              "bg": "Незабавно успокояване",
+              "de": "Sofortige Beruhigung",
+              "it": "Calma Immediata"
+            },
+            "pattern": "2-0-4-0",
+            "duration": 120,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Stabilization",
+              "nl": "Stabilisatie",
+              "fr": "Stabilisation",
+              "ja": "安定化",
+              "pt": "Estabilização",
+              "ru": "Стабилизация",
+              "ar": "استقرار",
+              "es": "Estabilización",
+              "zh": "稳定化",
+              "bg": "Стабилизация",
+              "de": "Stabilisierung",
+              "it": "Stabilizzazione"
+            },
+            "pattern": "3-3-3-3",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Full Recovery",
+              "nl": "Volledig Herstel",
+              "fr": "Rétablissement Complet",
+              "ja": "完全回復",
+              "pt": "Recuperação Completa",
+              "ru": "Полное восстановление",
+              "ar": "تعافي كامل",
+              "es": "Recuperación Completa",
+              "zh": "全面恢复",
+              "bg": "Пълно възстановяване",
+              "de": "Vollständige Erholung",
+              "it": "Recupero Completo"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 300,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      },
+      "long": {
+        "stages": [
+          {
+            "title": {
+              "en": "Immediate Calming",
+              "nl": "Onmiddellijke Kalmering",
+              "fr": "Apaisement Immédiat",
+              "ja": "即時落ち着き",
+              "pt": "Calma Imediata",
+              "ru": "Немедленное успокоение",
+              "ar": "تهدئة فورية",
+              "es": "Calma Inmediata",
+              "zh": "即时平静",
+              "bg": "Незабавно успокояване",
+              "de": "Sofortige Beruhigung",
+              "it": "Calma Immediata"
+            },
+            "pattern": "2-0-4-0",
+            "duration": 150,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Stabilization",
+              "nl": "Stabilisatie",
+              "fr": "Stabilisation",
+              "ja": "安定化",
+              "pt": "Estabilização",
+              "ru": "Стабилизация",
+              "ar": "استقرار",
+              "es": "Estabilización",
+              "zh": "稳定化",
+              "bg": "Стабилизация",
+              "de": "Stabilisierung",
+              "it": "Stabilizzazione"
+            },
+            "pattern": "3-3-3-3",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Full Recovery",
+              "nl": "Volledig Herstel",
+              "fr": "Rétablissement Complet",
+              "ja": "完全回復",
+              "pt": "Recuperação Completa",
+              "ru": "Полное восстановление",
+              "ar": "تعافي كامل",
+              "es": "Recuperación Completa",
+              "zh": "全面恢复",
+              "bg": "Пълно възстановяване",
+              "de": "Vollständige Erholung",
+              "it": "Recupero Completo"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 375,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      }
+    }
   },
   {
     "id": "concentration-training",
@@ -1250,7 +2391,201 @@
         "inhale_method": "nose",
         "exhale_method": "nose"
       }
-    ]
+    ],
+    "versions": {
+      "short": {
+        "stages": [
+          {
+            "title": {
+              "en": "Foundation Building",
+              "nl": "Basis Opbouw",
+              "fr": "Construction des Fondations",
+              "ja": "基礎構築",
+              "pt": "Construção da Base",
+              "ru": "Создание фундамента",
+              "ar": "بناء الأساس",
+              "es": "Construcción de Fundamentos",
+              "zh": "基础构建",
+              "bg": "Изграждане на основа",
+              "de": "Grundlagenaufbau",
+              "it": "Costruzione delle Fondamenta"
+            },
+            "pattern": "5-5-5-5",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Complexity Increase",
+              "nl": "Complexiteit Toename",
+              "fr": "Augmentation de la Complexité",
+              "ja": "複雑さの増加",
+              "pt": "Aumento da Complexidade",
+              "ru": "Увеличение сложности",
+              "ar": "زيادة التعقيد",
+              "es": "Aumento de Complejidad",
+              "zh": "复杂度提升",
+              "bg": "Увеличаване на сложността",
+              "de": "Komplexitätssteigerung",
+              "it": "Aumento della Complessità"
+            },
+            "pattern": "6-6-6-6",
+            "duration": 135,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Sustained Focus",
+              "nl": "Aanhoudende Focus",
+              "fr": "Concentration Soutenue",
+              "ja": "持続的集中",
+              "pt": "Foco Sustentado",
+              "ru": "Устойчивый фокус",
+              "ar": "تركيز مستدام",
+              "es": "Enfoque Sostenido",
+              "zh": "持续专注",
+              "bg": "Устойчив фокус",
+              "de": "Anhaltender Fokus",
+              "it": "Concentrazione Prolungata"
+            },
+            "pattern": "4-0-4-0",
+            "duration": 135,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          }
+        ]
+      },
+      "normal": {
+        "stages": [
+          {
+            "title": {
+              "en": "Foundation Building",
+              "nl": "Basis Opbouw",
+              "fr": "Construction des Fondations",
+              "ja": "基礎構築",
+              "pt": "Construção da Base",
+              "ru": "Создание фундамента",
+              "ar": "بناء الأساس",
+              "es": "Construcción de Fundamentos",
+              "zh": "基础构建",
+              "bg": "Изграждане на основа",
+              "de": "Grundlagenaufbau",
+              "it": "Costruzione delle Fondamenta"
+            },
+            "pattern": "5-5-5-5",
+            "duration": 240,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Complexity Increase",
+              "nl": "Complexiteit Toename",
+              "fr": "Augmentation de la Complexité",
+              "ja": "複雑さの増加",
+              "pt": "Aumento da Complexidade",
+              "ru": "Увеличение сложности",
+              "ar": "زيادة التعقيد",
+              "es": "Aumento de Complejidad",
+              "zh": "复杂度提升",
+              "bg": "Увеличаване на сложността",
+              "de": "Komplexitätssteigerung",
+              "it": "Aumento della Complessità"
+            },
+            "pattern": "6-6-6-6",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Sustained Focus",
+              "nl": "Aanhoudende Focus",
+              "fr": "Concentration Soutenue",
+              "ja": "持続的集中",
+              "pt": "Foco Sustentado",
+              "ru": "Устойчивый фокус",
+              "ar": "تركيز مستدام",
+              "es": "Enfoque Sostenido",
+              "zh": "持续专注",
+              "bg": "Устойчив фокус",
+              "de": "Anhaltender Fokus",
+              "it": "Concentrazione Prolungata"
+            },
+            "pattern": "4-0-4-0",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          }
+        ]
+      },
+      "long": {
+        "stages": [
+          {
+            "title": {
+              "en": "Foundation Building",
+              "nl": "Basis Opbouw",
+              "fr": "Construction des Fondations",
+              "ja": "基礎構築",
+              "pt": "Construção da Base",
+              "ru": "Создание фундамента",
+              "ar": "بناء الأساس",
+              "es": "Construcción de Fundamentos",
+              "zh": "基础构建",
+              "bg": "Изграждане на основа",
+              "de": "Grundlagenaufbau",
+              "it": "Costruzione delle Fondamenta"
+            },
+            "pattern": "5-5-5-5",
+            "duration": 300,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Complexity Increase",
+              "nl": "Complexiteit Toename",
+              "fr": "Augmentation de la Complexité",
+              "ja": "複雑さの増加",
+              "pt": "Aumento da Complexidade",
+              "ru": "Увеличение сложности",
+              "ar": "زيادة التعقيد",
+              "es": "Aumento de Complejidad",
+              "zh": "复杂度提升",
+              "bg": "Увеличаване на сложността",
+              "de": "Komplexitätssteigerung",
+              "it": "Aumento della Complessità"
+            },
+            "pattern": "6-6-6-6",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Sustained Focus",
+              "nl": "Aanhoudende Focus",
+              "fr": "Concentration Soutenue",
+              "ja": "持続的集中",
+              "pt": "Foco Sustentado",
+              "ru": "Устойчивый фокус",
+              "ar": "تركيز مستدام",
+              "es": "Enfoque Sostenido",
+              "zh": "持续专注",
+              "bg": "Устойчив фокус",
+              "de": "Anhaltender Fokus",
+              "it": "Concentrazione Prolungata"
+            },
+            "pattern": "4-0-4-0",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          }
+        ]
+      }
+    }
   },
   {
     "id": "blood-pressure-reduction",
@@ -1343,7 +2678,201 @@
         "inhale_method": "nose",
         "exhale_method": "mouth"
       }
-    ]
+    ],
+    "versions": {
+      "short": {
+        "stages": [
+          {
+            "title": {
+              "en": "Baseline Establishment",
+              "nl": "Basislijn Vaststelling",
+              "fr": "Établissement de la Ligne de Base",
+              "ja": "ベースライン確立",
+              "pt": "Estabelecimento da Linha de Base",
+              "ru": "Установление базового уровня",
+              "ar": "تأسيس الخط الأساسي",
+              "es": "Establecimiento de la Línea Base",
+              "zh": "基线确立",
+              "bg": "Установяване на базова линия",
+              "de": "Baseline-Etablierung",
+              "it": "Stabilimento della Linea di Base"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 135,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Therapeutic Ratio",
+              "nl": "Therapeutische Verhouding",
+              "fr": "Ratio Thérapeutique",
+              "ja": "治療比率",
+              "pt": "Razão Terapêutica",
+              "ru": "Терапевтическое соотношение",
+              "ar": "نسبة علاجية",
+              "es": "Proporción Terapéutica",
+              "zh": "治疗比例",
+              "bg": "Терапевтично съотношение",
+              "de": "Therapeutisches Verhältnis",
+              "it": "Rapporto Terapeutico"
+            },
+            "pattern": "5-0-10-0",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Maximum Benefit",
+              "nl": "Maximaal Voordeel",
+              "fr": "Bénéfice Maximum",
+              "ja": "最大利益",
+              "pt": "Benefício Máximo",
+              "ru": "Максимальная польза",
+              "ar": "أقصى فائدة",
+              "es": "Máximo Beneficio",
+              "zh": "最大效益",
+              "bg": "Максимална полза",
+              "de": "Maximaler Nutzen",
+              "it": "Massimo Beneficio"
+            },
+            "pattern": "6-0-12-0",
+            "duration": 90,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      },
+      "normal": {
+        "stages": [
+          {
+            "title": {
+              "en": "Baseline Establishment",
+              "nl": "Basislijn Vaststelling",
+              "fr": "Établissement de la Ligne de Base",
+              "ja": "ベースライン確立",
+              "pt": "Estabelecimento da Linha de Base",
+              "ru": "Установление базового уровня",
+              "ar": "تأسيس الخط الأساسي",
+              "es": "Establecimiento de la Línea Base",
+              "zh": "基线确立",
+              "bg": "Установяване на базова линия",
+              "de": "Baseline-Etablierung",
+              "it": "Stabilimento della Linea di Base"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Therapeutic Ratio",
+              "nl": "Therapeutische Verhouding",
+              "fr": "Ratio Thérapeutique",
+              "ja": "治療比率",
+              "pt": "Razão Terapêutica",
+              "ru": "Терапевтическое соотношение",
+              "ar": "نسبة علاجية",
+              "es": "Proporción Terapéutica",
+              "zh": "治疗比例",
+              "bg": "Терапевтично съотношение",
+              "de": "Therapeutisches Verhältnis",
+              "it": "Rapporto Terapeutico"
+            },
+            "pattern": "5-0-10-0",
+            "duration": 300,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Maximum Benefit",
+              "nl": "Maximaal Voordeel",
+              "fr": "Bénéfice Maximum",
+              "ja": "最大利益",
+              "pt": "Benefício Máximo",
+              "ru": "Максимальная польза",
+              "ar": "أقصى فائدة",
+              "es": "Máximo Beneficio",
+              "zh": "最大效益",
+              "bg": "Максимална полза",
+              "de": "Maximaler Nutzen",
+              "it": "Massimo Beneficio"
+            },
+            "pattern": "6-0-12-0",
+            "duration": 120,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      },
+      "long": {
+        "stages": [
+          {
+            "title": {
+              "en": "Baseline Establishment",
+              "nl": "Basislijn Vaststelling",
+              "fr": "Établissement de la Ligne de Base",
+              "ja": "ベースライン確立",
+              "pt": "Estabelecimento da Linha de Base",
+              "ru": "Установление базового уровня",
+              "ar": "تأسيس الخط الأساسي",
+              "es": "Establecimiento de la Línea Base",
+              "zh": "基线确立",
+              "bg": "Установяване на базова линия",
+              "de": "Baseline-Etablierung",
+              "it": "Stabilimento della Linea di Base"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Therapeutic Ratio",
+              "nl": "Therapeutische Verhouding",
+              "fr": "Ratio Thérapeutique",
+              "ja": "治療比率",
+              "pt": "Razão Terapêutica",
+              "ru": "Терапевтическое соотношение",
+              "ar": "نسبة علاجية",
+              "es": "Proporción Terapéutica",
+              "zh": "治疗比例",
+              "bg": "Терапевтично съотношение",
+              "de": "Therapeutisches Verhältnis",
+              "it": "Rapporto Terapeutico"
+            },
+            "pattern": "5-0-10-0",
+            "duration": 375,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Maximum Benefit",
+              "nl": "Maximaal Voordeel",
+              "fr": "Bénéfice Maximum",
+              "ja": "最大利益",
+              "pt": "Benefício Máximo",
+              "ru": "Максимальная польза",
+              "ar": "أقصى فائدة",
+              "es": "Máximo Beneficio",
+              "zh": "最大效益",
+              "bg": "Максимална полза",
+              "de": "Maximaler Nutzen",
+              "it": "Massimo Beneficio"
+            },
+            "pattern": "6-0-12-0",
+            "duration": 150,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      }
+    }
   },
   {
     "id": "pre-competition-protocol",
@@ -1436,7 +2965,201 @@
         "inhale_method": "nose",
         "exhale_method": "mouth"
       }
-    ]
+    ],
+    "versions": {
+      "short": {
+        "stages": [
+          {
+            "title": {
+              "en": "Coherence Building",
+              "nl": "Coherentie Opbouw",
+              "fr": "Construction de la Cohérence",
+              "ja": "コヒーレンス構築",
+              "pt": "Construção de Coerência",
+              "ru": "Создание согласованности",
+              "ar": "بناء التماسك",
+              "es": "Construcción de Coherencia",
+              "zh": "连贯性构建",
+              "bg": "Изграждане на кохерентност",
+              "de": "Kohärenzaufbau",
+              "it": "Costruzione della Coerenza"
+            },
+            "pattern": "6-0-6-0",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Mental Preparation",
+              "nl": "Mentale Voorbereiding",
+              "fr": "Préparation Mentale",
+              "ja": "精神的準備",
+              "pt": "Preparação Mental",
+              "ru": "Ментальная подготовка",
+              "ar": "التحضير الذهني",
+              "es": "Preparación Mental",
+              "zh": "心理准备",
+              "bg": "Ментална подготовка",
+              "de": "Mentale Vorbereitung",
+              "it": "Preparazione Mentale"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 135,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Controlled Activation",
+              "nl": "Gecontroleerde Activering",
+              "fr": "Activation Contrôlée",
+              "ja": "制御された活性化",
+              "pt": "Ativação Controlada",
+              "ru": "Контролируемая активация",
+              "ar": "تنشيط محكوم",
+              "es": "Activación Controlada",
+              "zh": "受控激活",
+              "bg": "Контролирана активация",
+              "de": "Kontrollierte Aktivierung",
+              "it": "Attivazione Controllata"
+            },
+            "pattern": "3-0-6-0",
+            "duration": 135,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      },
+      "normal": {
+        "stages": [
+          {
+            "title": {
+              "en": "Coherence Building",
+              "nl": "Coherentie Opbouw",
+              "fr": "Construction de la Cohérence",
+              "ja": "コヒーレンス構築",
+              "pt": "Construção de Coerência",
+              "ru": "Создание согласованности",
+              "ar": "بناء التماسك",
+              "es": "Construcción de Coherencia",
+              "zh": "连贯性构建",
+              "bg": "Изграждане на кохерентност",
+              "de": "Kohärenzaufbau",
+              "it": "Costruzione della Coerenza"
+            },
+            "pattern": "6-0-6-0",
+            "duration": 240,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Mental Preparation",
+              "nl": "Mentale Voorbereiding",
+              "fr": "Préparation Mentale",
+              "ja": "精神的準備",
+              "pt": "Preparação Mental",
+              "ru": "Ментальная подготовка",
+              "ar": "التحضير الذهني",
+              "es": "Preparación Mental",
+              "zh": "心理准备",
+              "bg": "Ментална подготовка",
+              "de": "Mentale Vorbereitung",
+              "it": "Preparazione Mentale"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Controlled Activation",
+              "nl": "Gecontroleerde Activering",
+              "fr": "Activation Contrôlée",
+              "ja": "制御された活性化",
+              "pt": "Ativação Controlada",
+              "ru": "Контролируемая активация",
+              "ar": "تنشيط محكوم",
+              "es": "Activación Controlada",
+              "zh": "受控激活",
+              "bg": "Контролирана активация",
+              "de": "Kontrollierte Aktivierung",
+              "it": "Attivazione Controllata"
+            },
+            "pattern": "3-0-6-0",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      },
+      "long": {
+        "stages": [
+          {
+            "title": {
+              "en": "Coherence Building",
+              "nl": "Coherentie Opbouw",
+              "fr": "Construction de la Cohérence",
+              "ja": "コヒーレンス構築",
+              "pt": "Construção de Coerência",
+              "ru": "Создание согласованности",
+              "ar": "بناء التماسك",
+              "es": "Construcción de Coherencia",
+              "zh": "连贯性构建",
+              "bg": "Изграждане на кохерентност",
+              "de": "Kohärenzaufbau",
+              "it": "Costruzione della Coerenza"
+            },
+            "pattern": "6-0-6-0",
+            "duration": 300,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Mental Preparation",
+              "nl": "Mentale Voorbereiding",
+              "fr": "Préparation Mentale",
+              "ja": "精神的準備",
+              "pt": "Preparação Mental",
+              "ru": "Ментальная подготовка",
+              "ar": "التحضير الذهني",
+              "es": "Preparación Mental",
+              "zh": "心理准备",
+              "bg": "Ментална подготовка",
+              "de": "Mentale Vorbereitung",
+              "it": "Preparazione Mentale"
+            },
+            "pattern": "4-4-4-4",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Controlled Activation",
+              "nl": "Gecontroleerde Activering",
+              "fr": "Activation Contrôlée",
+              "ja": "制御された活性化",
+              "pt": "Ativação Controlada",
+              "ru": "Контролируемая активация",
+              "ar": "تنشيط محكوم",
+              "es": "Activación Controlada",
+              "zh": "受控激活",
+              "bg": "Контролирана активация",
+              "de": "Kontrollierte Aktivierung",
+              "it": "Attivazione Controllata"
+            },
+            "pattern": "3-0-6-0",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      }
+    }
   },
   {
     "id": "post-workout-recovery",
@@ -1529,7 +3252,201 @@
         "inhale_method": "nose",
         "exhale_method": "nose"
       }
-    ]
+    ],
+    "versions": {
+      "short": {
+        "stages": [
+          {
+            "title": {
+              "en": "Heart Rate Normalization",
+              "nl": "Hartslag Normalisatie",
+              "fr": "Normalisation du Rythme Cardiaque",
+              "ja": "心拍数正常化",
+              "pt": "Normalização da Frequência Cardíaca",
+              "ru": "Нормализация сердечного ритма",
+              "ar": "تطبيع معدل ضربات القلب",
+              "es": "Normalización de la Frecuencia Cardíaca",
+              "zh": "心率正常化",
+              "bg": "Нормализиране на сърдечния ритъм",
+              "de": "Herzfrequenz-Normalisierung",
+              "it": "Normalizzazione della Frequenza Cardiaca"
+            },
+            "pattern": "8-0-8-0",
+            "duration": 135,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Recovery Acceleration",
+              "nl": "Herstelversnelling",
+              "fr": "Accélération de la Récupération",
+              "ja": "回復促進",
+              "pt": "Aceleração da Recuperação",
+              "ru": "Ускорение восстановления",
+              "ar": "تسريع التعافي",
+              "es": "Aceleración de la Recuperación",
+              "zh": "恢复加速",
+              "bg": "Ускоряване на възстановяването",
+              "de": "Erholungsbeschleunigung",
+              "it": "Accelerazione del Recupero"
+            },
+            "pattern": "4-7-8-0",
+            "duration": 135,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Homeostasis Restoration",
+              "nl": "Homeostase Herstel",
+              "fr": "Restauration de l'Homéostasie",
+              "ja": "恒常性回復",
+              "pt": "Restauração da Homeostasia",
+              "ru": "Восстановление гомеостаза",
+              "ar": "استعادة التوازن الداخلي",
+              "es": "Restauración de la Homeostasis",
+              "zh": "稳态恢复",
+              "bg": "Възстановяване на хомеостазата",
+              "de": "Wiederherstellung der Homöostase",
+              "it": "Ripristino dell'Omeostasi"
+            },
+            "pattern": "6-0-6-0",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          }
+        ]
+      },
+      "normal": {
+        "stages": [
+          {
+            "title": {
+              "en": "Heart Rate Normalization",
+              "nl": "Hartslag Normalisatie",
+              "fr": "Normalisation du Rythme Cardiaque",
+              "ja": "心拍数正常化",
+              "pt": "Normalização da Frequência Cardíaca",
+              "ru": "Нормализация сердечного ритма",
+              "ar": "تطبيع معدل ضربات القلب",
+              "es": "Normalización de la Frecuencia Cardíaca",
+              "zh": "心率正常化",
+              "bg": "Нормализиране на сърдечния ритъм",
+              "de": "Herzfrequenz-Normalisierung",
+              "it": "Normalizzazione della Frequenza Cardiaca"
+            },
+            "pattern": "8-0-8-0",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Recovery Acceleration",
+              "nl": "Herstelversnelling",
+              "fr": "Accélération de la Récupération",
+              "ja": "回復促進",
+              "pt": "Aceleração da Recuperação",
+              "ru": "Ускорение восстановления",
+              "ar": "تسريع التعافي",
+              "es": "Aceleración de la Recuperación",
+              "zh": "恢复加速",
+              "bg": "Ускоряване на възстановяването",
+              "de": "Erholungsbeschleunigung",
+              "it": "Accelerazione del Recupero"
+            },
+            "pattern": "4-7-8-0",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Homeostasis Restoration",
+              "nl": "Homeostase Herstel",
+              "fr": "Restauration de l'Homéostasie",
+              "ja": "恒常性回復",
+              "pt": "Restauração da Homeostasia",
+              "ru": "Восстановление гомеостаза",
+              "ar": "استعادة التوازن الداخلي",
+              "es": "Restauración de la Homeostasis",
+              "zh": "稳态恢复",
+              "bg": "Възстановяване на хомеостазата",
+              "de": "Wiederherstellung der Homöostase",
+              "it": "Ripristino dell'Omeostasi"
+            },
+            "pattern": "6-0-6-0",
+            "duration": 240,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          }
+        ]
+      },
+      "long": {
+        "stages": [
+          {
+            "title": {
+              "en": "Heart Rate Normalization",
+              "nl": "Hartslag Normalisatie",
+              "fr": "Normalisation du Rythme Cardiaque",
+              "ja": "心拍数正常化",
+              "pt": "Normalização da Frequência Cardíaca",
+              "ru": "Нормализация сердечного ритма",
+              "ar": "تطبيع معدل ضربات القلب",
+              "es": "Normalización de la Frecuencia Cardíaca",
+              "zh": "心率正常化",
+              "bg": "Нормализиране на сърдечния ритъм",
+              "de": "Herzfrequenz-Normalisierung",
+              "it": "Normalizzazione della Frequenza Cardiaca"
+            },
+            "pattern": "8-0-8-0",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Recovery Acceleration",
+              "nl": "Herstelversnelling",
+              "fr": "Accélération de la Récupération",
+              "ja": "回復促進",
+              "pt": "Aceleração da Recuperação",
+              "ru": "Ускорение восстановления",
+              "ar": "تسريع التعافي",
+              "es": "Aceleración de la Recuperación",
+              "zh": "恢复加速",
+              "bg": "Ускоряване на възстановяването",
+              "de": "Erholungsbeschleunigung",
+              "it": "Accelerazione del Recupero"
+            },
+            "pattern": "4-7-8-0",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Homeostasis Restoration",
+              "nl": "Homeostase Herstel",
+              "fr": "Restauration de l'Homéostasie",
+              "ja": "恒常性回復",
+              "pt": "Restauração da Homeostasia",
+              "ru": "Восстановление гомеостаза",
+              "ar": "استعادة التوازن الداخلي",
+              "es": "Restauración de la Homeostasis",
+              "zh": "稳态恢复",
+              "bg": "Възстановяване на хомеостазата",
+              "de": "Wiederherstellung der Homöostase",
+              "it": "Ripristino dell'Omeostasi"
+            },
+            "pattern": "6-0-6-0",
+            "duration": 300,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          }
+        ]
+      }
+    }
   },
   {
     "id": "meditation-preparation",
@@ -1622,7 +3539,201 @@
         "inhale_method": "nose",
         "exhale_method": "nose"
       }
-    ]
+    ],
+    "versions": {
+      "short": {
+        "stages": [
+          {
+            "title": {
+              "en": "Mind Settling",
+              "nl": "Geest Stabilisatie",
+              "fr": "Apaisement de l'Esprit",
+              "ja": "心の安定",
+              "pt": "Acalmamento da Mente",
+              "ru": "Успокоение ума",
+              "ar": "تطمئن العقل",
+              "es": "Calma Mental",
+              "zh": "心神安定",
+              "bg": "Успокояване на ума",
+              "de": "Geistesberuhigung",
+              "it": "Placamento della Mente"
+            },
+            "pattern": "4-0-4-0",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Deeper Awareness",
+              "nl": "Dieper Bewustzijn",
+              "fr": "Conscience Plus Profonde",
+              "ja": "より深い意識",
+              "pt": "Consciência Mais Profunda",
+              "ru": "Более глубокая осознанность",
+              "ar": "وعي أعمق",
+              "es": "Conciencia Más Profunda",
+              "zh": "更深层的觉知",
+              "bg": "По-дълбока осъзнатост",
+              "de": "Tiefere Achtsamkeit",
+              "it": "Consapevolezza Più Profonda"
+            },
+            "pattern": "6-2-6-2",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Transition to Meditation",
+              "nl": "Overgang naar Meditatie",
+              "fr": "Transition vers la Méditation",
+              "ja": "瞑想への移行",
+              "pt": "Transição para Meditação",
+              "ru": "Переход к медитации",
+              "ar": "الانتقال إلى التأمل",
+              "es": "Transición a la Meditación",
+              "zh": "过渡到冥想",
+              "bg": "Преход към медитация",
+              "de": "Übergang zur Meditation",
+              "it": "Transizione alla Meditazione"
+            },
+            "pattern": "natural",
+            "duration": 45,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          }
+        ]
+      },
+      "normal": {
+        "stages": [
+          {
+            "title": {
+              "en": "Mind Settling",
+              "nl": "Geest Stabilisatie",
+              "fr": "Apaisement de l'Esprit",
+              "ja": "心の安定",
+              "pt": "Acalmamento da Mente",
+              "ru": "Успокоение ума",
+              "ar": "تطمئن العقل",
+              "es": "Calma Mental",
+              "zh": "心神安定",
+              "bg": "Успокояване на ума",
+              "de": "Geistesberuhigung",
+              "it": "Placamento della Mente"
+            },
+            "pattern": "4-0-4-0",
+            "duration": 300,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Deeper Awareness",
+              "nl": "Dieper Bewustzijn",
+              "fr": "Conscience Plus Profonde",
+              "ja": "より深い意識",
+              "pt": "Consciência Mais Profunda",
+              "ru": "Более глубокая осознанность",
+              "ar": "وعي أعمق",
+              "es": "Conciencia Más Profunda",
+              "zh": "更深层的觉知",
+              "bg": "По-дълбока осъзнатост",
+              "de": "Tiefere Achtsamkeit",
+              "it": "Consapevolezza Più Profonda"
+            },
+            "pattern": "6-2-6-2",
+            "duration": 240,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Transition to Meditation",
+              "nl": "Overgang naar Meditatie",
+              "fr": "Transition vers la Méditation",
+              "ja": "瞑想への移行",
+              "pt": "Transição para Meditação",
+              "ru": "Переход к медитации",
+              "ar": "الانتقال إلى التأمل",
+              "es": "Transición a la Meditación",
+              "zh": "过渡到冥想",
+              "bg": "Преход към медитация",
+              "de": "Übergang zur Meditation",
+              "it": "Transizione alla Meditazione"
+            },
+            "pattern": "natural",
+            "duration": 60,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          }
+        ]
+      },
+      "long": {
+        "stages": [
+          {
+            "title": {
+              "en": "Mind Settling",
+              "nl": "Geest Stabilisatie",
+              "fr": "Apaisement de l'Esprit",
+              "ja": "心の安定",
+              "pt": "Acalmamento da Mente",
+              "ru": "Успокоение ума",
+              "ar": "تطمئن العقل",
+              "es": "Calma Mental",
+              "zh": "心神安定",
+              "bg": "Успокояване на ума",
+              "de": "Geistesberuhigung",
+              "it": "Placamento della Mente"
+            },
+            "pattern": "4-0-4-0",
+            "duration": 375,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Deeper Awareness",
+              "nl": "Dieper Bewustzijn",
+              "fr": "Conscience Plus Profonde",
+              "ja": "より深い意識",
+              "pt": "Consciência Mais Profunda",
+              "ru": "Более глубокая осознанность",
+              "ar": "وعي أعمق",
+              "es": "Conciencia Más Profunda",
+              "zh": "更深层的觉知",
+              "bg": "По-дълбока осъзнатост",
+              "de": "Tiefere Achtsamkeit",
+              "it": "Consapevolezza Più Profonda"
+            },
+            "pattern": "6-2-6-2",
+            "duration": 300,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Transition to Meditation",
+              "nl": "Overgang naar Meditatie",
+              "fr": "Transition vers la Méditation",
+              "ja": "瞑想への移行",
+              "pt": "Transição para Meditação",
+              "ru": "Переход к медитации",
+              "ar": "الانتقال إلى التأمل",
+              "es": "Transición a la Meditación",
+              "zh": "过渡到冥想",
+              "bg": "Преход към медитация",
+              "de": "Übergang zur Meditation",
+              "it": "Transizione alla Meditazione"
+            },
+            "pattern": "natural",
+            "duration": 75,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          }
+        ]
+      }
+    }
   },
   {
     "id": "chronic-pain-management",
@@ -1715,6 +3826,200 @@
         "inhale_method": "nose",
         "exhale_method": "mouth"
       }
-    ]
+    ],
+    "versions": {
+      "short": {
+        "stages": [
+          {
+            "title": {
+              "en": "Gentle Introduction",
+              "nl": "Zachte Introductie",
+              "fr": "Introduction Douce",
+              "ja": "穏やかな導入",
+              "pt": "Introdução Suave",
+              "ru": "Мягкое введение",
+              "ar": "مقدمة لطيفة",
+              "es": "Introducción Suave",
+              "zh": "温和入门",
+              "bg": "Меко въведение",
+              "de": "Sanfte Einführung",
+              "it": "Introduzione Dolce"
+            },
+            "pattern": "3-3-3-3",
+            "duration": 135,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Pain Gate Control",
+              "nl": "Pijnpoort Controle",
+              "fr": "Contrôle de la Porte de la Douleur",
+              "ja": "疼痛ゲート制御",
+              "pt": "Controle do Portão da Dor",
+              "ru": "Контроль болевых ворот",
+              "ar": "التحكم في بوابة الألم",
+              "es": "Control de la Puerta del Dolor",
+              "zh": "疼痛闸门控制",
+              "bg": "Контрол на болковите врати",
+              "de": "Schmerztor-Kontrolle",
+              "it": "Controllo del Cancello del Dolore"
+            },
+            "pattern": "4-4-6-2",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Endorphin Release",
+              "nl": "Endorfine Vrijzetting",
+              "fr": "Libération d'Endorphines",
+              "ja": "エンドルフィン放出",
+              "pt": "Liberação de Endorfinas",
+              "ru": "Высвобождение эндорфинов",
+              "ar": "إطلاق الإندورفين",
+              "es": "Liberación de Endorfinas",
+              "zh": "内啡肽释放",
+              "bg": "Освобождаване на ендорфини",
+              "de": "Endorphin-Freisetzung",
+              "it": "Rilascio di Endorfine"
+            },
+            "pattern": "4-0-8-0",
+            "duration": 315,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      },
+      "normal": {
+        "stages": [
+          {
+            "title": {
+              "en": "Gentle Introduction",
+              "nl": "Zachte Introductie",
+              "fr": "Introduction Douce",
+              "ja": "穏やかな導入",
+              "pt": "Introdução Suave",
+              "ru": "Мягкое введение",
+              "ar": "مقدمة لطيفة",
+              "es": "Introducción Suave",
+              "zh": "温和入门",
+              "bg": "Меко въведение",
+              "de": "Sanfte Einführung",
+              "it": "Introduzione Dolce"
+            },
+            "pattern": "3-3-3-3",
+            "duration": 180,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Pain Gate Control",
+              "nl": "Pijnpoort Controle",
+              "fr": "Contrôle de la Porte de la Douleur",
+              "ja": "疼痛ゲート制御",
+              "pt": "Controle do Portão da Dor",
+              "ru": "Контроль болевых ворот",
+              "ar": "التحكم في بوابة الألم",
+              "es": "Control de la Puerta del Dolor",
+              "zh": "疼痛闸门控制",
+              "bg": "Контрол на болковите врати",
+              "de": "Schmerztor-Kontrolle",
+              "it": "Controllo del Cancello del Dolore"
+            },
+            "pattern": "4-4-6-2",
+            "duration": 300,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Endorphin Release",
+              "nl": "Endorfine Vrijzetting",
+              "fr": "Libération d'Endorphines",
+              "ja": "エンドルフィン放出",
+              "pt": "Liberação de Endorfinas",
+              "ru": "Высвобождение эндорфинов",
+              "ar": "إطلاق الإندورفين",
+              "es": "Liberación de Endorfinas",
+              "zh": "内啡肽释放",
+              "bg": "Освобождаване на ендорфини",
+              "de": "Endorphin-Freisetzung",
+              "it": "Rilascio di Endorfine"
+            },
+            "pattern": "4-0-8-0",
+            "duration": 420,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      },
+      "long": {
+        "stages": [
+          {
+            "title": {
+              "en": "Gentle Introduction",
+              "nl": "Zachte Introductie",
+              "fr": "Introduction Douce",
+              "ja": "穏やかな導入",
+              "pt": "Introdução Suave",
+              "ru": "Мягкое введение",
+              "ar": "مقدمة لطيفة",
+              "es": "Introducción Suave",
+              "zh": "温和入门",
+              "bg": "Меко въведение",
+              "de": "Sanfte Einführung",
+              "it": "Introduzione Dolce"
+            },
+            "pattern": "3-3-3-3",
+            "duration": 225,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          },
+          {
+            "title": {
+              "en": "Pain Gate Control",
+              "nl": "Pijnpoort Controle",
+              "fr": "Contrôle de la Porte de la Douleur",
+              "ja": "疼痛ゲート制御",
+              "pt": "Controle do Portão da Dor",
+              "ru": "Контроль болевых ворот",
+              "ar": "التحكم في بوابة الألم",
+              "es": "Control de la Puerta del Dolor",
+              "zh": "疼痛闸门控制",
+              "bg": "Контрол на болковите врати",
+              "de": "Schmerztor-Kontrolle",
+              "it": "Controllo del Cancello del Dolore"
+            },
+            "pattern": "4-4-6-2",
+            "duration": 375,
+            "inhale_method": "nose",
+            "exhale_method": "nose"
+          },
+          {
+            "title": {
+              "en": "Endorphin Release",
+              "nl": "Endorfine Vrijzetting",
+              "fr": "Libération d'Endorphines",
+              "ja": "エンドルフィン放出",
+              "pt": "Liberação de Endorfinas",
+              "ru": "Высвобождение эндорфинов",
+              "ar": "إطلاق الإندورفين",
+              "es": "Liberación de Endorfinas",
+              "zh": "内啡肽释放",
+              "bg": "Освобождаване на ендорфини",
+              "de": "Endorphin-Freisetzung",
+              "it": "Rilascio di Endorfine"
+            },
+            "pattern": "4-0-8-0",
+            "duration": 525,
+            "inhale_method": "nose",
+            "exhale_method": "mouth"
+          }
+        ]
+      }
+    }
   }
 ]
