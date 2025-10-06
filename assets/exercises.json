@@ -155,40 +155,78 @@
     "exhale_method": "nose"
   },
   {
-    "id": "test-5-0-5-0",
-    "pattern": "5-0-5-0",
-    "duration": "10 sec",
-    "title": {
-      "en": "Test Breathing Exercise",
-      "nl": "Test Ademhalingsoefening",
-      "fr": "Exercice de Respiration Test",
-      "ja": "テスト呼吸法",
-      "pt": "Exercício de Respiração Teste",
-      "ru": "Тестовое дыхательное упражнение",
-      "ar": "تمرين تنفس تجريبي",
-      "es": "Ejercicio de Respiración de Prueba",
-      "zh": "测试呼吸练习",
-      "bg": "Тестово дихателно упражнение",
-      "de": "Testatmungsübung",
-      "it": "Esercizio di Respirazione di Test"
-    },
-    "intro": {
-      "en": "Test exercise with 5-0-5-0 pattern for 10 seconds.",
-      "nl": "Testoefening met 5-0-5-0 patroon gedurende 10 seconden.",
-      "fr": "Exercice test avec un schéma 5-0-5-0 pendant 10 secondes.",
-      "ja": "10秒間の5-0-5-0パターンのテスト練習。",
-      "pt": "Exercício de teste com padrão 5-0-5-0 por 10 segundos.",
-      "ru": "Тестовое упражнение с паттерном 5-0-5-0 в течение 10 секунд.",
-      "ar": "تمرين تجريبي بنمط 5-0-5-0 لمدة 10 ثوانٍ.",
-      "es": "Ejercicio de prueba con patrón 5-0-5-0 durante 10 segundos.",
-      "zh": "10秒5-0-5-0模式的测试练习。",
-      "bg": "Тестово упражнение с модел 5-0-5-0 за 10 секунди.",
-      "de": "Testübung mit 5-0-5-0-Muster für 10 Sekunden.",
-      "it": "Esercizio di test con schema 5-0-5-0 per 10 secondi."
-    },
-    "inhale_method": "nose",
-    "exhale_method": "mouth"
-  },
+     "id": "test-multi-stage",
+     "title": {
+       "en": "Test Multi-Stage Exercise",
+       "nl": "Test Meerfasige Oefening",
+       "fr": "Exercice Multi-Étapes Test",
+       "ja": "テストマルチステージ練習",
+       "pt": "Exercício Multiestágio Teste",
+       "ru": "Тестовое многостадийное упражнение",
+       "ar": "تمرين متعدد المراحل تجريبي",
+       "es": "Ejercicio Multi-Etapa de Prueba",
+       "zh": "测试多阶段练习",
+       "bg": "Тестово многостепенно упражнение",
+       "de": "Test-Mehrstufige Übung",
+       "it": "Esercizio Multi-Fase di Test"
+     },
+     "intro": {
+       "en": "Test exercise with multiple stages for testing seamless transitions.",
+       "nl": "Testoefening met meerdere fasen voor het testen van naadloze overgangen.",
+       "fr": "Exercice test avec plusieurs étapes pour tester les transitions fluides.",
+       "ja": "スムーズな遷移をテストするための複数ステージのテスト練習。",
+       "pt": "Exercício de teste com múltiplas etapas para testar transições suaves.",
+       "ru": "Тестовое упражнение с несколькими этапами для проверки плавных переходов.",
+       "ar": "تمرين تجريبي بمراحل متعددة لاختبار الانتقالات السلسة.",
+       "es": "Ejercicio de prueba con múltiples etapas para probar transiciones fluidas.",
+       "zh": "多阶段测试练习，用于测试无缝过渡。",
+       "bg": "Тестово упражнение с множество етапи за тестване на плавни преходи.",
+       "de": "Testübung mit mehreren Stufen zum Testen nahtloser Übergänge.",
+       "it": "Esercizio di test con più fasi per testare transizioni fluide."
+     },
+     "stages": [
+       {
+         "title": {
+           "en": "Stage 1: 5-0-5-0",
+           "nl": "Fase 1: 5-0-5-0",
+           "fr": "Étape 1: 5-0-5-0",
+           "ja": "ステージ1: 5-0-5-0",
+           "pt": "Estágio 1: 5-0-5-0",
+           "ru": "Этап 1: 5-0-5-0",
+           "ar": "المرحلة 1: 5-0-5-0",
+           "es": "Etapa 1: 5-0-5-0",
+           "zh": "阶段1: 5-0-5-0",
+           "bg": "Етап 1: 5-0-5-0",
+           "de": "Stufe 1: 5-0-5-0",
+           "it": "Fase 1: 5-0-5-0"
+         },
+         "pattern": "5-0-5-0",
+         "duration": 7,
+         "inhale_method": "nose",
+         "exhale_method": "mouth"
+       },
+       {
+         "title": {
+           "en": "Stage 2: 2-0-2-0",
+           "nl": "Fase 2: 2-0-2-0",
+           "fr": "Étape 2: 2-0-2-0",
+           "ja": "ステージ2: 2-0-2-0",
+           "pt": "Estágio 2: 2-0-2-0",
+           "ru": "Этап 2: 2-0-2-0",
+           "ar": "المرحلة 2: 2-0-2-0",
+           "es": "Etapa 2: 2-0-2-0",
+           "zh": "阶段2: 2-0-2-0",
+           "bg": "Етап 2: 2-0-2-0",
+           "de": "Stufe 2: 2-0-2-0",
+           "it": "Fase 2: 2-0-2-0"
+         },
+         "pattern": "2-0-2-0",
+         "duration": 8,
+         "inhale_method": "nose",
+         "exhale_method": "mouth"
+       }
+     ]
+   },
   {
     "id": "modified-4-7-8",
     "pattern": "4-2-6-2",

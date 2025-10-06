@@ -34,6 +34,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
   int _currentStageIndex = 0;
   late List<BreathingStage> _stages;
   late int _stageStartTime;
+  bool _waitingForCycleCompletion = false; // Track if we're waiting for current cycle to complete before stage transition
   
   // Track when sound effects have been played to prevent repetition
   bool _inhaleSoundPlayed = false;
@@ -79,6 +80,17 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     return {'inhale': inhale, 'hold1': hold1, 'exhale': exhale, 'hold2': hold2};
   }
 
+  bool _isCurrentCycleComplete(double currentTime, Map<String, int> timings) {
+    int inhale = timings['inhale']!;
+    int hold1 = timings['hold1']!;
+    int exhale = timings['exhale']!;
+    int hold2 = timings['hold2']!;
+    int totalCycleDuration = inhale + hold1 + exhale + hold2;
+
+    // Check if we're at or past the end of the current cycle
+    return currentTime >= totalCycleDuration - 0.1; // Small buffer for floating point precision
+  }
+
   @override
   void initState() {
     super.initState();
@@ -121,12 +133,13 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
   void _initializeStage(int stageIndex) {
     _currentStageIndex = stageIndex;
     final stage = _stages[stageIndex];
-    
+
     // Reset sound tracking variables for new stage
     _inhaleSoundPlayed = false;
     _exhaleSoundPlayed = false;
     _holdSoundPlayed = false;
     _lastInstruction = '';
+    _waitingForCycleCompletion = false; // Reset cycle completion flag for new stage
     
     List<int> patternValues;
     try {
@@ -202,6 +215,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     _exhaleSoundPlayed = false;
     _holdSoundPlayed = false;
     _lastInstruction = '';
+    _waitingForCycleCompletion = false; // Reset cycle completion flag for new animation cycle
 
     if (settings.musicMode != MusicMode.off) {
       String musicFile = '';
@@ -221,17 +235,42 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
       // Check if we need to move to the next stage (moved from addStatusListener)
       final elapsedSeconds = (DateTime.now().millisecondsSinceEpoch ~/ 1000) - _stageStartTime;
       final currentStage = _stages[_currentStageIndex];
-      
+
       if (elapsedSeconds >= currentStage.duration) {
-        // Move to next stage or end exercise
-        if (_currentStageIndex < _stages.length - 1) {
-          _initializeStage(_currentStageIndex + 1);
-          _currentCycle = 0;
-          return; // Exit early to avoid processing instruction for the old stage
+        // Stage time is up - check if we need to wait for cycle completion
+        if (!_waitingForCycleCompletion) {
+          // We're not waiting yet - check if cycle is complete
+          if (_isCurrentCycleComplete(currentTime, timings)) {
+            // Cycle is complete - transition immediately
+            if (_currentStageIndex < _stages.length - 1) {
+              _initializeStage(_currentStageIndex + 1);
+              _currentCycle = 0;
+              return; // Exit early to avoid processing instruction for the old stage
+            } else {
+              // Exercise completed - fade out music before navigating away
+              _onExerciseComplete();
+              return; // Exit early
+            }
+          } else {
+            // Cycle is not complete - start waiting for cycle completion
+            _waitingForCycleCompletion = true;
+          }
         } else {
-          // Exercise completed - fade out music before navigating away
-          _onExerciseComplete();
-          return; // Exit early
+          // We're waiting for cycle completion - check if it's now complete
+          if (_isCurrentCycleComplete(currentTime, timings)) {
+            // Cycle is now complete - transition to next stage
+            _waitingForCycleCompletion = false;
+            if (_currentStageIndex < _stages.length - 1) {
+              _initializeStage(_currentStageIndex + 1);
+              _currentCycle = 0;
+              return; // Exit early to avoid processing instruction for the old stage
+            } else {
+              // Exercise completed - fade out music before navigating away
+              _onExerciseComplete();
+              return; // Exit early
+            }
+          }
+          // If we're waiting but cycle is not complete yet, do nothing and continue waiting
         }
       }
 
