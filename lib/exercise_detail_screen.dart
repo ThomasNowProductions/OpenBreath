@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:OpenBreath/data.dart';
 import 'package:OpenBreath/exercise_screen.dart';
 import 'package:OpenBreath/l10n/app_localizations.dart';
-import 'package:clipboard/clipboard.dart';
 
 class ExerciseDetailScreen extends StatefulWidget {
   final BreathingExercise exercise;
@@ -21,13 +20,6 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.exercise.title),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.link),
-            onPressed: () => _copyExerciseLink(context),
-            tooltip: AppLocalizations.of(context).copyLink,
-          ),
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -169,16 +161,4 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
     }
   }
 
-  void _copyExerciseLink(BuildContext context) {
-    final String shareUrl = 'https://openbreath.vercel.app/exercise/${widget.exercise.id}';
-
-    FlutterClipboard.copy(shareUrl).then((_) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context).linkCopied),
-          duration: const Duration(seconds: 2),
-        ),
-      );
-    });
-  }
 }
