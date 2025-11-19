@@ -31,16 +31,16 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
   late AnimationController _bubbleAnimationController;
   late Animation<double> _bubbleAnimation;
   String _instruction = '';
-  int _currentCycle = 0;
+  // int _currentCycle = 0; // Unused field
   int _currentStageIndex = 0;
   late List<BreathingStage> _stages;
   late int _stageStartTime;
   bool _waitingForCycleCompletion = false; // Track if we're waiting for current cycle to complete before stage transition
   
   // Track when sound effects have been played to prevent repetition
-  bool _inhaleSoundPlayed = false;
-  bool _exhaleSoundPlayed = false;
-  bool _holdSoundPlayed = false;
+  // bool _inhaleSoundPlayed = false; // Unused field
+  // bool _exhaleSoundPlayed = false; // Unused field
+  // bool _holdSoundPlayed = false; // Unused field
   String _lastInstruction = ''; // Track the previous instruction
 
   // Track the current phase for breathing method instructions
@@ -138,9 +138,6 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     final stage = _stages[stageIndex];
 
     // Reset sound tracking variables for new stage
-    _inhaleSoundPlayed = false;
-    _exhaleSoundPlayed = false;
-    _holdSoundPlayed = false;
     _lastInstruction = '';
     _waitingForCycleCompletion = false; // Reset cycle completion flag for new stage
     
@@ -214,9 +211,6 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     int totalDurationSeconds = inhale + hold1 + exhale + hold2;
 
     // Reset sound tracking variables for new animation cycle
-    _inhaleSoundPlayed = false;
-    _exhaleSoundPlayed = false;
-    _holdSoundPlayed = false;
     _lastInstruction = '';
     _waitingForCycleCompletion = false; // Reset cycle completion flag for new animation cycle
 
@@ -247,7 +241,6 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
             // Cycle is complete - transition immediately
             if (_currentStageIndex < _stages.length - 1) {
               _initializeStage(_currentStageIndex + 1);
-              _currentCycle = 0;
               return; // Exit early to avoid processing instruction for the old stage
             } else {
               // Exercise completed - fade out music before navigating away
@@ -265,7 +258,6 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
             _waitingForCycleCompletion = false;
             if (_currentStageIndex < _stages.length - 1) {
               _initializeStage(_currentStageIndex + 1);
-              _currentCycle = 0;
               return; // Exit early to avoid processing instruction for the old stage
             } else {
               // Exercise completed - fade out music before navigating away
@@ -285,8 +277,6 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
           // Play sound effect only once when entering inhale phase
           if (settings.voiceGuideMode == VoiceGuideMode.thomas && _lastInstruction != _instruction) {
             _soundEffectPlayer.play(AssetSource('sounds/in.wav'));
-            _inhaleSoundPlayed = true;
-            _holdSoundPlayed = false; // Reset hold sound tracking
           }
         } else if (hold1 > 0 && currentTime >= inhale && currentTime < (inhale + hold1)) {
           _instruction = 'Hold';
@@ -294,8 +284,6 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
           // Play sound effect only once when entering first hold phase
           if (settings.voiceGuideMode == VoiceGuideMode.thomas && _lastInstruction != _instruction) {
             _soundEffectPlayer.play(AssetSource('sounds/hold.wav'));
-            _holdSoundPlayed = true;
-            _inhaleSoundPlayed = false; // Reset inhale sound tracking
           }
         } else if (currentTime >= (inhale + hold1) && currentTime < (inhale + hold1 + exhale)) {
           _instruction = l10n.exhale;
@@ -303,8 +291,6 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
           // Play sound effect only once when entering exhale phase
           if (settings.voiceGuideMode == VoiceGuideMode.thomas && _lastInstruction != _instruction) {
             _soundEffectPlayer.play(AssetSource('sounds/out.wav'));
-            _exhaleSoundPlayed = true;
-            _holdSoundPlayed = false; // Reset hold sound tracking
           }
         } else if (hold2 > 0 && currentTime >= (inhale + hold1 + exhale) && currentTime <= totalDurationSeconds) {
           _instruction = 'Hold';
@@ -312,8 +298,6 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
           // Play sound effect only once when entering second hold phase
           if (settings.voiceGuideMode == VoiceGuideMode.thomas && _lastInstruction != _instruction) {
             _soundEffectPlayer.play(AssetSource('sounds/hold.wav'));
-            _holdSoundPlayed = true;
-            _exhaleSoundPlayed = false; // Reset exhale sound tracking
           }
         }
         
@@ -340,7 +324,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     }
     
     // Navigate back after fade out is complete
-    if (context.mounted) {
+    if (mounted) {
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => const ExerciseFinishedScreen()));
     }
   }

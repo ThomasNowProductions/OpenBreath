@@ -3,16 +3,17 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:OpenBreath/data.dart'; // Assuming data.dart contains BreathingExercise
 import 'package:OpenBreath/prompt_cache_service.dart'; // Import the prompt cache service
+import 'package:OpenBreath/logger.dart';
 
 class GeminiService {
-  // TODO: Replace with your actual Gemini API key.
+  // API key is loaded from environment variables (.env file)
   // It's recommended to use environment variables or a secure method for API keys in production.
   static final String _apiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
   static const String _apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
   Future<String?> recommendExercise(String userInput, List<BreathingExercise> exercises) async {
     if (_apiKey == 'YOUR_GEMINI_API_KEY' || _apiKey.isEmpty) {
-      print('Gemini API Key is not set. Please set your API key in lib/gemini_service.dart');
+      AppLogger.warning('Gemini API Key is not set. Please set your API key in lib/gemini_service.dart');
       return null;
     }
 
@@ -35,7 +36,7 @@ If the user's request is completely unrelated to breathing exercises, respond wi
     // Check if we have a cached response for this prompt
     final cachedResponse = await PromptCacheService.getCachedResponse(prompt);
     if (cachedResponse != null) {
-      print('Using cached response for prompt: $userInput');
+      AppLogger.debug('Using cached response for prompt: $userInput');
       return cachedResponse;
     }
 
@@ -56,7 +57,7 @@ If the user's request is completely unrelated to breathing exercises, respond wi
 
       if (response.statusCode == 200) {
         final jsonResponse = jsonDecode(response.body);
-        print('Gemini API Raw Response: ${response.body}'); // Debugging line
+        AppLogger.debug('Gemini API Raw Response: ${response.body}');
         final String? recommendedId = jsonResponse['candidates']?[0]['content']?['parts']?[0]?['text'];
         final result = recommendedId?.trim();
         
@@ -67,11 +68,11 @@ If the user's request is completely unrelated to breathing exercises, respond wi
         
         return result;
       } else {
-        print('Gemini API Error: ${response.statusCode} - ${response.body}');
+        AppLogger.error('Gemini API Error: ${response.statusCode} - ${response.body}');
         return null;
       }
     } catch (e) {
-      print('Error calling Gemini API: $e');
+      AppLogger.error('Error calling Gemini API', e);
       return null;
     }
   }

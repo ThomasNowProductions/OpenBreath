@@ -173,12 +173,14 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
     final String shareUrl = 'https://openbreath.vercel.app/exercise/${widget.exercise.id}';
 
     FlutterClipboard.copy(shareUrl).then((_) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context).linkCopied),
-          duration: const Duration(seconds: 2),
-        ),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(this.context).showSnackBar(
+          SnackBar(
+            content: Text(AppLocalizations.of(this.context).linkCopied),
+            duration: const Duration(seconds: 2),
+          ),
+        );
+      }
     });
   }
 }
