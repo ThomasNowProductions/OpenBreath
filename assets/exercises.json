@@ -1,41 +1,5 @@
 [
   {
-    "id": "box-breathing",
-    "pattern": "4-4-4-4",
-    "duration": "4 min",
-    "title": {
-      "en": "Box Breathing",
-      "nl": "Box Ademhaling",
-      "fr": "Respiration carrée",
-      "ja": "ボックス呼吸法",
-      "pt": "Respiração Quadrada",
-      "ru": "Квадратное дыхание",
-      "ar": "تمرين التنفس المربع"
-    },
-    "intro": {
-      "en": "A simple technique to calm your mind and body.",
-      "nl": "Een eenvoudige techniek om je geest en lichaam te kalmeren.",
-      "fr": "Une technique simple pour calmer votre esprit et votre corps.",
-      "ja": "心と体を落ち着けるための簡単なテクニック。",
-      "pt": "Uma técnica simples para acalmar sua mente e corpo.",
-      "ru": "Простая техника для успокоения ума и тела.",
-      "ar": "تقنية بسيطة لتطمئن عقلك وجسمك."
-    },
-    "inhale_method": "nose",
-    "exhale_method": "mouth",
-    "versions": {
-      "short": {
-        "duration": "3 min"
-      },
-      "normal": {
-        "duration": "4 min"
-      },
-      "long": {
-        "duration": "5 min"
-      }
-    }
-  },
-  {
     "id": "relaxing-breath",
     "pattern": "4-7-8-0",
     "duration": "4 min",

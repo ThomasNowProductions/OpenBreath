@@ -450,186 +450,182 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _patternInvalid
-          ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    ':-(',
-                    style: TextStyle(fontSize: 64),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    AppLocalizations.of(context).exerciseInvalid,
-                    style: TextStyle(fontSize: 24),
-                  ),
-                ],
-              ),
-            )
-          : Stack(
-              children: [
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // Fixed size container for the bubble to prevent layout shifts
-                      SizedBox(
-                        width: 300,
-                        height: 300,
-                        child: AnimatedBuilder(
-                          animation: Listenable.merge([_breatheAnimation, _bubbleAnimation]),
-                          builder: (context, child) {
-                            final currentRadius = 150 * _breatheAnimation.value;
-                            return CustomPaint(
-                              painter: BubblePainter(
-                                _bubbleAnimation.value,
-                                currentRadius,
-                                Theme.of(context).colorScheme.secondary,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Theme.of(context).scaffoldBackgroundColor,
+              Theme.of(context).scaffoldBackgroundColor.withOpacity(0.95),
+            ],
+          ),
+        ),
+        child: _patternInvalid
+            ? Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 80,
+                      height: 80,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Theme.of(context).colorScheme.error.withOpacity(0.1),
+                            Theme.of(context).colorScheme.error.withOpacity(0.05),
+                          ],
+                        ),
+                      ),
+                      child: Icon(
+                        Icons.error_outline,
+                        size: 32,
+                        color: Theme.of(context).colorScheme.error,
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    Text(
+                      AppLocalizations.of(context).exerciseInvalid,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        color: Theme.of(context).colorScheme.onSurface.withOpacity(0.8),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              )
+            : SafeArea(
+                child: Stack(
+                  children: [
+                    Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // Enhanced breathing bubble
+                          Container(
+                            width: 320,
+                            height: 320,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Theme.of(context).scaffoldBackgroundColor.withOpacity(0.1),
+                                  Theme.of(context).scaffoldBackgroundColor.withOpacity(0.05),
+                                ],
                               ),
-                              child: SizedBox(
-                                width: currentRadius * 2,
-                                height: currentRadius * 2,
-                                child: Center(
-                                  child: FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child: Text(
-                                      _instruction,
-                                      style: TextStyle(
-                                        fontSize: 32,
-                                        fontWeight: FontWeight.bold,
-                                        color: Theme.of(context).colorScheme.onPrimary,
+                            ),
+                            child: AnimatedBuilder(
+                              animation: Listenable.merge([_breatheAnimation, _bubbleAnimation]),
+                              builder: (context, child) {
+                                final currentRadius = 140 * _breatheAnimation.value;
+                                return CustomPaint(
+                                  painter: BubblePainter(
+                                    _bubbleAnimation.value,
+                                    currentRadius,
+                                    Theme.of(context).colorScheme.primary,
+                                  ),
+                                  child: SizedBox(
+                                    width: currentRadius * 2,
+                                    height: currentRadius * 2,
+                                    child: Center(
+                                      child: FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: Text(
+                                          _instruction,
+                                          style: TextStyle(
+                                            fontSize: 28,
+                                            fontWeight: FontWeight.w300,
+                                            color: Theme.of(context).colorScheme.onPrimary,
+                                            letterSpacing: -0.5,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      // Display breathing method instructions below the bubble
-                      _buildBreathingMethodInstruction(context),
-                      SizedBox(height: 10),
-                      // Display current stage information below the bubble
-                      if (widget.exercise.hasStages || widget.exercise.getStagesForVersion(widget.selectedVersion ?? ExerciseVersion.normal) != null) ...[
-                        Text(
-                          '${_stages[_currentStageIndex].title} (${_currentStageIndex + 1}/${_stages.length})',
-                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          '${AppLocalizations.of(context).pattern}: ${_stages[_currentStageIndex].pattern}',
-                          style: Theme.of(context).textTheme.bodyMedium,
-                          textAlign: TextAlign.center,
-                        ),
-                      ] else ...[
-                        Text(
-                          '${AppLocalizations.of(context).pattern}: ${widget.exercise.getPatternForVersion(widget.selectedVersion ?? ExerciseVersion.normal)}',
-                          style: Theme.of(context).textTheme.bodyMedium,
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ],
-                  ),
-                ),
-                // Add swipe detection area for settings
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: GestureDetector(
-                    onPanUpdate: (details) {
-                      // Detect right-to-left swipe
-                      if (details.delta.dx < 0) { // Swiping left
-                        // Only navigate if the swipe is significant enough
-                        if (details.delta.dx < -5) {
-                          Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => SettingsScreen(
-                                fromExercise: true,
-                              ),
-                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                return Stack(
-                                  children: [
-                                    // Slide out current screen to the left
-                                    SlideTransition(
-                                      position: Tween<Offset>(
-                                        begin: Offset.zero,
-                                        end: const Offset(-1.0, 0.0),
-                                      ).animate(CurvedAnimation(
-                                        parent: animation,
-                                        curve: Curves.easeInOut,
-                                      )),
-                                      child: const SizedBox.expand(),
-                                    ),
-                                    // Settings screen stays mostly stationary with slight slide in
-                                    SlideTransition(
-                                      position: Tween<Offset>(
-                                        begin: const Offset(1.0, 0.0),
-                                        end: Offset.zero,
-                                      ).animate(CurvedAnimation(
-                                        parent: animation,
-                                        curve: Curves.easeInOut,
-                                      )),
-                                      child: child,
-                                    ),
-                                  ],
                                 );
                               },
-                              transitionDuration: const Duration(milliseconds: 300),
                             ),
-                          ).then((value) {
-                            // If settings return with instruction to stop exercise, handle it
-                            if (value == 'stop_exercise') {
-                              _onExerciseComplete();
-                            }
-                          });
-                        }
-                      }
-                    },
-                    child: Container(
-                      // Transparent container to capture gestures
-                      color: Colors.transparent,
+                          ),
+                          const SizedBox(height: 40),
+                          // Breathing method instructions
+                          _buildBreathingMethodInstruction(context),
+                        ],
+                      ),
                     ),
-                  ),
+                    // Add swipe detection area for settings
+                    Positioned(
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: GestureDetector(
+                        onPanUpdate: (details) {
+                          // Detect right-to-left swipe
+                          if (details.delta.dx < 0) { // Swiping left
+                            // Only navigate if the swipe is significant enough
+                            if (details.delta.dx < -5) {
+                              Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                  pageBuilder: (context, animation, secondaryAnimation) => SettingsScreen(
+                                    fromExercise: true,
+                                  ),
+                                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                    return Stack(
+                                      children: [
+                                        // Slide out current screen to the left
+                                        SlideTransition(
+                                          position: Tween<Offset>(
+                                            begin: Offset.zero,
+                                            end: const Offset(-1.0, 0.0),
+                                          ).animate(CurvedAnimation(
+                                            parent: animation,
+                                            curve: Curves.easeInOut,
+                                          )),
+                                          child: const SizedBox.expand(),
+                                        ),
+                                        // Settings screen stays mostly stationary with slight slide in
+                                        SlideTransition(
+                                          position: Tween<Offset>(
+                                            begin: const Offset(1.0, 0.0),
+                                            end: Offset.zero,
+                                          ).animate(CurvedAnimation(
+                                            parent: animation,
+                                            curve: Curves.easeInOut,
+                                          )),
+                                          child: child,
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                  transitionDuration: const Duration(milliseconds: 300),
+                                ),
+                              ).then((value) {
+                                // If settings return with instruction to stop exercise, handle it
+                                if (value == 'stop_exercise') {
+                                  _onExerciseComplete();
+                                }
+                              });
+                            }
+                          }
+                        },
+                        child: Container(
+                          // Transparent container to capture gestures
+                          color: Colors.transparent,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                // Positioned(
-                //   top: 20,
-                //   right: 20,
-                //   child: PopupMenuButton<String>(
-                //     icon: Icon(
-                //       Icons.more_vert,
-                //       size: 30,
-                //       color: Theme.of(context).colorScheme.onSurface,
-                //     ),
-                //     onSelected: (String result) {
-                //       if (result == 'close') {
-                //         _onExerciseComplete(); // Use the same completion method for consistent fade out
-                //       } else if (result == 'settings') {
-                //         Navigator.pushNamed(context, '/settings');
-                //       }
-                //     },
-                //     itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                //       PopupMenuItem<String>(
-                //         value: 'settings',
-                //         child: Text(AppLocalizations.of(context).settings),
-                //       ),
-                //       PopupMenuItem<String>(
-                //         value: 'close',
-                //         child: Text(AppLocalizations.of(context).close),
-                //       ),
-                //     ],
-                //   ),
-                // ),
-              ],
-            ),
+              ),
+        ),
     );
   }
 }

@@ -133,69 +133,189 @@ class _GeminiExerciseScreenState extends State<GeminiExerciseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        elevation: 0,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         actions: [
           IconButton(
-            icon: Icon(Icons.settings_outlined, color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7)),
+            icon: Icon(
+              Icons.settings_outlined,
+              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+              size: 24,
+            ),
             onPressed: () {
               Navigator.pushNamed(context, '/settings');
             },
           ),
         ],
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'How are you feeling today?', // Friendly title
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.onSurface,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 30),
-              ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 500),
-                child: TextField(
-                  controller: _userInputController,
-                  decoration: InputDecoration(
-                    hintText: 'e.g., "stressed", "need to focus", "just worked out"',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Theme.of(context).scaffoldBackgroundColor,
+              Theme.of(context).scaffoldBackgroundColor.withOpacity(0.95),
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                child: SingleChildScrollView(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: constraints.maxHeight,
                     ),
-                    suffixIcon: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        _isLoading
-                            ? const Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: CircularProgressIndicator(strokeWidth: 2),
-                              )
-                            : IconButton(
-                                icon: Icon(_isListening ? Icons.mic_off : Icons.mic,
-                                    color: _isListening
-                                        ? Theme.of(context).colorScheme.primary
-                                        : Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7)),
-                                onPressed: _isListening ? _stopListening : _startListening,
+                    child: IntrinsicHeight(
+                      child: Column(
+                        children: [
+                          const Spacer(flex: 1),
+                          Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Theme.of(context).colorScheme.primary.withOpacity(0.15),
+                                  Theme.of(context).colorScheme.primary.withOpacity(0.08),
+                                ],
                               ),
-                        IconButton(
-                          icon: Icon(Icons.send, color: Theme.of(context).colorScheme.primary),
-                          onPressed: _getRecommendation,
-                        ),
-                      ],
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+                                  blurRadius: 20,
+                                  offset: const Offset(0, 8),
+                                ),
+                              ],
+                            ),
+                            child: Icon(
+                              Icons.psychology_outlined,
+                              size: 40,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                          ),
+                          const SizedBox(height: 40),
+                          Text(
+                            'How are you feeling today?',
+                            style: TextStyle(
+                              fontSize: 32,
+                              fontWeight: FontWeight.w300,
+                              color: Theme.of(context).colorScheme.onSurface,
+                              letterSpacing: -0.5,
+                              height: 1.2,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 12),
+                          Text(
+                            'Tell me about your mood or what you need',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+                              height: 1.4,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 48),
+                          Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).cardColor,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.08),
+                                  blurRadius: 16,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ],
+                            ),
+                            child: TextField(
+                              controller: _userInputController,
+                              decoration: InputDecoration(
+                                hintText: 'e.g., "stressed", "need to focus", "just worked out"',
+                                border: InputBorder.none,
+                                contentPadding: const EdgeInsets.all(24),
+                                hintStyle: TextStyle(
+                                  color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                                suffixIcon: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      if (_isLoading)
+                                        Container(
+                                          width: 24,
+                                          height: 24,
+                                          padding: const EdgeInsets.all(2),
+                                          child: CircularProgressIndicator(
+                                            strokeWidth: 2,
+                                            valueColor: AlwaysStoppedAnimation<Color>(
+                                              Theme.of(context).colorScheme.primary,
+                                            ),
+                                          ),
+                                        )
+                                      else
+                                        IconButton(
+                                          icon: Icon(
+                                            _isListening ? Icons.mic_off : Icons.mic,
+                                            color: _isListening
+                                                ? Theme.of(context).colorScheme.primary
+                                                : Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
+                                            size: 24,
+                                          ),
+                                          onPressed: _isListening ? _stopListening : _startListening,
+                                        ),
+                                      const SizedBox(width: 8),
+                                      Container(
+                                        width: 48,
+                                        height: 48,
+                                        decoration: BoxDecoration(
+                                          color: Theme.of(context).colorScheme.primary,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: IconButton(
+                                          icon: Icon(
+                                            Icons.send,
+                                            color: Theme.of(context).colorScheme.onPrimary,
+                                            size: 20,
+                                          ),
+                                          onPressed: _getRecommendation,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.onSurface,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              onSubmitted: (_) => _getRecommendation(),
+                              maxLines: 3,
+                              cursorColor: Theme.of(context).colorScheme.primary,
+                              cursorWidth: 2,
+                            ),
+                          ),
+                          const Spacer(flex: 2),
+                        ],
+                      ),
                     ),
                   ),
-                  onSubmitted: (_) => _getRecommendation(),
-                  maxLines: 3,
                 ),
-              ),
-              const SizedBox(height: 20),
-            ],
+              );
+            },
           ),
         ),
       ),
