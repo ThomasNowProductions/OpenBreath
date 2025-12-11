@@ -693,7 +693,7 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> with 
                   )
                 : ListView.builder(
                     itemCount: _filteredExercises.length,
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 16.0),
                     itemBuilder: (context, index) {
                       final exercise = _filteredExercises[index];
                       return Dismissible(
