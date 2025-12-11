@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-enum LanguagePreference { system, ar, bg, de, en, es, fr, it, ja, nl, pt, ru, zh }
+enum LanguagePreference { system, ar, bg, de, en, es, fr, hi, it, ja, ko, nl, pl, pt, ru, tr, zh }
 enum MusicMode { off, nature, lofi }
 enum VoiceGuideMode { off, thomas }
 enum ViewMode { list, ai }
@@ -37,16 +37,24 @@ class SettingsProvider extends ChangeNotifier {
         return const Locale('es');
       case LanguagePreference.fr:
         return const Locale('fr');
+      case LanguagePreference.hi:
+        return const Locale('hi');
       case LanguagePreference.it:
         return const Locale('it');
       case LanguagePreference.ja:
         return const Locale('ja');
+      case LanguagePreference.ko:
+        return const Locale('ko');
       case LanguagePreference.nl:
         return const Locale('nl');
+      case LanguagePreference.pl:
+        return const Locale('pl');
       case LanguagePreference.pt:
         return const Locale('pt');
       case LanguagePreference.ru:
         return const Locale('ru');
+      case LanguagePreference.tr:
+        return const Locale('tr');
       case LanguagePreference.zh:
         return const Locale('zh');
     }
@@ -86,20 +94,32 @@ class SettingsProvider extends ChangeNotifier {
         case 'fr':
           _languagePreference = LanguagePreference.fr;
           break;
+        case 'hi':
+          _languagePreference = LanguagePreference.hi;
+          break;
         case 'it':
           _languagePreference = LanguagePreference.it;
           break;
         case 'ja':
           _languagePreference = LanguagePreference.ja;
           break;
+        case 'ko':
+          _languagePreference = LanguagePreference.ko;
+          break;
         case 'nl':
           _languagePreference = LanguagePreference.nl;
+          break;
+        case 'pl':
+          _languagePreference = LanguagePreference.pl;
           break;
         case 'pt':
           _languagePreference = LanguagePreference.pt;
           break;
         case 'ru':
           _languagePreference = LanguagePreference.ru;
+          break;
+        case 'tr':
+          _languagePreference = LanguagePreference.tr;
           break;
         case 'zh':
           _languagePreference = LanguagePreference.zh;
@@ -157,20 +177,32 @@ class SettingsProvider extends ChangeNotifier {
       case LanguagePreference.fr:
         await prefs.setString('languagePreference', 'fr');
         break;
+      case LanguagePreference.hi:
+        await prefs.setString('languagePreference', 'hi');
+        break;
       case LanguagePreference.it:
         await prefs.setString('languagePreference', 'it');
         break;
       case LanguagePreference.ja:
         await prefs.setString('languagePreference', 'ja');
         break;
+      case LanguagePreference.ko:
+        await prefs.setString('languagePreference', 'ko');
+        break;
       case LanguagePreference.nl:
         await prefs.setString('languagePreference', 'nl');
+        break;
+      case LanguagePreference.pl:
+        await prefs.setString('languagePreference', 'pl');
         break;
       case LanguagePreference.pt:
         await prefs.setString('languagePreference', 'pt');
         break;
       case LanguagePreference.ru:
         await prefs.setString('languagePreference', 'ru');
+        break;
+      case LanguagePreference.tr:
+        await prefs.setString('languagePreference', 'tr');
         break;
       case LanguagePreference.zh:
         await prefs.setString('languagePreference', 'zh');

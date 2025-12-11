@@ -360,20 +360,32 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> with 
       case LanguagePreference.fr:
         await loadBreathingExercisesForLanguageCode('fr');
         break;
+      case LanguagePreference.hi:
+        await loadBreathingExercisesForLanguageCode('hi');
+        break;
       case LanguagePreference.it:
         await loadBreathingExercisesForLanguageCode('it');
         break;
       case LanguagePreference.ja:
         await loadBreathingExercisesForLanguageCode('ja');
         break;
+      case LanguagePreference.ko:
+        await loadBreathingExercisesForLanguageCode('ko');
+        break;
       case LanguagePreference.nl:
         await loadBreathingExercisesForLanguageCode('nl');
+        break;
+      case LanguagePreference.pl:
+        await loadBreathingExercisesForLanguageCode('pl');
         break;
       case LanguagePreference.pt:
         await loadBreathingExercisesForLanguageCode('pt');
         break;
       case LanguagePreference.ru:
         await loadBreathingExercisesForLanguageCode('ru');
+        break;
+      case LanguagePreference.tr:
+        await loadBreathingExercisesForLanguageCode('tr');
         break;
       case LanguagePreference.zh:
         await loadBreathingExercisesForLanguageCode('zh');
