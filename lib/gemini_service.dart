@@ -8,7 +8,7 @@ class GeminiService {
   // API key is loaded from environment variables (.env file)
   // It's recommended to use environment variables or a secure method for API keys in production.
   static final String _apiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
-  static const String _apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
+  static const String _apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent';
 
   Future<String?> recommendExercise(String userInput, List<BreathingExercise> exercises) async {
     if (_apiKey == 'YOUR_GEMINI_API_KEY' || _apiKey.isEmpty) {
