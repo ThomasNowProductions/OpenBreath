@@ -1,0 +1,204 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Ukrainian (`uk`).
+class AppLocalizationsUk extends AppLocalizations {
+  AppLocalizationsUk([String locale = 'uk']) : super(locale);
+
+  @override
+  String get appTitle => 'BreathSpace';
+
+  @override
+  String get searchHint => 'Пошук вправ...';
+
+  @override
+  String get progressive => 'Прогресивний';
+
+  @override
+  String get settings => 'Налаштування';
+
+  @override
+  String get language => 'Мова';
+
+  @override
+  String get languageSystem => 'Системна за замовчуванням';
+
+  @override
+  String get languageEnglish => 'Англійська';
+
+  @override
+  String get languageDutch => 'Голландська';
+
+  @override
+  String get languageSpanish => 'Іспанська';
+
+  @override
+  String get languageItalian => 'Італійська';
+
+  @override
+  String get languageGerman => 'Німецька';
+
+  @override
+  String get languageChinese => 'Китайська';
+
+  @override
+  String get languageBulgarian => 'Болгарська';
+
+  @override
+  String get languageFrench => 'Французька';
+
+  @override
+  String get languageJapanese => 'Японська';
+
+  @override
+  String get languagePortuguese => 'Португальська';
+
+  @override
+  String get languageRussian => 'Російська';
+
+  @override
+  String get languageArabic => 'Арабська';
+
+  @override
+  String get theme => 'Тема';
+
+  @override
+  String get themeSystem => 'Системна за замовчуванням';
+
+  @override
+  String get themeLight => 'Світла';
+
+  @override
+  String get themeDark => 'Темна';
+
+  @override
+  String get autoSelectSearchBar => 'Автоматичне виділення рядка пошуку';
+
+  @override
+  String get useListView => 'Використовувати перегляд списком';
+
+  @override
+  String get start => 'Почати';
+
+  @override
+  String get noExercisesFound => 'Вправ не знайдено.';
+
+  @override
+  String get inhale => 'Вдих';
+
+  @override
+  String get exhale => 'Видих';
+
+  @override
+  String get hold => 'Затримайте спокійно';
+
+  @override
+  String get throughNose => 'через ніс';
+
+  @override
+  String get throughMouth => 'через рот';
+
+  @override
+  String get whileHoldingBreath => 'під час затримки дихання';
+
+  @override
+  String get close => 'Закрити';
+
+  @override
+  String get exerciseInvalid => 'Вправу не знайдено або недійсний шаблон.';
+
+  @override
+  String get progressiveExercise => 'Прогресивна вправа';
+
+  @override
+  String get pattern => 'Шаблон';
+
+  @override
+  String get soundEffects => 'Звукові ефекти';
+
+  @override
+  String get voiceGuide => 'Голосовий гід';
+
+  @override
+  String get voiceGuideOff => 'Вимкнено';
+
+  @override
+  String get voiceGuideThomas => 'Томас';
+
+  @override
+  String get music => 'Музика';
+
+  @override
+  String get musicOff => 'Вимкнено';
+
+  @override
+  String get musicNature => 'Природа';
+
+  @override
+  String get musicLofi => 'Лоуфі';
+
+  @override
+  String get replayIntro => 'Повторити вступ';
+
+  @override
+  String get welcomeTitle => 'Ласкаво просимо до BreathSpace';
+
+  @override
+  String get welcomeSubtitle => 'Ваш космос. Уповільніть, у будь-який час.';
+
+  @override
+  String get getStarted => 'Почати';
+
+  @override
+  String get promptCacheTitle => 'Кеш запитів ШІ';
+
+  @override
+  String get promptCacheSubtitle =>
+      'Кешовані відповіді для швидших рекомендацій';
+
+  @override
+  String get promptCacheEntries => 'записи';
+
+  @override
+  String get promptCacheClear => 'Очистити кеш';
+
+  @override
+  String get promptCacheCleared => 'Кеш запитів очищено';
+
+  @override
+  String get exerciseFinishedTitle => 'Вправу завершено';
+
+  @override
+  String get exerciseFinishedSubtitle => 'Сподіваюся, вам стало краще.';
+
+  @override
+  String get backToHome => 'Додому';
+
+  @override
+  String get copyLink => 'Копіювати посилання';
+
+  @override
+  String get copyExerciseLink => 'Копіювати посилання на вправу';
+
+  @override
+  String get linkCopied => 'Посилання скопійовано в буфер обміну';
+
+  @override
+  String get termsAgreementPrefix => 'Продовжуючи, ви погоджуєтеся з ';
+
+  @override
+  String get termsOfService => 'Умовами надання послуг';
+
+  @override
+  String get termsAgreementSuffix => '.';
+
+  @override
+  String get termsDialogTitle => 'Умови надання послуг';
+
+  @override
+  String get termsDialogContent =>
+      'Умови надання послуг\n\n1. Прийняття умов\nВикористовуючи BreathSpace, ви погоджуєтеся з цими умовами.\n\n2. Використання додатка\nBreathSpace призначений для дихальних вправ і медитації. Використовуйте відповідально.\n\n3. Конфіденційність\nМи збираємо мінімальні дані, щоб надавати наші послуги. Дивіться нашу Політику конфіденційності для отримання деталей.\n\n4. Можливості ШІ\nДодаток використовує ШІ для створення персоналізованих вправ. Згенерований контент призначений лише для інформаційних цілей.\n\n5. Обмеження відповідальності\nДодаток не є медичною порадою. Звертайтесь до фахівців з питань здоров\'я.\n\n6. Зміни до умов\nМи можемо оновлювати ці умови. Подальше використання означає прийняття.\n\nОстаннє оновлення: грудень 2024';
+}

@@ -11,6 +11,7 @@ import 'app_localizations_de.dart';
 import 'app_localizations_en.dart';
 import 'app_localizations_es.dart';
 import 'app_localizations_fr.dart';
+import 'app_localizations_he.dart';
 import 'app_localizations_hi.dart';
 import 'app_localizations_it.dart';
 import 'app_localizations_ja.dart';
@@ -19,7 +20,11 @@ import 'app_localizations_nl.dart';
 import 'app_localizations_pl.dart';
 import 'app_localizations_pt.dart';
 import 'app_localizations_ru.dart';
+import 'app_localizations_sw.dart';
+import 'app_localizations_th.dart';
 import 'app_localizations_tr.dart';
+import 'app_localizations_uk.dart';
+import 'app_localizations_vi.dart';
 import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
@@ -114,6 +119,7 @@ abstract class AppLocalizations {
     Locale('en'),
     Locale('es'),
     Locale('fr'),
+    Locale('he'),
     Locale('hi'),
     Locale('it'),
     Locale('ja'),
@@ -122,7 +128,11 @@ abstract class AppLocalizations {
     Locale('pl'),
     Locale('pt'),
     Locale('ru'),
+    Locale('sw'),
+    Locale('th'),
     Locale('tr'),
+    Locale('uk'),
+    Locale('vi'),
     Locale('zh'),
   ];
 
@@ -528,6 +538,7 @@ class _AppLocalizationsDelegate
     'en',
     'es',
     'fr',
+    'he',
     'hi',
     'it',
     'ja',
@@ -536,7 +547,11 @@ class _AppLocalizationsDelegate
     'pl',
     'pt',
     'ru',
+    'sw',
+    'th',
     'tr',
+    'uk',
+    'vi',
     'zh',
   ].contains(locale.languageCode);
 
@@ -559,6 +574,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsEs();
     case 'fr':
       return AppLocalizationsFr();
+    case 'he':
+      return AppLocalizationsHe();
     case 'hi':
       return AppLocalizationsHi();
     case 'it':
@@ -575,8 +592,16 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsPt();
     case 'ru':
       return AppLocalizationsRu();
+    case 'sw':
+      return AppLocalizationsSw();
+    case 'th':
+      return AppLocalizationsTh();
     case 'tr':
       return AppLocalizationsTr();
+    case 'uk':
+      return AppLocalizationsUk();
+    case 'vi':
+      return AppLocalizationsVi();
     case 'zh':
       return AppLocalizationsZh();
   }
