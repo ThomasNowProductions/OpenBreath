@@ -36,7 +36,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
   late List<BreathingStage> _stages;
   late int _stageStartTime;
   bool _waitingForCycleCompletion = false; // Track if we're waiting for current cycle to complete before stage transition
-  
+
   // Track when sound effects have been played to prevent repetition
   // bool _inhaleSoundPlayed = false; // Unused field
   // bool _exhaleSoundPlayed = false; // Unused field
@@ -51,6 +51,9 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
 
   final AudioPlayer _soundEffectPlayer = AudioPlayer();
   final AudioPlayer _musicPlayer = AudioPlayer();
+
+  // Store reference to settings provider for disposing the listener
+  SettingsProvider? _settingsProvider;
 
   List<int> _parsePattern(String pattern) {
     return pattern.split('-').map(int.parse).toList();
@@ -98,13 +101,13 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
   @override
   void initState() {
     super.initState();
-    
+
     // Keep the screen awake during the exercise
     WakelockPlus.enable();
-    
+
     // Hide the status bar during the exercise
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-    
+
     // Initialize stages based on selected version
     final selectedVersion = widget.selectedVersion ?? ExerciseVersion.normal;
 
@@ -122,17 +125,46 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
         )
       ];
     }
-    
+
     try {
       // Initialize controllers
       _controller = AnimationController(vsync: this, duration: Duration.zero);
       _bubbleAnimationController = AnimationController(vsync: this, duration: Duration.zero);
-      
+
       _initializeStage(0);
     } catch (e) {
       setState(() {
         _patternInvalid = true;
       });
+    }
+
+    // Listen for settings changes to immediately apply music changes
+    _settingsProvider = Provider.of<SettingsProvider>(context, listen: false);
+    _settingsProvider!.addListener(_handleSettingsChange);
+  }
+
+  // Handle settings changes to immediately apply music changes
+  void _handleSettingsChange() {
+    // Only handle music mode changes
+    _updateMusicPlayback(_settingsProvider!.musicMode);
+  }
+
+  // Update music playback based on the new music mode
+  Future<void> _updateMusicPlayback(MusicMode newMusicMode) async {
+    // Stop current music if playing
+    await _musicPlayer.stop();
+    await _musicPlayer.setVolume(1.0);
+
+    // Start new music if not off
+    if (newMusicMode != MusicMode.off) {
+      String musicFile = '';
+      if (newMusicMode == MusicMode.nature) {
+        musicFile = 'music/nature.mp3';
+      } else if (newMusicMode == MusicMode.lofi) {
+        musicFile = 'music/lofi.mp3';
+      }
+      _musicPlayer.play(AssetSource(musicFile));
+      _musicPlayer.setReleaseMode(ReleaseMode.loop);
     }
   }
 
@@ -146,7 +178,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
 
     // Reset breathing cycle count for new stage
     _breathingCycleCount = 0;
-    
+
     List<int> patternValues;
     try {
       patternValues = _parsePattern(stage.pattern);
@@ -368,6 +400,8 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     _soundEffectPlayer.stop();
     _soundEffectPlayer.dispose();
     _musicPlayer.dispose();
+    // Remove settings listener
+    _settingsProvider?.removeListener(_handleSettingsChange);
     // Disable wakelock when exercise is finished
     WakelockPlus.disable();
     // Restore the status bar when exercise is finished
