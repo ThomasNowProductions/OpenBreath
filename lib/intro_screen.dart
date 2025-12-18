@@ -241,6 +241,9 @@ class _IntroScreenState extends State<IntroScreen> with SingleTickerProviderStat
                             setState(() {
                               _selectedLanguage = newValue;
                             });
+                            // Immediately update the language preference to trigger UI update
+                            final settingsProvider = Provider.of<SettingsProvider>(context, listen: false);
+                            settingsProvider.setLanguagePreference(newValue);
                           }
                         },
                       ),
