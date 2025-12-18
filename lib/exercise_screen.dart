@@ -383,6 +383,22 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     }
   }
 
+  // Method to handle exercise completion with immediate stop (hardcut)
+  Future<void> _onExerciseCompleteHardCut() async {
+    // Prevent multiple calls to exercise completion
+    if (_exerciseCompleted) return;
+    _exerciseCompleted = true;
+
+    // Immediately stop music without fade out for hardcut
+    await _musicPlayer.stop();
+    await _musicPlayer.setVolume(1.0);
+
+    // Navigate back immediately without fade out
+    if (mounted) {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => const ExerciseFinishedScreen()));
+    }
+  }
+
   int _parseDurationString(String duration) {
     // Parse duration string like "4 min" or "240 sec"
     if (duration.contains('min')) {
@@ -612,39 +628,19 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
                                     fromExercise: true,
                                   ),
                                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                    return Stack(
-                                      children: [
-                                        // Slide out current screen to the left
-                                        SlideTransition(
-                                          position: Tween<Offset>(
-                                            begin: Offset.zero,
-                                            end: const Offset(-1.0, 0.0),
-                                          ).animate(CurvedAnimation(
-                                            parent: animation,
-                                            curve: Curves.easeInOut,
-                                          )),
-                                          child: const SizedBox.expand(),
-                                        ),
-                                        // Settings screen stays mostly stationary with slight slide in
-                                        SlideTransition(
-                                          position: Tween<Offset>(
-                                            begin: const Offset(1.0, 0.0),
-                                            end: Offset.zero,
-                                          ).animate(CurvedAnimation(
-                                            parent: animation,
-                                            curve: Curves.easeInOut,
-                                          )),
-                                          child: child,
-                                        ),
-                                      ],
-                                    );
+                                    // Hard cut transition - instant appearance without animation
+                                    return child;
                                   },
-                                  transitionDuration: const Duration(milliseconds: 300),
+                                  transitionDuration: Duration.zero,
+                                  reverseTransitionDuration: Duration.zero,
                                 ),
                               ).then((value) {
                                 // If settings return with instruction to stop exercise, handle it
                                 if (value == 'stop_exercise') {
                                   _onExerciseComplete();
+                                } else if (value == 'stop_exercise_hardcut') {
+                                  // Hard cut stop - immediately stop everything without fade
+                                  _onExerciseCompleteHardCut();
                                 }
                               });
                             }

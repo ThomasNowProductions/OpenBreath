@@ -74,8 +74,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     margin: const EdgeInsets.only(bottom: 24),
                     child: ElevatedButton(
                       onPressed: () {
-                        // Return a value to indicate the exercise should be stopped
-                        Navigator.of(context).pop('stop_exercise');
+                        // Return a value to indicate the exercise should be stopped hardcut
+                        Navigator.of(context).pop('stop_exercise_hardcut');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Theme.of(context).colorScheme.error,
