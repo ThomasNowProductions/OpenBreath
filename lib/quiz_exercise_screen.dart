@@ -384,11 +384,18 @@ class _QuizExerciseScreenState extends State<QuizExerciseScreen> {
     String feelingDescription = _selectedFeeling != null ? _getIconLabelFromValue(_selectedFeeling!) : '';
     String needDescription = _selectedNeed != null ? _getIconLabelFromValue(_selectedNeed!) : '';
 
-    // Create a descriptive prompt for the Gemini API
-    String prompt = "Based on my current state: mood is ${moodDescription.isEmpty ? 'not specified' : moodDescription}, "
-        "feeling is ${feelingDescription.isEmpty ? 'not specified' : feelingDescription}, "
-        "and I need ${needDescription.isEmpty ? 'not specified' : needDescription}. "
-        "Please recommend the most appropriate breathing exercise for me.";
+    // Create a descriptive prompt for the Gemini API with more context and structure
+    String prompt = "I need a personalized breathing exercise recommendation based on my current state. "
+        "My mood is ${moodDescription.isEmpty ? 'not specified' : moodDescription.toLowerCase()}, "
+        "I'm feeling ${feelingDescription.isEmpty ? 'not specified' : feelingDescription.toLowerCase()}, "
+        "and what I need most right now is ${needDescription.isEmpty ? 'not specified' : needDescription.toLowerCase()}. "
+        "Please recommend the most appropriate breathing exercise from the following list of exercises, considering: "
+        "1) My emotional state (${moodDescription.isEmpty ? 'not specified' : moodDescription.toLowerCase()}, ${feelingDescription.isEmpty ? 'not specified' : feelingDescription.toLowerCase()}) "
+        "2) My desired outcome (${needDescription.isEmpty ? 'not specified' : needDescription.toLowerCase()}) "
+        "3) The exercise duration and complexity level that matches my current situation. "
+        "Provide only the ID of the most suitable breathing exercise from the available options. "
+        "Available exercise categories include: stress relief, sleep preparation, anxiety management, "
+        "energy boosting, focus enhancement, meditation preparation, physical recovery, and general relaxation.";
 
     // Navigate to ExerciseDetailScreen with AI callback to get personalized recommendation
     Navigator.push(
