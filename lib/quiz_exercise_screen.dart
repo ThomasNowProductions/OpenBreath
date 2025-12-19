@@ -15,7 +15,7 @@ class _QuizExerciseScreenState extends State<QuizExerciseScreen> {
   // Quiz step tracking
   int _currentStep = 0;
   
-  // Selected emoji choices
+  // Selected emoji choices - store the label instead of the icon string
   String? _selectedMood;
   String? _selectedFeeling;
   String? _selectedNeed;
@@ -68,7 +68,7 @@ class _QuizExerciseScreenState extends State<QuizExerciseScreen> {
         'getSelectedValue': () => _selectedMood,
         'onChanged': (String? value) {
           setState(() {
-            _selectedMood = value;
+            _selectedMood = value;  // Now storing the label
           });
         },
       },
@@ -79,7 +79,7 @@ class _QuizExerciseScreenState extends State<QuizExerciseScreen> {
         'getSelectedValue': () => _selectedFeeling,
         'onChanged': (String? value) {
           setState(() {
-            _selectedFeeling = value;
+            _selectedFeeling = value;  // Now storing the label
           });
         },
       },
@@ -90,7 +90,7 @@ class _QuizExerciseScreenState extends State<QuizExerciseScreen> {
         'getSelectedValue': () => _selectedNeed,
         'onChanged': (String? value) {
           setState(() {
-            _selectedNeed = value;
+            _selectedNeed = value;  // Now storing the label
           });
         },
       },
@@ -309,9 +309,9 @@ class _QuizExerciseScreenState extends State<QuizExerciseScreen> {
         runSpacing: 8.0, // Vertical spacing
         alignment: WrapAlignment.center,
         children: options.map((option) {
-          final isSelected = selectedValue == (option['icon'] as IconData).toString();
+          final isSelected = selectedValue == option['label'];
           return GestureDetector(
-            onTap: () => onChanged((option['icon'] as IconData).toString()),
+            onTap: () => onChanged(option['label']),
             child: Container(
               width: 70,  // Fixed width
               height: 80, // Fixed height
@@ -467,25 +467,10 @@ class _QuizExerciseScreenState extends State<QuizExerciseScreen> {
     );
   }
 
-  // Helper method to get the label from icon value string
+  // Helper method - now we're storing labels directly, no need to map icon to label
   String _getIconLabelFromValue(String iconValue) {
-    // Search through all options to find the matching icon and return its label
-    for (var option in _moodOptions) {
-      if ((option['icon'] as IconData).toString() == iconValue) {
-        return option['label'] as String;
-      }
-    }
-    for (var option in _feelingOptions) {
-      if ((option['icon'] as IconData).toString() == iconValue) {
-        return option['label'] as String;
-      }
-    }
-    for (var option in _needOptions) {
-      if ((option['icon'] as IconData).toString() == iconValue) {
-        return option['label'] as String;
-      }
-    }
-    return '';
+    // Since we're now storing the label directly, we can just return the value
+    return iconValue;
   }
 
 }
