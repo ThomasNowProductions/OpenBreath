@@ -110,21 +110,38 @@ class _EmotionSelectorWidgetState extends State<EmotionSelectorWidget>
                   cardSize = 80;
                 }
 
-                return GridView.builder(
-                  shrinkWrap: true,
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: crossAxisCount,
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 16,
-                    childAspectRatio: childAspectRatio,
+                // Calculate how many items fit in one row to determine peek
+                final itemsPerRow = crossAxisCount;
+                final totalItems = Emotion.values.length;
+                final rowsNeeded = (totalItems / itemsPerRow).ceil();
+                final maxVisibleRows = (constraints.maxHeight / (140 + 16)).floor(); // card height + spacing
+                
+                // Show peek by setting max height to show slightly more than visible rows
+                final showPeek = rowsNeeded > maxVisibleRows;
+                final maxGridHeight = showPeek 
+                    ? (maxVisibleRows + 0.3) * (140 + 16) // Show 30% of next row
+                    : double.infinity;
+
+                return Container(
+                  constraints: BoxConstraints(
+                    maxHeight: maxGridHeight,
                   ),
-                  itemCount: Emotion.values.length,
-                  itemBuilder: (context, index) {
-                    final emotion = Emotion.values[index];
-                    final isSelected = _selectedEmotion == emotion;
-                    return _buildEmotionCard(emotion, isSelected, cardSize);
-                  },
+                  child: GridView.builder(
+                    shrinkWrap: true,
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: crossAxisCount,
+                      crossAxisSpacing: 16,
+                      mainAxisSpacing: 16,
+                      childAspectRatio: childAspectRatio,
+                    ),
+                    itemCount: Emotion.values.length,
+                    itemBuilder: (context, index) {
+                      final emotion = Emotion.values[index];
+                      final isSelected = _selectedEmotion == emotion;
+                      return _buildEmotionCard(emotion, isSelected, cardSize);
+                    },
+                  ),
                 );
               },
             ),
