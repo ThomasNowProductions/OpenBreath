@@ -147,11 +147,26 @@ class _KidsModeSelectionScreenState extends State<KidsModeSelectionScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const SizedBox(height: 40),
-                              KidsStartButton(
-                                onPressed: _onStartPressed,
-                                text: "START",
-                                backgroundColor: _selectedEmotion!.color,
-                                size: 100,
+                              GestureDetector(
+                                onTap: _onStartPressed,
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 80,
+                                    vertical: 15,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: _selectedEmotion!.color.withValues(alpha: 0.8),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Text(
+                                    "START",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
                               ),
                               const SizedBox(height: 20),
                               // Allow re-selection
