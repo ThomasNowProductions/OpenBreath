@@ -54,6 +54,9 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
 
   // Store reference to settings provider for disposing the listener
   SettingsProvider? _settingsProvider;
+  
+  // Keyboard navigation
+  final FocusNode _focusNode = FocusNode();
 
   List<int> _parsePattern(String pattern) {
     return pattern.split('-').map(int.parse).toList();
@@ -141,6 +144,11 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     // Listen for settings changes to immediately apply music changes
     _settingsProvider = Provider.of<SettingsProvider>(context, listen: false);
     _settingsProvider!.addListener(_handleSettingsChange);
+
+    // Setup keyboard focus
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _focusNode.requestFocus();
+    });
   }
 
   // Handle settings changes to immediately apply music changes
@@ -420,6 +428,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     _soundEffectPlayer.stop();
     _soundEffectPlayer.dispose();
     _musicPlayer.dispose();
+    _focusNode.dispose();
     // Remove settings listener
     _settingsProvider?.removeListener(_handleSettingsChange);
     // Disable wakelock when exercise is finished
@@ -427,6 +436,83 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
     // Restore the status bar when exercise is finished
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     super.dispose();
+  }
+
+  void _handleKeyEvent(KeyEvent event) {
+    if (event is KeyDownEvent) {
+      switch (event.logicalKey) {
+        case LogicalKeyboardKey.escape:
+          _stopExercise();
+          break;
+        case LogicalKeyboardKey.keyP:
+          _togglePlayPause();
+          break;
+        case LogicalKeyboardKey.keyR:
+          _restartExercise();
+          break;
+        case LogicalKeyboardKey.keyM:
+          _toggleMusic();
+          break;
+        case LogicalKeyboardKey.keyS:
+          _openSettings();
+          break;
+      }
+    }
+  }
+
+  void _togglePlayPause() {
+    // Handle play/pause logic
+    if (_controller.isAnimating) {
+      _controller.stop();
+    } else {
+      _controller.forward();
+    }
+  }
+
+  void _restartExercise() {
+    // Restart current exercise
+    setState(() {
+      _currentStageIndex = 0;
+      _breathingCycleCount = 0;
+      _exerciseCompleted = false;
+    });
+    _initializeStage(0);
+  }
+
+  void _toggleMusic() {
+    // Toggle music playback
+    final settingsProvider = Provider.of<SettingsProvider>(context, listen: false);
+    // Cycle through music modes
+    final currentMode = settingsProvider.musicMode;
+    MusicMode nextMode;
+    switch (currentMode) {
+      case MusicMode.off:
+        nextMode = MusicMode.nature;
+        break;
+      case MusicMode.nature:
+        nextMode = MusicMode.lofi;
+        break;
+      case MusicMode.lofi:
+        nextMode = MusicMode.piano;
+        break;
+      case MusicMode.piano:
+        nextMode = MusicMode.off;
+        break;
+    }
+    settingsProvider.setMusicMode(nextMode);
+  }
+
+  void _stopExercise() {
+    // Navigate back to stop exercise
+    Navigator.of(context).pop();
+  }
+
+  void _openSettings() {
+    // Open settings screen
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SettingsScreen(fromExercise: true)),
+    );
   }
 
   // Method to fade out music smoothly
@@ -501,8 +587,11 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return KeyboardListener(
+      focusNode: _focusNode,
+      onKeyEvent: _handleKeyEvent,
+      child: Scaffold(
+        body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -658,6 +747,7 @@ class _ExerciseScreenState extends State<ExerciseScreen> with TickerProviderStat
                 ),
               ),
         ),
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:BreathSpace/theme_provider.dart';
@@ -17,27 +18,115 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  int _selectedIndex = 0;
+  final ScrollController _scrollController = ScrollController();
+  final FocusNode _focusNode = FocusNode();
+  
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _focusNode.requestFocus();
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  void _handleKeyEvent(KeyEvent event) {
+    if (event is KeyDownEvent) {
+      switch (event.logicalKey) {
+        case LogicalKeyboardKey.arrowDown:
+          _navigateDown();
+          break;
+        case LogicalKeyboardKey.arrowUp:
+          _navigateUp();
+          break;
+        case LogicalKeyboardKey.enter:
+        case LogicalKeyboardKey.space:
+          _selectCurrentItem();
+          break;
+        case LogicalKeyboardKey.escape:
+          Navigator.of(context).pop();
+          break;
+      }
+    }
+  }
+
+  void _navigateDown() {
+    final totalItems = _getTotalSettingsItems();
+    if (totalItems > 0) {
+      setState(() {
+        _selectedIndex = (_selectedIndex + 1) % totalItems;
+      });
+      _scrollToSelected();
+    }
+  }
+
+  void _navigateUp() {
+    final totalItems = _getTotalSettingsItems();
+    if (totalItems > 0) {
+      setState(() {
+        _selectedIndex = (_selectedIndex - 1 + totalItems) % totalItems;
+      });
+      _scrollToSelected();
+    }
+  }
+
+  int _getTotalSettingsItems() {
+    int count = 0;
+    if (widget.fromExercise) count++; // Stop exercise button
+    count += 5; // Theme + Language + View mode + Clear prompt cache + Reset intro
+    count += 5; // GitHub + Share + Privacy + Report + Rate
+    count += 3; // Cache size + Version + App info
+    return count;
+  }
+
+  void _scrollToSelected() {
+    if (_scrollController.hasClients) {
+      final itemHeight = 80.0;
+      final offset = _selectedIndex * itemHeight;
+      _scrollController.animateTo(
+        offset,
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  void _selectCurrentItem() {
+    // Handle selection based on current index
+    // This would need to be mapped to specific settings items
+  }
+
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final settingsProvider = Provider.of<SettingsProvider>(context);
 
-    return GestureDetector(
-      onPanUpdate: (details) {
-        // Detect left-to-right swipe to go back
-        if (details.delta.dx > 0) { // Swiping right
-          // Only navigate if the swipe is significant enough
-          if (details.delta.dx > 5) {
-            // If we came from an exercise, we should handle the navigation accordingly
-            if (widget.fromExercise) {
-              Navigator.of(context).pop(); // Just pop settings screen, let exercise screen handle the rest
-            } else {
-              Navigator.of(context).pop(); // Normal navigation for other cases
+    return KeyboardListener(
+      focusNode: _focusNode,
+      onKeyEvent: _handleKeyEvent,
+      child: GestureDetector(
+        onPanUpdate: (details) {
+          // Detect left-to-right swipe to go back
+          if (details.delta.dx > 0) { // Swiping right
+            // Only navigate if the swipe is significant enough
+            if (details.delta.dx > 5) {
+              // If we came from an exercise, we should handle the navigation accordingly
+              if (widget.fromExercise) {
+                Navigator.of(context).pop(); // Just pop settings screen, let exercise screen handle the rest
+              } else {
+                Navigator.of(context).pop(); // Normal navigation for other cases
+              }
             }
           }
-        }
-      },
-      child: Scaffold(
+        },
+        child: Scaffold(
         appBar: AppBar(
           title: Text(
             AppLocalizations.of(context).settings,
@@ -708,6 +797,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ],
             ),
           ),
+        ),
         ),
       ),
     );

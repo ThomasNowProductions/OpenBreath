@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';  // For kDebugMode
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:BreathSpace/data.dart';
 import 'package:BreathSpace/exercise_screen.dart';
 import 'package:BreathSpace/l10n/app_localizations.dart';
@@ -23,11 +24,17 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
   ExerciseVersion _selectedVersion = ExerciseVersion.normal;
   BreathingExercise? _currentExercise;
   bool _isLoading = true;
+  int _selectedIndex = 0;
+  final FocusNode _focusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
     _currentExercise = widget.exercise;
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _focusNode.requestFocus();
+    });
 
     // If we have an AI callback, execute it to get the exercise
     if (widget.aiRecommendationCallback != null) {
@@ -38,6 +45,100 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
         _isLoading = false;
       }
     }
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  void _handleKeyEvent(KeyEvent event) {
+    if (event is KeyDownEvent) {
+      switch (event.logicalKey) {
+        case LogicalKeyboardKey.arrowDown:
+          _navigateDown();
+          break;
+        case LogicalKeyboardKey.arrowUp:
+          _navigateUp();
+          break;
+        case LogicalKeyboardKey.enter:
+        case LogicalKeyboardKey.space:
+          _selectCurrentItem();
+          break;
+        case LogicalKeyboardKey.escape:
+          Navigator.of(context).pop();
+          break;
+        case LogicalKeyboardKey.digit1:
+          _selectVersion(ExerciseVersion.short);
+          break;
+        case LogicalKeyboardKey.digit2:
+          _selectVersion(ExerciseVersion.normal);
+          break;
+        case LogicalKeyboardKey.digit3:
+          _selectVersion(ExerciseVersion.long);
+          break;
+      }
+    }
+  }
+
+  void _navigateDown() {
+    final totalItems = _getTotalItems();
+    if (totalItems > 0) {
+      setState(() {
+        _selectedIndex = (_selectedIndex + 1) % totalItems;
+      });
+    }
+  }
+
+  void _navigateUp() {
+    final totalItems = _getTotalItems();
+    if (totalItems > 0) {
+      setState(() {
+        _selectedIndex = (_selectedIndex - 1 + totalItems) % totalItems;
+      });
+    }
+  }
+
+  int _getTotalItems() {
+    if (_currentExercise?.versions != null) {
+      return 1 + 3; // Start button + 3 version buttons
+    }
+    return 1; // Just start button
+  }
+
+  void _selectCurrentItem() {
+    if (_selectedIndex == 0) {
+      if (_currentExercise != null) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ExerciseScreen(
+              exercise: _currentExercise!,
+              selectedVersion: _selectedVersion,
+            ),
+          ),
+        );
+      }
+    } else if (_currentExercise?.versions != null) {
+      switch (_selectedIndex - 1) {
+        case 0:
+          _selectVersion(ExerciseVersion.short);
+          break;
+        case 1:
+          _selectVersion(ExerciseVersion.normal);
+          break;
+        case 2:
+          _selectVersion(ExerciseVersion.long);
+          break;
+      }
+    }
+  }
+
+  void _selectVersion(ExerciseVersion version) {
+    setState(() {
+      _selectedVersion = version;
+    });
   }
 
   Future<void> _fetchExerciseWithAi() async {
@@ -96,7 +197,10 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return KeyboardListener(
+      focusNode: _focusNode,
+      onKeyEvent: _handleKeyEvent,
+      child: Scaffold(
       appBar: AppBar(
         title: _isLoading || _currentExercise == null
             ? Container(
@@ -505,10 +609,18 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
                                 }
                               : null,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Theme.of(context).colorScheme.primary,
+                            backgroundColor: _selectedIndex == 0 && _focusNode.hasFocus
+                                ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.8)
+                                : Theme.of(context).colorScheme.primary,
                             foregroundColor: Theme.of(context).colorScheme.onPrimary,
                             elevation: 0,
                             shadowColor: Colors.transparent,
+                            side: _selectedIndex == 0 && _focusNode.hasFocus
+                                ? BorderSide(
+                                    color: Theme.of(context).colorScheme.onPrimary.withValues(alpha: 0.5),
+                                    width: 2,
+                                  )
+                                : null,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(16),
                             ),
@@ -528,10 +640,14 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
           ),
         ),
       ),
+      ),
     );
   }
 
   Widget _buildVersionButton(ExerciseVersion version, String label) {
+    final versionIndex = _getVersionIndex(version);
+    final isFocused = _selectedIndex == (versionIndex + 1) && _focusNode.hasFocus;
+    
     if (_isLoading || _currentExercise == null || _currentExercise?.hasVersions != true) {
       // Return a disabled skeleton button when loading or if versions are not available
       return Expanded(
@@ -559,18 +675,22 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
           decoration: BoxDecoration(
             color: isSelected
                 ? Theme.of(context).colorScheme.primary
-                : Theme.of(context).cardColor,
+                : isFocused
+                    ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.1)
+                    : Theme.of(context).cardColor,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
               color: isSelected
                   ? Theme.of(context).colorScheme.primary
-                  : Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.1),
-              width: 1,
+                  : isFocused
+                      ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.5)
+                      : Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.1),
+              width: isSelected || isFocused ? 2 : 1,
             ),
-            boxShadow: isSelected
+            boxShadow: isSelected || isFocused
                 ? [
                     BoxShadow(
-                      color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
+                      color: Theme.of(context).colorScheme.primary.withValues(alpha: isSelected ? 0.3 : 0.1),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
@@ -601,6 +721,17 @@ class _ExerciseDetailScreenState extends State<ExerciseDetailScreen> {
     } else {
       final minutes = seconds ~/ 60;
       return '$minutes min';
+    }
+  }
+
+  int _getVersionIndex(ExerciseVersion version) {
+    switch (version) {
+      case ExerciseVersion.short:
+        return 0;
+      case ExerciseVersion.normal:
+        return 1;
+      case ExerciseVersion.long:
+        return 2;
     }
   }
 }

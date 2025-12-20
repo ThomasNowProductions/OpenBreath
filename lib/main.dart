@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:BreathSpace/exercise_detail_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -241,6 +242,9 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> with 
   late final SettingsProvider _settingsProvider;
   late AnimationController _fadeController;
   late Animation<double> _fadeAnimation;
+  int _selectedIndex = 0;
+  final ScrollController _listScrollController = ScrollController();
+  final FocusNode _listFocusNode = FocusNode();
 
   @override
   void initState() {
@@ -290,6 +294,8 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> with 
     WidgetsBinding.instance.removeObserver(this); // Remove lifecycle observer
     _searchController.dispose();
     _searchFocusNode.dispose();
+    _listScrollController.dispose();
+    _listFocusNode.dispose();
     _fadeController.dispose();
 
     _pinnedExercisesProvider.removeListener(_updatePinnedExercises);
@@ -405,7 +411,180 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> with 
             exercise.pattern.toLowerCase().contains(query) ||
             exercise.intro.toLowerCase().contains(query);
       }).toList();
+      _selectedIndex = 0; // Reset selection when searching
     });
+  }
+
+  void _handleKeyEvent(KeyEvent event) {
+    if (event is KeyDownEvent) {
+      final isSearchFocused = _searchFocusNode.hasFocus;
+      
+      // Handle navigation when not in search field
+      if (!isSearchFocused) {
+        switch (event.logicalKey) {
+          case LogicalKeyboardKey.arrowDown:
+            _navigateDown();
+            break;
+          case LogicalKeyboardKey.arrowUp:
+            _navigateUp();
+            break;
+          case LogicalKeyboardKey.enter:
+          case LogicalKeyboardKey.space:
+            _selectCurrentItem();
+            break;
+          case LogicalKeyboardKey.slash:
+            _focusSearch();
+            break;
+          case LogicalKeyboardKey.keyS:
+            if (HardwareKeyboard.instance.isMetaPressed || HardwareKeyboard.instance.isControlPressed) {
+              _openSettings();
+            }
+            break;
+          case LogicalKeyboardKey.question:
+            _showKeyboardShortcuts();
+            break;
+        }
+      } else {
+        // Handle navigation when in search field
+        if (event.logicalKey == LogicalKeyboardKey.escape) {
+          _searchFocusNode.unfocus();
+          _listFocusNode.requestFocus();
+        }
+      }
+    }
+  }
+
+  void _navigateDown() {
+    final totalItems = _getTotalItems();
+    if (totalItems > 0) {
+      setState(() {
+        _selectedIndex = (_selectedIndex + 1) % totalItems;
+      });
+      _scrollToSelected();
+    }
+  }
+
+  void _navigateUp() {
+    final totalItems = _getTotalItems();
+    if (totalItems > 0) {
+      setState(() {
+        _selectedIndex = (_selectedIndex - 1 + totalItems) % totalItems;
+      });
+      _scrollToSelected();
+    }
+  }
+
+  int _getTotalItems() {
+    if (_searchController.text.isNotEmpty || _pinnedExercises.isEmpty) {
+      return _filteredExercises.length;
+    } else {
+      // Pinned exercises + regular exercises
+      return _pinnedExercises.length + _filteredExercises.length;
+    }
+  }
+
+  void _scrollToSelected() {
+    if (_listScrollController.hasClients) {
+      final itemHeight = 88.0; // Approximate height of list items
+      final offset = _selectedIndex * itemHeight;
+      _listScrollController.animateTo(
+        offset,
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  void _selectCurrentItem() {
+    if (_searchController.text.isNotEmpty || _pinnedExercises.isEmpty) {
+      // Only regular exercises
+      if (_filteredExercises.isNotEmpty && _selectedIndex < _filteredExercises.length) {
+        final exercise = _filteredExercises[_selectedIndex];
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ExerciseDetailScreen(exercise: exercise),
+          ),
+        );
+      }
+    } else {
+      // Pinned exercises first, then regular
+      if (_selectedIndex < _pinnedExercises.length) {
+        final exercise = _pinnedExercises[_selectedIndex];
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ExerciseDetailScreen(exercise: exercise),
+          ),
+        );
+      } else {
+        final regularIndex = _selectedIndex - _pinnedExercises.length;
+        if (regularIndex < _filteredExercises.length) {
+          final exercise = _filteredExercises[regularIndex];
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ExerciseDetailScreen(exercise: exercise),
+            ),
+          );
+        }
+      }
+    }
+  }
+
+  void _focusSearch() {
+    _searchFocusNode.requestFocus();
+  }
+
+  void _openSettings() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SettingsScreen()),
+    );
+  }
+
+  bool _isItemSelected(int index) {
+    if (_searchController.text.isNotEmpty || _pinnedExercises.isEmpty) {
+      // Only regular exercises
+      return _selectedIndex == index;
+    } else {
+      // Pinned exercises + regular exercises
+      return _selectedIndex == (_pinnedExercises.length + index);
+    }
+  }
+
+  void _showKeyboardShortcuts() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Keyboard Shortcuts'),
+          content: const Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Navigation:',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+              SizedBox(height: 8),
+              _ShortcutItem(shortcutKey: '↑ / ↓', description: 'Navigate up/down'),
+              _ShortcutItem(shortcutKey: 'Enter / Space', description: 'Select exercise'),
+              _ShortcutItem(shortcutKey: '/', description: 'Focus search'),
+              _ShortcutItem(shortcutKey: 'Escape', description: 'Exit search'),
+              _ShortcutItem(shortcutKey: 'Ctrl/Cmd + S', description: 'Open settings'),
+              _ShortcutItem(shortcutKey: '?', description: 'Show this help'),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Close'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   String _getTotalDuration(BreathingExercise exercise) {
@@ -421,8 +600,11 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> with 
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return KeyboardListener(
+      focusNode: _listFocusNode,
+      onKeyEvent: _handleKeyEvent,
+      child: Scaffold(
+        appBar: AppBar(
         titleSpacing: 0,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
@@ -453,18 +635,31 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> with 
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                 ),
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    Icons.settings_outlined,
-                    size: 24,
-                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const SettingsScreen()),
-                    );
-                  },
+                suffixIcon: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.help_outline_outlined,
+                        size: 24,
+                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
+                      ),
+                      onPressed: _showKeyboardShortcuts,
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        Icons.settings_outlined,
+                        size: 24,
+                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
               style: TextStyle(
@@ -551,8 +746,16 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> with 
                             right: index == _pinnedExercises.length - 1 ? 0 : 4.0,
                           ),
                           decoration: BoxDecoration(
-                            color: Theme.of(context).cardColor,
+                            color: _selectedIndex == index && _listFocusNode.hasFocus
+                                ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.1)
+                                : Theme.of(context).cardColor,
                             borderRadius: BorderRadius.circular(20),
+                            border: _selectedIndex == index && _listFocusNode.hasFocus
+                                ? Border.all(
+                                    color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
+                                    width: 2,
+                                  )
+                                : null,
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withValues(alpha: 0.08),
@@ -745,8 +948,16 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> with 
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 12.0),
                           decoration: BoxDecoration(
-                            color: Theme.of(context).cardColor,
+                            color: _isItemSelected(index) && _listFocusNode.hasFocus
+                                ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.1)
+                                : Theme.of(context).cardColor,
                             borderRadius: BorderRadius.circular(16),
+                            border: _isItemSelected(index) && _listFocusNode.hasFocus
+                                ? Border.all(
+                                    color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.5),
+                                    width: 2,
+                                  )
+                                : null,
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.black.withValues(alpha: 0.04),
@@ -813,6 +1024,50 @@ class _BreathingExerciseScreenState extends State<BreathingExerciseScreen> with 
           ),
         ],
         ),
+      ),
+      ),
+    );
+  }
+}
+
+class _ShortcutItem extends StatelessWidget {
+  final String shortcutKey;
+  final String description;
+
+  const _ShortcutItem({
+    required this.shortcutKey,
+    required this.description,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: Text(
+              shortcutKey,
+              style: TextStyle(
+                fontFamily: 'monospace',
+                fontWeight: FontWeight.w500,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              description,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          ),
+        ],
       ),
     );
   }
