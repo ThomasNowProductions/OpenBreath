@@ -126,6 +126,10 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
     } else if (currentTime >= _inhaleTime && currentTime < (_inhaleTime + _hold1Time)) {
       newInstruction = "Hold your breath!";
       newPhase = BreathingPhase.hold1;
+      // Play sound effect only once when entering hold1 phase
+      if (_lastInstruction != newInstruction) {
+        _playHoldSound();
+      }
     } else if (currentTime >= (_inhaleTime + _hold1Time) && 
                currentTime < (_inhaleTime + _hold1Time + _exhaleTime)) {
       newInstruction = "Breathe OUT!";
@@ -137,6 +141,10 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
     } else if (currentTime >= (_inhaleTime + _hold1Time + _exhaleTime)) {
       newInstruction = "Hold...";
       newPhase = BreathingPhase.hold2;
+      // Play sound effect only once when entering hold2 phase
+      if (_lastInstruction != newInstruction) {
+        _playHoldSound();
+      }
     }
 
     // Check for phase transition to count cycles
@@ -147,6 +155,7 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
         // Check if exercise is completed
         if (_breathingCycleCount >= _totalCycles) {
           _onExerciseComplete();
+          return; // Don't update instruction if completing
         }
       }
       _currentPhase = newPhase;
@@ -154,7 +163,7 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
 
     _lastInstruction = newInstruction;
 
-    if (mounted) {
+    if (mounted && !_isCompleted) {
       setState(() {
         _instruction = newInstruction;
       });
@@ -175,6 +184,13 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
     }
   }
 
+  void _playHoldSound() {
+    final settings = Provider.of<SettingsProvider>(context, listen: false);
+    if (settings.soundEffectsEnabled) {
+      _soundEffectPlayer.play(AssetSource('sounds/in.wav'));
+    }
+  }
+
   void _onExerciseComplete() {
     if (_isCompleted) return;
     
@@ -183,7 +199,7 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
     _completionController.forward();
     
     setState(() {
-      _instruction = "Great job! I'm so proud of you! 🌟";
+      _instruction = "Exercise finished! You did amazing! 🌟";
     });
 
     // Play celebration sound if enabled
@@ -251,7 +267,7 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
                               bubbleColor: widget.emotion.color,
                               isAnimating: false, // We control animation externally
                               showFace: true,
-                              breathingScale: _getCurrentBreathingScale(),
+                              breathingScale: _isCompleted ? 1.0 : _getCurrentBreathingScale(),
                             );
                           },
                         ),
@@ -305,11 +321,56 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
                         builder: (context, child) {
                           return Transform.scale(
                             scale: _completionAnimation.value,
-                            child: KidsStartButton(
-                              onPressed: _onContinuePressed,
-                              text: "CONTINUE",
-                              backgroundColor: widget.emotion.color,
-                              size: 100,
+                            child: Container(
+                              width: 200,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(40),
+                                gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    widget.emotion.color,
+                                    widget.emotion.color.withValues(alpha: 0.8),
+                                  ],
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: widget.emotion.color.withValues(alpha: 0.4),
+                                    blurRadius: 20,
+                                    spreadRadius: 5,
+                                  ),
+                                ],
+                                border: Border.all(
+                                  color: Colors.white.withValues(alpha: 0.5),
+                                  width: 3,
+                                ),
+                              ),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  borderRadius: BorderRadius.circular(40),
+                                  onTap: _onContinuePressed,
+                                  child: Center(
+                                    child: Text(
+                                      "CONTINUE",
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w900,
+                                        color: Colors.white,
+                                        letterSpacing: 2,
+                                        shadows: [
+                                          Shadow(
+                                            color: Colors.black.withValues(alpha: 0.3),
+                                            blurRadius: 4,
+                                            offset: const Offset(2, 2),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
                           );
                         },
