@@ -68,5 +68,23 @@
   "linkCopied": "تم نسخ الرابط إلى الحافظة",
   "termsAgreementPrefix": "بالمتابعة، أنت توافق على ",
   "privacyPolicy": "سياسة الخصوصية",
-  "termsAgreementSuffix": " الخاصة بنا."
+  "termsAgreementSuffix": " الخاصة بنا.",
+  "kidsGetReady": "استعد!",
+  "kidsBreatheIn": "تنفس للداخل!",
+  "kidsHoldBreath": "احبس أنفاسك!",
+  "kidsBreatheOut": "تنفس للخارج!",
+  "kidsHold": "احبس...",
+  "kidsExerciseFinished": "انتهى التمرين! لقد كانت رائعة! 🌟",
+  "kidsBreaths": "الأنفاس: ",
+  "kidsContinue": "متابعة",
+  "kidsWelcome": "مرحباً! أنا Breathe Buddy! كيف تشعر اليوم؟",
+  "kidsStartAdventure": "رائع! يمكنني مساعدتك على الشعور بالتحسن. هل أنت مستعد لبدء مغامرة التنفس؟",
+  "kidsStart": "ابدأ",
+  "kidsChooseDifferentFeeling": "اختر شعوراً مختلفاً",
+  "emotionTired": "متعب",
+  "emotionStressed": "متوتر",
+  "emotionAngry": "غاضب",
+  "emotionSad": "حزين",
+  "emotionExcited": "متحمس",
+  "emotionCalm": "هادئ"
 }

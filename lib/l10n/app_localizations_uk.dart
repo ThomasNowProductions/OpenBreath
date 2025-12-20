@@ -99,7 +99,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get aiMode => 'Режим ШІ';
 
   @override
-  String get quizMode => 'Quiz Mode';
+  String get quizMode => 'Режим вікторини';
 
   @override
   String get start => 'Почати';
@@ -218,4 +218,60 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => '.';
+
+  @override
+  String get kidsGetReady => 'Готуйся!';
+
+  @override
+  String get kidsBreatheIn => 'Дихай ВГОРУ!';
+
+  @override
+  String get kidsHoldBreath => 'Затримай дихання!';
+
+  @override
+  String get kidsBreatheOut => 'Дихай ВНИЗ!';
+
+  @override
+  String get kidsHold => 'Затримуй...';
+
+  @override
+  String get kidsExerciseFinished => 'Вправу завершено! Ти був неймовірний! 🌟';
+
+  @override
+  String get kidsBreaths => 'Дихання: ';
+
+  @override
+  String get kidsContinue => 'ПРОДОВЖИТИ';
+
+  @override
+  String get kidsWelcome =>
+      'Привіт! Я Breathe Buddy! Як ти почуваєшся сьогодні?';
+
+  @override
+  String get kidsStartAdventure =>
+      'Чудово! Я можу допомогти тобі почуватися краще. Готовий почати нашу дихальну пригоду?';
+
+  @override
+  String get kidsStart => 'ПОЧАТИ';
+
+  @override
+  String get kidsChooseDifferentFeeling => 'Обери інше почуття';
+
+  @override
+  String get emotionTired => 'Втомлений';
+
+  @override
+  String get emotionStressed => 'Стресований';
+
+  @override
+  String get emotionAngry => 'Злий';
+
+  @override
+  String get emotionSad => 'Сумний';
+
+  @override
+  String get emotionExcited => 'Збуджений';
+
+  @override
+  String get emotionCalm => 'Спокійний';
 }

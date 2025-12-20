@@ -99,7 +99,7 @@ class AppLocalizationsSw extends AppLocalizations {
   String get aiMode => 'Hali ya AI';
 
   @override
-  String get quizMode => 'Quiz Mode';
+  String get quizMode => 'Hali ya Majaribio';
 
   @override
   String get start => 'Anza';
@@ -218,4 +218,60 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => '.';
+
+  @override
+  String get kidsGetReady => 'Andaa!';
+
+  @override
+  String get kidsBreatheIn => 'Pumua NDANI!';
+
+  @override
+  String get kidsHoldBreath => 'Shikilia pumua!';
+
+  @override
+  String get kidsBreatheOut => 'Pumua NJE!';
+
+  @override
+  String get kidsHold => 'Shikilia...';
+
+  @override
+  String get kidsExerciseFinished =>
+      'Mazoezi yamemaliza! Umefanya vizuri sana! 🌟';
+
+  @override
+  String get kidsBreaths => 'Pumua: ';
+
+  @override
+  String get kidsContinue => 'ENDELEA';
+
+  @override
+  String get kidsWelcome => 'Habari! Mimi ni Breathe Buddy! Unajisikiaje leo?';
+
+  @override
+  String get kidsStartAdventure =>
+      'Vizuri! Ninaweza kukusaidia kujisikia vizuri. Uko tayari kuanzisha safari yetu ya kupumua?';
+
+  @override
+  String get kidsStart => 'ANZA';
+
+  @override
+  String get kidsChooseDifferentFeeling => 'Chagua hisia tofauti';
+
+  @override
+  String get emotionTired => 'Choka';
+
+  @override
+  String get emotionStressed => 'Sina amani';
+
+  @override
+  String get emotionAngry => 'Hasira';
+
+  @override
+  String get emotionSad => 'Masikini';
+
+  @override
+  String get emotionExcited => 'Furaha';
+
+  @override
+  String get emotionCalm => 'Amani';
 }

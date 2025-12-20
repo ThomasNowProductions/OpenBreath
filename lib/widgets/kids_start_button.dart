@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:BreathSpace/l10n/app_localizations.dart';
 
 class KidsStartButton extends StatefulWidget {
   final VoidCallback onPressed;
-  final String text;
+  final String? text;
   final Color? backgroundColor;
   final double? size;
 
   const KidsStartButton({
     super.key,
     required this.onPressed,
-    this.text = "START",
+    this.text,
     this.backgroundColor,
     this.size = 120,
   });
@@ -137,7 +138,7 @@ class _KidsStartButtonState extends State<KidsStartButton>
               ),
               child: Center(
                 child: Text(
-                  widget.text,
+                  widget.text ?? AppLocalizations.of(context).kidsStart,
                   style: TextStyle(
                     fontSize: buttonSize * 0.2,
                     fontWeight: FontWeight.w900,

@@ -1,17 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:BreathSpace/l10n/app_localizations.dart';
 
 enum Emotion {
-  tired(Icons.bedtime_rounded, "Tired", Colors.blue),
-  stressed(Icons.sentiment_very_dissatisfied_rounded, "Stressed", Colors.orange),
-  angry(Icons.mood_bad_rounded, "Angry", Colors.red),
-  sad(Icons.sentiment_dissatisfied_rounded, "Sad", Colors.indigo),
-  excited(Icons.sentiment_very_satisfied_rounded, "Excited", Colors.green),
-  calm(Icons.sentiment_satisfied_rounded, "Calm", Colors.teal);
+  tired(Icons.bedtime_rounded, "emotionTired", Colors.blue),
+  stressed(Icons.sentiment_very_dissatisfied_rounded, "emotionStressed", Colors.orange),
+  angry(Icons.mood_bad_rounded, "emotionAngry", Colors.red),
+  sad(Icons.sentiment_dissatisfied_rounded, "emotionSad", Colors.indigo),
+  excited(Icons.sentiment_very_satisfied_rounded, "emotionExcited", Colors.green),
+  calm(Icons.sentiment_satisfied_rounded, "emotionCalm", Colors.teal);
 
-  const Emotion(this.icon, this.label, this.color);
+  const Emotion(this.icon, this.labelKey, this.color);
   final IconData icon;
-  final String label;
+  final String labelKey;
   final Color color;
+
+  String getLabel(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    switch (labelKey) {
+      case "emotionTired":
+        return l10n.emotionTired;
+      case "emotionStressed":
+        return l10n.emotionStressed;
+      case "emotionAngry":
+        return l10n.emotionAngry;
+      case "emotionSad":
+        return l10n.emotionSad;
+      case "emotionExcited":
+        return l10n.emotionExcited;
+      case "emotionCalm":
+        return l10n.emotionCalm;
+      default:
+        return labelKey;
+    }
+  }
 }
 
 class EmotionSelectorWidget extends StatefulWidget {
@@ -224,7 +245,7 @@ class _EmotionSelectorWidgetState extends State<EmotionSelectorWidget>
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    emotion.label,
+                    emotion.getLabel(context),
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w700,

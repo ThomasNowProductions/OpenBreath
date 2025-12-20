@@ -99,7 +99,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get aiMode => 'โหมด AI';
 
   @override
-  String get quizMode => 'Quiz Mode';
+  String get quizMode => 'โหมดควิซ';
 
   @override
   String get start => 'เริ่มต้น';
@@ -218,4 +218,60 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => '.';
+
+  @override
+  String get kidsGetReady => 'เตรียมตัว!';
+
+  @override
+  String get kidsBreatheIn => 'หายใจเข้า!';
+
+  @override
+  String get kidsHoldBreath => 'กักหายใจ!';
+
+  @override
+  String get kidsBreatheOut => 'หายใจออก!';
+
+  @override
+  String get kidsHold => 'กัก...';
+
+  @override
+  String get kidsExerciseFinished => 'แบบฝึกหัดเสร็จ! คุณทำได้ยอดเยี่ยม! 🌟';
+
+  @override
+  String get kidsBreaths => 'หายใจ: ';
+
+  @override
+  String get kidsContinue => 'ดำเนินการต่อ';
+
+  @override
+  String get kidsWelcome =>
+      'สวัสดี! ฉันคือ Breathe Buddy! วันนี้คุณรู้สึกอย่างไร?';
+
+  @override
+  String get kidsStartAdventure =>
+      'เยี่ยม! ฉันสามารถช่วยให้คุณรู้สึกดีขึ้น พร้อมจะเริ่มผจญภัยการหายใจของเราไหม?';
+
+  @override
+  String get kidsStart => 'เริ่มต้น';
+
+  @override
+  String get kidsChooseDifferentFeeling => 'เลือกความรู้สึกอื่น';
+
+  @override
+  String get emotionTired => 'เหนื่อย';
+
+  @override
+  String get emotionStressed => 'เครียด';
+
+  @override
+  String get emotionAngry => 'โกรธ';
+
+  @override
+  String get emotionSad => 'เศร้า';
+
+  @override
+  String get emotionExcited => 'ตื่นเต้น';
+
+  @override
+  String get emotionCalm => 'สงบ';
 }

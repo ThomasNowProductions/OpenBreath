@@ -217,4 +217,58 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => '。';
+
+  @override
+  String get kidsGetReady => '准备好了！';
+
+  @override
+  String get kidsBreatheIn => '吸气！';
+
+  @override
+  String get kidsHoldBreath => '屏住呼吸！';
+
+  @override
+  String get kidsBreatheOut => '呼气！';
+
+  @override
+  String get kidsHold => '屏住...';
+
+  @override
+  String get kidsExerciseFinished => '练习完成！你做得太棒了！🌟';
+
+  @override
+  String get kidsBreaths => '呼吸: ';
+
+  @override
+  String get kidsContinue => '继续';
+
+  @override
+  String get kidsWelcome => '你好！我是呼吸伙伴！你今天感觉怎么样？';
+
+  @override
+  String get kidsStartAdventure => '太棒了！我可以帮你感觉更好。准备好开始我们的呼吸冒险了吗？';
+
+  @override
+  String get kidsStart => '开始';
+
+  @override
+  String get kidsChooseDifferentFeeling => '选择不同的感觉';
+
+  @override
+  String get emotionTired => '累';
+
+  @override
+  String get emotionStressed => '压力大';
+
+  @override
+  String get emotionAngry => '生气';
+
+  @override
+  String get emotionSad => '难过';
+
+  @override
+  String get emotionExcited => '兴奋';
+
+  @override
+  String get emotionCalm => '平静';
 }

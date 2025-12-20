@@ -99,7 +99,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get aiMode => 'Chế độ AI';
 
   @override
-  String get quizMode => 'Quiz Mode';
+  String get quizMode => 'Chế đố Quiz';
 
   @override
   String get start => 'Bắt đầu';
@@ -219,4 +219,61 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => '.';
+
+  @override
+  String get kidsGetReady => 'Chuẩn bị đi!';
+
+  @override
+  String get kidsBreatheIn => 'Hít vào!';
+
+  @override
+  String get kidsHoldBreath => 'Giữ hơi thở!';
+
+  @override
+  String get kidsBreatheOut => 'Thở ra!';
+
+  @override
+  String get kidsHold => 'Giữ...';
+
+  @override
+  String get kidsExerciseFinished =>
+      'Bài tập hoàn thành! Bạn đã làm tuyệt vời! 🌟';
+
+  @override
+  String get kidsBreaths => 'Lần thở: ';
+
+  @override
+  String get kidsContinue => 'TIẾP TỤC';
+
+  @override
+  String get kidsWelcome =>
+      'Chào bạn! Tôi là Breathe Buddy! Hôm nay bạn cảm thấy thế nào?';
+
+  @override
+  String get kidsStartAdventure =>
+      'Tuyệt vời! Tôi có thể giúp bạn cảm thấy tốt hơn. Bạn đã sẵn sàng bắt đầu cuộc phiêu lưu hít thở của chúng ta chưa?';
+
+  @override
+  String get kidsStart => 'BẮT ĐẦU';
+
+  @override
+  String get kidsChooseDifferentFeeling => 'Chọn cảm giác khác';
+
+  @override
+  String get emotionTired => 'Mệt mỏi';
+
+  @override
+  String get emotionStressed => 'Căng thẳng';
+
+  @override
+  String get emotionAngry => 'Tức giận';
+
+  @override
+  String get emotionSad => 'Buồn';
+
+  @override
+  String get emotionExcited => 'Hào hứng';
+
+  @override
+  String get emotionCalm => 'Bình tĩnh';
 }

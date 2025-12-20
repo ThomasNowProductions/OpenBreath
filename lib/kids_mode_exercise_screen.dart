@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:BreathSpace/widgets/kids_bubble_widget.dart';
-import 'package:BreathSpace/widgets/kids_start_button.dart';
 import 'package:BreathSpace/widgets/emotion_selector_widget.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:BreathSpace/settings_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:BreathSpace/kids_mode_selection_screen.dart';
+import 'package:BreathSpace/l10n/app_localizations.dart';
 
 // Enum to track the current breathing phase
 enum BreathingPhase { inhale, hold1, exhale, hold2 }
@@ -31,7 +31,7 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
   late Animation<double> _completionAnimation;
   
   BreathingPhase _currentPhase = BreathingPhase.inhale;
-  String _instruction = "Get ready!";
+  String _instruction = "";
   bool _isCompleted = false;
   int _breathingCycleCount = 0;
   final int _totalCycles = 5; // 5 complete breathing cycles for kids
@@ -49,6 +49,9 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
   @override
   void initState() {
     super.initState();
+
+    // Set initial instruction
+    _instruction = AppLocalizations.of(context).kidsGetReady;
 
     // Keep the screen awake during the exercise
     WakelockPlus.enable();
@@ -115,16 +118,17 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
     final currentTime = _breathingController.value * _totalCycleTime;
     String newInstruction = '';
     BreathingPhase newPhase = _currentPhase;
+    final l10n = AppLocalizations.of(context);
 
     if (currentTime >= 0 && currentTime < _inhaleTime) {
-      newInstruction = "Breathe IN!";
+      newInstruction = l10n.kidsBreatheIn;
       newPhase = BreathingPhase.inhale;
       // Play sound effect only once when entering inhale phase
       if (_lastInstruction != newInstruction) {
         _playInhaleSound();
       }
     } else if (currentTime >= _inhaleTime && currentTime < (_inhaleTime + _hold1Time)) {
-      newInstruction = "Hold your breath!";
+      newInstruction = l10n.kidsHoldBreath;
       newPhase = BreathingPhase.hold1;
       // Play sound effect only once when entering hold1 phase
       if (_lastInstruction != newInstruction) {
@@ -132,14 +136,14 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
       }
     } else if (currentTime >= (_inhaleTime + _hold1Time) && 
                currentTime < (_inhaleTime + _hold1Time + _exhaleTime)) {
-      newInstruction = "Breathe OUT!";
+      newInstruction = l10n.kidsBreatheOut;
       newPhase = BreathingPhase.exhale;
       // Play sound effect only once when entering exhale phase
       if (_lastInstruction != newInstruction) {
         _playExhaleSound();
       }
     } else if (currentTime >= (_inhaleTime + _hold1Time + _exhaleTime)) {
-      newInstruction = "Hold...";
+      newInstruction = l10n.kidsHold;
       newPhase = BreathingPhase.hold2;
       // Play sound effect only once when entering hold2 phase
       if (_lastInstruction != newInstruction) {
@@ -198,8 +202,9 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
     _breathingController.stop();
     _completionController.forward();
     
+    final l10n = AppLocalizations.of(context);
     setState(() {
-      _instruction = "Exercise finished! You did amazing! 🌟";
+      _instruction = l10n.kidsExerciseFinished;
     });
 
     // Play celebration sound if enabled
@@ -288,7 +293,7 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                "Breaths: ",
+                                AppLocalizations.of(context).kidsBreaths,
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600,
@@ -353,7 +358,7 @@ class _KidsModeExerciseScreenState extends State<KidsModeExerciseScreen>
                                   onTap: _onContinuePressed,
                                   child: Center(
                                     child: Text(
-                                      "CONTINUE",
+                                      AppLocalizations.of(context).kidsContinue,
                                       style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w900,

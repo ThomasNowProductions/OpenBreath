@@ -555,6 +555,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'.'**
   String get termsAgreementSuffix;
+
+  /// No description provided for @kidsGetReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Get ready!'**
+  String get kidsGetReady;
+
+  /// No description provided for @kidsBreatheIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathe IN!'**
+  String get kidsBreatheIn;
+
+  /// No description provided for @kidsHoldBreath.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold your breath!'**
+  String get kidsHoldBreath;
+
+  /// No description provided for @kidsBreatheOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathe OUT!'**
+  String get kidsBreatheOut;
+
+  /// No description provided for @kidsHold.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold...'**
+  String get kidsHold;
+
+  /// No description provided for @kidsExerciseFinished.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise finished! You did amazing! 🌟'**
+  String get kidsExerciseFinished;
+
+  /// No description provided for @kidsBreaths.
+  ///
+  /// In en, this message translates to:
+  /// **'Breaths: '**
+  String get kidsBreaths;
+
+  /// No description provided for @kidsContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'CONTINUE'**
+  String get kidsContinue;
+
+  /// No description provided for @kidsWelcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Hi! I\'m Breathe Buddy! How are you feeling today?'**
+  String get kidsWelcome;
+
+  /// No description provided for @kidsStartAdventure.
+  ///
+  /// In en, this message translates to:
+  /// **'Great! I can help you feel better. Ready to start our breathing adventure?'**
+  String get kidsStartAdventure;
+
+  /// No description provided for @kidsStart.
+  ///
+  /// In en, this message translates to:
+  /// **'START'**
+  String get kidsStart;
+
+  /// No description provided for @kidsChooseDifferentFeeling.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a different feeling'**
+  String get kidsChooseDifferentFeeling;
+
+  /// No description provided for @emotionTired.
+  ///
+  /// In en, this message translates to:
+  /// **'Tired'**
+  String get emotionTired;
+
+  /// No description provided for @emotionStressed.
+  ///
+  /// In en, this message translates to:
+  /// **'Stressed'**
+  String get emotionStressed;
+
+  /// No description provided for @emotionAngry.
+  ///
+  /// In en, this message translates to:
+  /// **'Angry'**
+  String get emotionAngry;
+
+  /// No description provided for @emotionSad.
+  ///
+  /// In en, this message translates to:
+  /// **'Sad'**
+  String get emotionSad;
+
+  /// No description provided for @emotionExcited.
+  ///
+  /// In en, this message translates to:
+  /// **'Excited'**
+  String get emotionExcited;
+
+  /// No description provided for @emotionCalm.
+  ///
+  /// In en, this message translates to:
+  /// **'Calm'**
+  String get emotionCalm;
 }
 
 class _AppLocalizationsDelegate

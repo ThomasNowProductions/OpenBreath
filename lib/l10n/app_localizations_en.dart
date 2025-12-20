@@ -218,4 +218,60 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => '.';
+
+  @override
+  String get kidsGetReady => 'Get ready!';
+
+  @override
+  String get kidsBreatheIn => 'Breathe IN!';
+
+  @override
+  String get kidsHoldBreath => 'Hold your breath!';
+
+  @override
+  String get kidsBreatheOut => 'Breathe OUT!';
+
+  @override
+  String get kidsHold => 'Hold...';
+
+  @override
+  String get kidsExerciseFinished => 'Exercise finished! You did amazing! 🌟';
+
+  @override
+  String get kidsBreaths => 'Breaths: ';
+
+  @override
+  String get kidsContinue => 'CONTINUE';
+
+  @override
+  String get kidsWelcome =>
+      'Hi! I\'m Breathe Buddy! How are you feeling today?';
+
+  @override
+  String get kidsStartAdventure =>
+      'Great! I can help you feel better. Ready to start our breathing adventure?';
+
+  @override
+  String get kidsStart => 'START';
+
+  @override
+  String get kidsChooseDifferentFeeling => 'Choose a different feeling';
+
+  @override
+  String get emotionTired => 'Tired';
+
+  @override
+  String get emotionStressed => 'Stressed';
+
+  @override
+  String get emotionAngry => 'Angry';
+
+  @override
+  String get emotionSad => 'Sad';
+
+  @override
+  String get emotionExcited => 'Excited';
+
+  @override
+  String get emotionCalm => 'Calm';
 }

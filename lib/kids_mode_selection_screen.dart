@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:BreathSpace/widgets/kids_bubble_widget.dart';
 import 'package:BreathSpace/widgets/emotion_selector_widget.dart';
-import 'package:BreathSpace/widgets/kids_start_button.dart';
 import 'package:BreathSpace/kids_mode_exercise_screen.dart';
 import 'package:BreathSpace/settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:BreathSpace/l10n/app_localizations.dart';
 
 
 class KidsModeSelectionScreen extends StatefulWidget {
@@ -54,15 +54,18 @@ class _KidsModeSelectionScreenState extends State<KidsModeSelectionScreen> {
     final settingsProvider = Provider.of<SettingsProvider>(context, listen: false);
     await settingsProvider.setKidsMode(false);
     
+    if (!mounted) return;
+    
     // Navigate back to main screen by replacing the current route
     Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
   }
 
   String _getWelcomeText() {
+    final l10n = AppLocalizations.of(context);
     if (_selectedEmotion == null) {
-      return "Hi! I'm Breathe Buddy! How are you feeling today?";
+      return l10n.kidsWelcome;
     } else {
-      return "Great! I can help you feel better. Ready to start our breathing adventure?";
+      return l10n.kidsStartAdventure;
     }
   }
 
@@ -159,7 +162,7 @@ class _KidsModeSelectionScreenState extends State<KidsModeSelectionScreen> {
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Text(
-                                    "START",
+                                    AppLocalizations.of(context).kidsStart,
                                     style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w600,
@@ -187,7 +190,7 @@ class _KidsModeSelectionScreenState extends State<KidsModeSelectionScreen> {
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Text(
-                                    "Choose a different feeling",
+                                    AppLocalizations.of(context).kidsChooseDifferentFeeling,
                                     style: TextStyle(
                                       fontSize: 16,
                                       color: Colors.purple.shade700,

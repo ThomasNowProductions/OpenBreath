@@ -217,4 +217,58 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => 'に同意したことになります。';
+
+  @override
+  String get kidsGetReady => '準備してね！';
+
+  @override
+  String get kidsBreatheIn => '息を吸って！';
+
+  @override
+  String get kidsHoldBreath => '息を止めて！';
+
+  @override
+  String get kidsBreatheOut => '息を吐いて！';
+
+  @override
+  String get kidsHold => '止めて…';
+
+  @override
+  String get kidsExerciseFinished => 'エクササイズ完了！すごかったね！🌟';
+
+  @override
+  String get kidsBreaths => '呼吸: ';
+
+  @override
+  String get kidsContinue => '続ける';
+
+  @override
+  String get kidsWelcome => 'こんにちは！僕はブレス・バディ！今日はどんな気持ち？';
+
+  @override
+  String get kidsStartAdventure => 'すごい！気分良くするのを手伝うよ。呼吸アドベンチャーを始める準備はできた？';
+
+  @override
+  String get kidsStart => 'スタート';
+
+  @override
+  String get kidsChooseDifferentFeeling => '違う気持ちを選ぶ';
+
+  @override
+  String get emotionTired => '疲れた';
+
+  @override
+  String get emotionStressed => 'ストレス';
+
+  @override
+  String get emotionAngry => '怒った';
+
+  @override
+  String get emotionSad => '悲しい';
+
+  @override
+  String get emotionExcited => '楽しい';
+
+  @override
+  String get emotionCalm => '穏やか';
 }

@@ -99,7 +99,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get aiMode => 'AI मोड';
 
   @override
-  String get quizMode => 'Quiz Mode';
+  String get quizMode => 'क्विज़ मोड';
 
   @override
   String get start => 'शुरू करें';
@@ -219,4 +219,60 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => ' से सहमत हैं।';
+
+  @override
+  String get kidsGetReady => 'तैयार हो जाओ!';
+
+  @override
+  String get kidsBreatheIn => 'अंदर साँस लो!';
+
+  @override
+  String get kidsHoldBreath => 'साँस रोको!';
+
+  @override
+  String get kidsBreatheOut => 'बाहर साँस छोड़ो!';
+
+  @override
+  String get kidsHold => 'रोको...';
+
+  @override
+  String get kidsExerciseFinished => 'व्यायाम समाप्त! आपने शानदार किया! 🌟';
+
+  @override
+  String get kidsBreaths => 'साँसें: ';
+
+  @override
+  String get kidsContinue => 'जारी रखें';
+
+  @override
+  String get kidsWelcome =>
+      'नमस्ते! मैं Breathe Buddy हूँ! आज आप कैसा महसूस कर रहे हैं?';
+
+  @override
+  String get kidsStartAdventure =>
+      'शानदार! मैं आपको बेहतर महसूस कराने में मदद कर सकता हूँ। क्या आप हमारी साँस लेने की रोमांच शुरू करने के लिए तैयार हैं?';
+
+  @override
+  String get kidsStart => 'शुरू करें';
+
+  @override
+  String get kidsChooseDifferentFeeling => 'अलग भावना चुनें';
+
+  @override
+  String get emotionTired => 'थका हुआ';
+
+  @override
+  String get emotionStressed => 'तनावग्रस्त';
+
+  @override
+  String get emotionAngry => 'गुस्सा';
+
+  @override
+  String get emotionSad => 'उदास';
+
+  @override
+  String get emotionExcited => 'उत्साहित';
+
+  @override
+  String get emotionCalm => 'शांत';
 }

@@ -219,4 +219,61 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => '.';
+
+  @override
+  String get kidsGetReady => 'Приготовься!';
+
+  @override
+  String get kidsBreatheIn => 'Дыши ВНУТРЬ!';
+
+  @override
+  String get kidsHoldBreath => 'Задержи дыхание!';
+
+  @override
+  String get kidsBreatheOut => 'Дыши ВНЕШЬ!';
+
+  @override
+  String get kidsHold => 'Задержи...';
+
+  @override
+  String get kidsExerciseFinished =>
+      'Упражнение завершено! Ты был великолепен! 🌟';
+
+  @override
+  String get kidsBreaths => 'Дыхания: ';
+
+  @override
+  String get kidsContinue => 'ПРОДОЛЖИТЬ';
+
+  @override
+  String get kidsWelcome =>
+      'Привет! Я Breathe Buddy! Как ты себя чувствуешь сегодня?';
+
+  @override
+  String get kidsStartAdventure =>
+      'Отлично! Я могу помочь тебе почувствовать себя лучше. Готов начать наше дыхательное приключение?';
+
+  @override
+  String get kidsStart => 'НАЧАТЬ';
+
+  @override
+  String get kidsChooseDifferentFeeling => 'Выбрать другое чувство';
+
+  @override
+  String get emotionTired => 'Уставший';
+
+  @override
+  String get emotionStressed => 'Стрессованный';
+
+  @override
+  String get emotionAngry => 'Злой';
+
+  @override
+  String get emotionSad => 'Грустный';
+
+  @override
+  String get emotionExcited => 'Взволнованный';
+
+  @override
+  String get emotionCalm => 'Спокойный';
 }

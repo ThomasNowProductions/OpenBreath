@@ -99,7 +99,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get aiMode => 'מצב בינה מלאכותית';
 
   @override
-  String get quizMode => 'Quiz Mode';
+  String get quizMode => 'מצב חידון';
 
   @override
   String get start => 'התחל';
@@ -217,4 +217,59 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => '.';
+
+  @override
+  String get kidsGetReady => 'התכונן!';
+
+  @override
+  String get kidsBreatheIn => 'נשום פנימה!';
+
+  @override
+  String get kidsHoldBreath => 'עצור את הנשימה!';
+
+  @override
+  String get kidsBreatheOut => 'נשום החוצה!';
+
+  @override
+  String get kidsHold => 'עצור...';
+
+  @override
+  String get kidsExerciseFinished => 'התרגיל הסתיים! היית נהדר! 🌟';
+
+  @override
+  String get kidsBreaths => 'נשימות: ';
+
+  @override
+  String get kidsContinue => 'המשך';
+
+  @override
+  String get kidsWelcome => 'שלום! אני Breathe Buddy! איך אתה מרגיש היום?';
+
+  @override
+  String get kidsStartAdventure =>
+      'נהדר! אני יכול לעזור לך להרגיש יותר טוב. מוכן להתחיל את הרפתקודת הנשימות שלנו?';
+
+  @override
+  String get kidsStart => 'התחל';
+
+  @override
+  String get kidsChooseDifferentFeeling => 'בחר רגש אחר';
+
+  @override
+  String get emotionTired => 'עייף';
+
+  @override
+  String get emotionStressed => 'מתוח';
+
+  @override
+  String get emotionAngry => 'כועס';
+
+  @override
+  String get emotionSad => 'עצוב';
+
+  @override
+  String get emotionExcited => 'נרגש';
+
+  @override
+  String get emotionCalm => 'רגוע';
 }

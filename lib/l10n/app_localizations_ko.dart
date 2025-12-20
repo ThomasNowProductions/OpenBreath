@@ -217,4 +217,58 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => '에 동의하는 것입니다.';
+
+  @override
+  String get kidsGetReady => '준비하세요!';
+
+  @override
+  String get kidsBreatheIn => '숨을 들이쉬세요!';
+
+  @override
+  String get kidsHoldBreath => '숨을 참으세요!';
+
+  @override
+  String get kidsBreatheOut => '숨을 내쉬세요!';
+
+  @override
+  String get kidsHold => '참으세요...';
+
+  @override
+  String get kidsExerciseFinished => '운동 완료! 정말 멋졌어요! 🌟';
+
+  @override
+  String get kidsBreaths => '호흡: ';
+
+  @override
+  String get kidsContinue => '계속';
+
+  @override
+  String get kidsWelcome => '안녕하세요! 저는 숨쉬기 친구에요! 오늘 기분이 어떠세요?';
+
+  @override
+  String get kidsStartAdventure => '좋아요! 기분 나아지도록 도와드릴게요. 호흡 모험을 시작할 준비가 되셨나요?';
+
+  @override
+  String get kidsStart => '시작';
+
+  @override
+  String get kidsChooseDifferentFeeling => '다른 감정 선택';
+
+  @override
+  String get emotionTired => '피곤함';
+
+  @override
+  String get emotionStressed => '스트레스';
+
+  @override
+  String get emotionAngry => '화남';
+
+  @override
+  String get emotionSad => '슬픔';
+
+  @override
+  String get emotionExcited => '신남';
+
+  @override
+  String get emotionCalm => '차분함';
 }

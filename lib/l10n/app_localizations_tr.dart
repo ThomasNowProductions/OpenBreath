@@ -99,7 +99,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get aiMode => 'AI Modu';
 
   @override
-  String get quizMode => 'Test Modu';
+  String get quizMode => 'Quiz Modu';
 
   @override
   String get start => 'Başla';
@@ -218,4 +218,60 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => 'mızı kabul edersiniz.';
+
+  @override
+  String get kidsGetReady => 'Hazırlan!';
+
+  @override
+  String get kidsBreatheIn => 'İçeri Nefes Al!';
+
+  @override
+  String get kidsHoldBreath => 'Nefesini Tut!';
+
+  @override
+  String get kidsBreatheOut => 'Dışarı Nefes Ver!';
+
+  @override
+  String get kidsHold => 'Tut...';
+
+  @override
+  String get kidsExerciseFinished => 'Egzersiz tamamlandı! Harikaydın! 🌟';
+
+  @override
+  String get kidsBreaths => 'Nefesler: ';
+
+  @override
+  String get kidsContinue => 'DEVAM ET';
+
+  @override
+  String get kidsWelcome =>
+      'Merhaba! Ben Breathe Buddy! Bugün nasıl hissediyorsun?';
+
+  @override
+  String get kidsStartAdventure =>
+      'Harika! Daha iyi hissetmeni yardımcı olabilirim. Nefes maceramıza başlamaya hazır mısın?';
+
+  @override
+  String get kidsStart => 'BAŞLA';
+
+  @override
+  String get kidsChooseDifferentFeeling => 'Farklı bir duygu seç';
+
+  @override
+  String get emotionTired => 'Yorgun';
+
+  @override
+  String get emotionStressed => 'Stresli';
+
+  @override
+  String get emotionAngry => 'Kızgın';
+
+  @override
+  String get emotionSad => 'Üzgün';
+
+  @override
+  String get emotionExcited => 'Heyecanlı';
+
+  @override
+  String get emotionCalm => 'Sakin';
 }

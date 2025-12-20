@@ -219,4 +219,59 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => ' الخاصة بنا.';
+
+  @override
+  String get kidsGetReady => 'استعد!';
+
+  @override
+  String get kidsBreatheIn => 'تنفس للداخل!';
+
+  @override
+  String get kidsHoldBreath => 'احبس أنفاسك!';
+
+  @override
+  String get kidsBreatheOut => 'تنفس للخارج!';
+
+  @override
+  String get kidsHold => 'احبس...';
+
+  @override
+  String get kidsExerciseFinished => 'انتهى التمرين! لقد كانت رائعة! 🌟';
+
+  @override
+  String get kidsBreaths => 'الأنفاس: ';
+
+  @override
+  String get kidsContinue => 'متابعة';
+
+  @override
+  String get kidsWelcome => 'مرحباً! أنا Breathe Buddy! كيف تشعر اليوم؟';
+
+  @override
+  String get kidsStartAdventure =>
+      'رائع! يمكنني مساعدتك على الشعور بالتحسن. هل أنت مستعد لبدء مغامرة التنفس؟';
+
+  @override
+  String get kidsStart => 'ابدأ';
+
+  @override
+  String get kidsChooseDifferentFeeling => 'اختر شعوراً مختلفاً';
+
+  @override
+  String get emotionTired => 'متعب';
+
+  @override
+  String get emotionStressed => 'متوتر';
+
+  @override
+  String get emotionAngry => 'غاضب';
+
+  @override
+  String get emotionSad => 'حزين';
+
+  @override
+  String get emotionExcited => 'متحمس';
+
+  @override
+  String get emotionCalm => 'هادئ';
 }

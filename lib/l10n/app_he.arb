@@ -68,6 +68,25 @@
   "termsAgreementPrefix": "בהמשך אתה מסכים ל",
   "privacyPolicy": "מדיניות הפרטיות",
   "termsAgreementSuffix": ".",
-  "termsDialogTitle": "תנאי השירות",
-  "termsDialogContent": "תנאי השירות\n\n1. קבלת התנאים\nעל ידי שימוש ב-BreathSpace, אתה מסכים לתנאים אלו.\n\n2. שימוש באפליקציה\nBreathSpace נועד לתרגولي נשימה ומדיטציה. השתמש באחריות.\n\n3. פרטיות\nאנו אוספים מינימום של נתונים כדי לספק את השירות שלנו. ראה את מדיניות הפרטיות שלנו לפרטים.\n\n4. תכונות AI\nהאפליקציה משתמשת ב-intelligence מלאכותי כדי ליצור תרגולים אישיים. תוכן שנוצר מיועד למטרות מידע בלבד.\n\n5. הגבלת אחריות\nהאפליקציה אינה ייעוץ רפואי. יש להתייעץ עם אנשי מקצוע בבעיות בריאות.\n\n6. שינוי תנאים\nאנחנו עשויים לעדכן תנאים אלו. המשך שימוש מהווה הסכמה.\n\nעודכן לאחרונה: דצמבר 2024"
+  "quizMode": "מצב חידון",
+  "kidsGetReady": "התכונן!",
+  "kidsBreatheIn": "נשום פנימה!",
+  "kidsHoldBreath": "עצור את הנשימה!",
+  "kidsBreatheOut": "נשום החוצה!",
+  "kidsHold": "עצור...",
+  "kidsExerciseFinished": "התרגיל הסתיים! היית נהדר! 🌟",
+  "kidsBreaths": "נשימות: ",
+  "kidsContinue": "המשך",
+  "kidsWelcome": "שלום! אני Breathe Buddy! איך אתה מרגיש היום?",
+  "kidsStartAdventure": "נהדר! אני יכול לעזור לך להרגיש יותר טוב. מוכן להתחיל את הרפתקודת הנשימות שלנו?",
+  "kidsStart": "התחל",
+  "kidsChooseDifferentFeeling": "בחר רגש אחר",
+  "emotionTired": "עייף",
+  "emotionStressed": "מתוח",
+  "emotionAngry": "כועס",
+  "emotionSad": "עצוב",
+  "emotionExcited": "נרגש",
+  "emotionCalm": "רגוע"
+
+
 }

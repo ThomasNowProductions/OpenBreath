@@ -219,4 +219,61 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get termsAgreementSuffix => '.';
+
+  @override
+  String get kidsGetReady => 'Готови ли сте!';
+
+  @override
+  String get kidsBreatheIn => 'Дишайте ВЪТРЕ!';
+
+  @override
+  String get kidsHoldBreath => 'Задръжте дъха си!';
+
+  @override
+  String get kidsBreatheOut => 'Дишайте ВЪН!';
+
+  @override
+  String get kidsHold => 'Задръжте...';
+
+  @override
+  String get kidsExerciseFinished =>
+      'Упражнението завърши! Бяхте невероятни! 🌟';
+
+  @override
+  String get kidsBreaths => 'Дъхове: ';
+
+  @override
+  String get kidsContinue => 'ПРОДЪЛЖИ';
+
+  @override
+  String get kidsWelcome =>
+      'Здравейте! Аз съм Breathe Buddy! Как се чувствате днес?';
+
+  @override
+  String get kidsStartAdventure =>
+      'Чудесно! Мога да ви помогна да се чувствате по-добре. Готови ли сте да започнем нашето дишателно приключение?';
+
+  @override
+  String get kidsStart => 'НАЧАЛО';
+
+  @override
+  String get kidsChooseDifferentFeeling => 'Изберете различно чувство';
+
+  @override
+  String get emotionTired => 'Уморен';
+
+  @override
+  String get emotionStressed => 'Стресиран';
+
+  @override
+  String get emotionAngry => 'Ядосан';
+
+  @override
+  String get emotionSad => 'Тъжен';
+
+  @override
+  String get emotionExcited => 'Въодушевен';
+
+  @override
+  String get emotionCalm => 'Спокоен';
 }
